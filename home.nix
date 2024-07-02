@@ -9,6 +9,7 @@
 		./home/stylix/stylix.nix
 		./home/git/git.nix
 		./home/waybar/waybar.nix
+		./home/apps.nix
 	];
 
 	home.username = "navi";

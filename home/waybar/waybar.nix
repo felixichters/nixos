@@ -131,11 +131,6 @@
         margin-top: 2px;
       }
 
-      button {
-        border: none;
-        border-radius: 0;
-      }
-
       #workspaces button:hover {
         box-shadow: inherit;
         text-shadow: inherit;

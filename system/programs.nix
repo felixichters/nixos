@@ -14,7 +14,7 @@
 		#rofi
 		ranger
 		htop-vim
-		fzf
+		#fzf
 		zip
 		spotify
 		#vscode

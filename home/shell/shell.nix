@@ -3,6 +3,5 @@
 {
 	imports = [
 		./sh.nix
-		./tools.nix
 	];
 }
