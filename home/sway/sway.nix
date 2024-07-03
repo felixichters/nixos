@@ -7,14 +7,17 @@
   
   home.packages = with pkgs; [
     autotiling
-  ];
+    
+  ]; 
   
+  programs.swaylock.enable = true;
   wayland.windowManager.sway = {
     enable = true;
     #wrapperFeatures.gtk = true;
     extraConfig = ''
       default_border pixel 2
       exec_always autotiling -w 1 2 3
+
     '';
     
     config = rec {
@@ -34,7 +37,7 @@
       gaps = {
         smartGaps = true;
         smartBorders = "on";
-        inner = 12;
+        inner = 15;
       };
       
       bars = [{

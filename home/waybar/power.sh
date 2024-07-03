@@ -1,5 +1,5 @@
 show_menu() {
-    echo -e "$1" | fuzzel --dmenu --prompt "$2" -a top-left -C 00000000
+    echo -e "$1" | fuzzel --dmenu --prompt "$2"  -r 10 -w 20 -l 2
 }
 
 # Select action
@@ -9,13 +9,8 @@ if [ -z "$action" ]; then
     exit 0
 fi
 
-# Confirm action
-confirmation=$(show_menu "No\nYes" "Are you sure you want to $action?")
-
-if [ "$confirmation" == "Yes" ]; then
-    if [ "$action" == "Power Off" ]; then
-        systemctl poweroff
-    elif [ "$action" == "Reboot" ]; then
-        systemctl reboot
-    fi
+if [ "$action" == "Power Off" ]; then
+    systemctl poweroff
+elif [ "$action" == "Reboot" ]; then
+    systemctl reboot
 fi

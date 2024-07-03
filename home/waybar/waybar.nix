@@ -44,7 +44,7 @@
           tooltip = false;
         };
         "clock" = {
-          format-alt = "{:%Y/%m/%d} ";
+          format-alt = "{:%Y/%m/%d}";
           format = "{:%H:%M}";
           tooltip = false;
         };
@@ -82,14 +82,12 @@
           format-muted = "";
           format-icons = {
             headphones = "";
-            handsfree = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
             default = ["" ""];
           };
           tooltip = false;
+          states = {
+
+          };
         };
 
         "custom/power" = {
@@ -106,12 +104,10 @@
       }
       .modules-left {
         margin-left: 3px;
-        margin-top: 2px;
       }
 
       .modules-right {
         margin-right: 3px;
-        margin-top: 2px;
       }
 
       window#waybar {
@@ -121,14 +117,12 @@
       .modules-center #workspaces button {
         border-bottom: none;
         padding: 0 0px;
-        margin-top: 2px;
       }
 
       .modules-center #workspaces button.focused,
         .modules-center #workspaces button.active {
         border-bottom: none;
         padding: 0 0px;
-        margin-top: 2px;
       }
 
       #workspaces button:hover {

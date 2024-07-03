@@ -14,7 +14,7 @@
 	boot.loader.efi.canTouchEfiVariables = true;
 	programs.dconf.enable = true;
 	hardware.graphics.enable = true;
-	
+	security.pam.services.swaylock = {};
 	time.timeZone = "Europe/Berlin";
 
 	i18n.defaultLocale = "en_US.UTF-8";
