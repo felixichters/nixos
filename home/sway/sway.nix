@@ -37,7 +37,7 @@
       gaps = {
         smartGaps = true;
         smartBorders = "on";
-        inner = 15;
+        inner = 10;
       };
       
       bars = [{

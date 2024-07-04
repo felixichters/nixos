@@ -5,21 +5,19 @@
 	environment.systemPackages = with pkgs; [	
 		gcc
 		#git
-		unzip
-		feh
-		wl-clipboard
+		#unzip
+		#feh
 		#alacritty
 		#kitty
-		neofetch
+		#neofetch
 		#rofi
-		ranger
-		htop-vim
+		#ranger
+		#htop-vim
 		#fzf
-		zip
-		spotify
+		#zip
+		#spotify
 		#vscode
-		zathura
-		cmatrix
+		#zathura
 		#konsole
 	];
 	

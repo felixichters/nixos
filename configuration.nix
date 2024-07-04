@@ -5,6 +5,7 @@
 	imports = [ 
 		./hardware-configuration.nix
 		./system/system.nix
+		./home/stylix/stylix.nix
 	];
 	nixpkgs.config.allowUnfree = true;
 	system.stateVersion = "23.11";

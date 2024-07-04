@@ -1,13 +1,12 @@
 { config, pkgs, lib, ... }:
 
 {
-  fonts.fontconfig.enable = true;
   stylix = {
     enable = true;
-	  image = ./land.jpg;
-	  #base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+	  image = ./beach.jpg;
+	  base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/solarized-dark.yaml";
+    #base16Scheme = "${pkgs.base16-schemes}/share/themes/solarized-dark.yaml";
     #targets.vscode.enable = false;
     cursor = {
       package = pkgs.apple-cursor;

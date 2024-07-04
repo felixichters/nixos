@@ -18,7 +18,8 @@ in
 
 
     "${mod}+Shift+r" = "reload";
-    "${mod}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
+    "${mod}+Shift+q" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
+    "${mod}+Shift+e" = "exec swaylock";
 
     "${mod}+Return" = "exec ${term}";
     "${mod}+q" = "kill";

@@ -10,9 +10,13 @@
 		./home/git/git.nix
 		./home/waybar/waybar.nix
 		./home/firefox/firefox.nix
+		./home/ranger/ranger.nix
 		./home/apps.nix
-	];
 
+	];
+	
+	fonts.fontconfig.enable = true;
+	
 	home.username = "navi";
   home.homeDirectory = "/home/navi";
   home.stateVersion = "24.05";
