@@ -3,7 +3,7 @@
 {
   stylix = {
     enable = true;
-	  image = ./beach.jpg;
+	  image = ./land.jpg;
 	  base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/solarized-dark.yaml";

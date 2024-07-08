@@ -25,5 +25,6 @@
     zip
     unzip
     spotify
+    gtk3-x11
   ];
 }
