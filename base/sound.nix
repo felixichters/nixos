@@ -12,7 +12,7 @@
 		};
 		pulse.enable = true;
 	};
-	
+
 	hardware.pulseaudio.enable = false;
 	
 }

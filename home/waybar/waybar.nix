@@ -13,7 +13,7 @@
         ];
         modules-left = [ "custom/power" "sway/mode" ];
         modules-center = [ "sway/workspaces" ];
-        modules-right = ["cpu" "pulseaudio" "backlight" "battery" "network" "clock" ];
+        modules-right = ["disk" "memory" "cpu" "pulseaudio" "backlight" "battery" "network" "clock" ];
 
         "sway/workspaces" = {
           disable-scroll = true;
@@ -39,7 +39,7 @@
         "cpu" = {
           interval = 1;
           format = "{icon}";
-          format-alt = "{usage}%";
+          format-alt = "CPU {usage}%";
           format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
           tooltip = false;
         };
@@ -73,7 +73,20 @@
           format = "{icon}";
           format-icons = ["" "" "" "" "" "" "" "" "" ""];
           tooltip = false;
+        };  
+        "memory" = {
+          format = "{icon}";
+          format-alt= "RAM {}%";
+          format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+          tooltip = false;
         };
+
+        "disk" = {
+          format = " ";
+          format-alt = "{used} / {total}";
+          tooltip = false;
+        };
+
 
         "pulseaudio" = {
           format = "{icon}";

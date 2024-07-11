@@ -12,6 +12,7 @@
 		./home/firefox/firefox.nix
 		./home/ranger/ranger.nix
 		./home/apps.nix
+		./home/hyprland/hyprland.nix
 
 	];
 	

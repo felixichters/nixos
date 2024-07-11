@@ -16,6 +16,7 @@ in
     XF86MonBrightnessDown = "exec light -U 10";
     
 
+    #openconnect --protocol=anyconnect --useragent='AnyConnect'  vpn-ac.uni-heidelberg.de
 
     "${mod}+Shift+r" = "reload";
     "${mod}+Shift+q" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
@@ -58,7 +59,7 @@ in
     "${mod}+7" = "workspace number 7";
     "${mod}+8" = "workspace number 8";
     "${mod}+9" = "workspace number 9";
-
+    
     "${mod}+Shift+1" = "move container to workspace number 1";
     "${mod}+Shift+2" = "move container to workspace number 2";
     "${mod}+Shift+3" = "move container to workspace number 3";
@@ -68,5 +69,6 @@ in
     "${mod}+Shift+7" = "move container to workspace number 7";
     "${mod}+Shift+8" = "move container to workspace number 8";
     "${mod}+Shift+9" = "move container to workspace number 9";
+    
   }; 
 }

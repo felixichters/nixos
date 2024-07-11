@@ -20,11 +20,12 @@
 
   programs.htop.enable = true;
 
+  services.amberol.enable = true;
+
   home.packages = with pkgs; [
-    neofetch
+    #neofetch
     zip
     unzip
     spotify
-    gtk3-x11
   ];
 }

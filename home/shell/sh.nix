@@ -25,7 +25,6 @@ in
 		};
 		initExtra = ''
 		unsetopt BEEP
-		neofetch
 		'';
 	};
 }

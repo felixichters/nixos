@@ -6,7 +6,7 @@
 	];
   
   home.packages = with pkgs; [
-    autotiling
+    #autotiling
   ]; 
   
   programs.swaylock.enable = true;
