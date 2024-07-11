@@ -1,5 +1,5 @@
 show_menu() {
-    echo -e "$1" | fuzzel --dmenu --prompt "$2"  -r 10 -w 20 -l 2
+    echo -e "$1" | fuzzel --dmenu --prompt "$2"  -r 0 -B 0 -a top-left -w 20 -l 2
 }
 
 # Select action

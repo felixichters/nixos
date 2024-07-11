@@ -15,8 +15,8 @@
 		"editor.fontLigatures" = true;
 		"editor.tabSize" = 2;
 		"window.menuBarVisibility" = "toggle";
-		#"workbench.colorTheme" = lib.mkForce "Solarized Dark";
-		"workbench.colorTheme" = lib.mkForce "Catppuccin Latte";
+		"workbench.colorTheme" = lib.mkForce "Solarized Dark";
+		#"workbench.colorTheme" = lib.mkForce "Catppuccin Latte";
 		"workbench.iconTheme" = "vscode-great-icons";
 		"catppuccin.accentColor" = "blue"; 
 	};

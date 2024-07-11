@@ -11,8 +11,8 @@
           "eDP-1"
           "HDMI-A-1"
         ];
-        modules-left = [ "custom/power" "sway/mode" ];
-        modules-center = [ "sway/workspaces" ];
+        modules-left = [ "custom/power" ];
+        modules-center = [ "hyprland/workspaces" ];
         modules-right = ["disk" "memory" "cpu" "pulseaudio" "backlight" "battery" "network" "clock" ];
 
         "sway/workspaces" = {
@@ -33,6 +33,26 @@
             "1" = [];
             "2" = [];
             "3" = [];
+          };
+          tooltip = false;
+        };
+
+        "hyprland/workspaces" = {
+          disable-scroll = true;
+          disable-markup = false;
+          all-outputs = true;
+          format = "{icon}";
+          format-icons = {
+            #"1" = "";
+            #"2" = "";
+            #"3" = "";
+            #"4" = "";
+            #"5" = "";
+            active = "";
+            default = "";
+          };
+          persistent-workspaces = {
+            "*" = "3";
           };
           tooltip = false;
         };
