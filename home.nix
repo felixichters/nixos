@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs,... }:
 
 {
   imports = [
@@ -13,6 +13,8 @@
 		./home/ranger/ranger.nix
 		./home/apps.nix
 		./home/hyprland/hyprland.nix
+		./home/mako/mako.nix
+		./home/nvim/nvim.nix
 
 	];
 	

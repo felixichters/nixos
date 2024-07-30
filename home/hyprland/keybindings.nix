@@ -4,7 +4,8 @@
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     "$term" = "kitty";
-    "$menu" = "fuzzel -B 0 -a center";
+		"$menu" = "rofi -show drun -icon-theme 'WhiteSur' -show-icons";
+    #"$menu" = "fuzzel -B 0 -a center";
     "$files" = "kitty ranger";
     bind =
       [
@@ -21,15 +22,37 @@
         "$mod, Return, exec, $term"
         "$mod, E, exec, $files"
 
-        "$mod, h, movefocus, l"
-        "$mod, l, movefocus, r"
-        "$mod, k, movefocus, u"
-        "$mod, j, movefocus, d"
+				"$mod, T, exec, $term --class=floating_term --override remember_window_size=no --override initiaö_window_width=80c --override initial_window_height=20c"
+					
+				"$mod, o, overview:toggle,"
 
+				"$mod, F, fullscreen, "
+				
+				"$mod, escape, exec, swaylock"  
+
+				"$mod, P, exec, ~/.config/rofi/powermenu/type-4/powermenu.sh"
+
+        "$mod, h, resizeactive, -10 0"
+        "$mod, l, resizeactive, 10 0"
+        "$mod, k, resizeactive, 0 -10"
+        "$mod, j, resizeactive, 0 10"
+
+        "$mod, Tab, cyclenext,"
+
+        "$mod, SPACE, togglefloating," 
+        "$mod, mouse:273, movewindow,"
+        "$mod, mouse:272, resizewindowpixel,"
+				
         "$mod Shift, h, movewindow, l"
         "$mod Shift, l, movewindow, r"
         "$mod Shift, k, movewindow, u"
         "$mod Shift, j, movewindow, d"
+
+        "$mod, S, togglespecialworkspace, magic"
+        "$mod, S, movetoworkspace, +0"
+        "$mod, S, togglespecialworkspace, magic"
+        "$mod, S, movetoworkspace, special:magic"
+        "$mod, S, togglespecialworkspace, magic"
       ]
       ++ (
         builtins.concatLists (builtins.genList (

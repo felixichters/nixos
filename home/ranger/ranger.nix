@@ -9,11 +9,12 @@
     ext sh = code "$@" 
     ext py = code "$@"
     ext lua = code "$@"
-    ext pdf = nohup zathura "$@"
+    ext pdf = firefox "$@"
     ext jpg = feh "$@"
     ext jpeg = feh "$@"
     ext png = feh "$@"
     ext cpp = code "$@"
     ext nix = code "$@"
+    ext zip = unzip "$@"
   '';
 }

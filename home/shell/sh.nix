@@ -4,6 +4,7 @@ let
 	myAliases = {
 		ll = "ls -l";
 		ls = "ls -G";
+		uni = "sudo openconnect --protocol=anyconnect --useragent='AnyConnect'  vpn-ac.uni-heidelberg.de";
 	};
 in
 {

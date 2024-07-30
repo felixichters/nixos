@@ -12,8 +12,6 @@
 
   programs.ranger.enable = true;
 
-  services.dunst.enable = true;
-
   programs.feh.enable = true;
 
   programs.zathura.enable = true;
@@ -23,9 +21,18 @@
   services.amberol.enable = true;
 
   home.packages = with pkgs; [
-    #neofetch
-    zip
+    neofetch
+		rofi-wayland
+		#kickoff
+		#tofi
+		cmus
+		wev
+		zip
     unzip
     spotify
-  ];
+    qalculate-qt
+  	prismlauncher
+		whitesur-icon-theme
+		xdg_utils
+	];
 }

@@ -11,8 +11,8 @@
           "eDP-1"
           "HDMI-A-1"
         ];
-        modules-left = [ "custom/power" ];
-        modules-center = [ "hyprland/workspaces" ];
+        modules-left = [ "custom/power" "hyprland/workspaces" ];
+        modules-center = [ "hyprland/window" ];
         modules-right = ["disk" "memory" "cpu" "pulseaudio" "backlight" "battery" "network" "clock" ];
 
         "sway/workspaces" = {
@@ -40,7 +40,9 @@
         "hyprland/workspaces" = {
           disable-scroll = true;
           disable-markup = false;
+          active-only = true;
           all-outputs = true;
+          show_special = true;
           format = "{icon}";
           format-icons = {
             #"1" = "";
@@ -48,14 +50,24 @@
             #"3" = "";
             #"4" = "";
             #"5" = "";
-            active = "";
-            default = "";
+            #"9" = "";
+            special = "";
+            active = "  ";
+            default = "  ";
+            #persistant = "";
           };
           persistent-workspaces = {
-            "*" = "3";
+            "1" = [];
+            "2" = [];
+            "3" = [];
+						#"4" = [];
+            #"9" =  [];
           };
           tooltip = false;
         };
+				"hyprland/window" = {
+					format = "{initialTitle}"; 
+				};
         "cpu" = {
           interval = 1;
           format = "{icon}";
@@ -100,14 +112,11 @@
           format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
           tooltip = false;
         };
-
         "disk" = {
           format = " ";
           format-alt = "{used} / {total}";
           tooltip = false;
         };
-
-
         "pulseaudio" = {
           format = "{icon}";
           format-alt = "{volume}%";
@@ -125,7 +134,7 @@
 
         "custom/power" = {
           format = "";
-          on-click = "~/.dotfiles/home/waybar/power.sh";
+          on-click = "~/.config/rofi/powermenu/type-4/powermenu.sh";
           tooltip = false; 
         };
       };
@@ -145,15 +154,17 @@
 
       window#waybar {
         border: none; 
+        opacity: 0.7;
       }
 
-      .modules-center #workspaces button {
+      .modules-left #workspaces button {
         border-bottom: none;
         padding: 0 0px;
       }
 
-      .modules-center #workspaces button.focused,
-        .modules-center #workspaces button.active {
+      .modules-left #workspaces button.focused,
+        .modules-left #workspaces button.active, 
+        .modules-left #workspaces button.special {
         border-bottom: none;
         padding: 0 0px;
       }
@@ -164,7 +175,17 @@
         background: inherit
       }
 
-      #custom-power,
+			
+			@keyframes button_activate {
+				from { opacity: .3 }
+				to { opacity: 1.; }
+			}
+
+			#workspaces button.active {
+				animation: button_activate .2s ease-in-out;
+			}
+	
+			#custom-power,
       #battery,
       #network,
       #backlight,

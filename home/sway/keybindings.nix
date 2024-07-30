@@ -14,10 +14,7 @@ in
     XF86AudioLowerVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
     XF86MonBrightnessUp = "exec light -A 10";
     XF86MonBrightnessDown = "exec light -U 10";
-    
-
-    #openconnect --protocol=anyconnect --useragent='AnyConnect'  vpn-ac.uni-heidelberg.de
-
+  
     "${mod}+Shift+r" = "reload";
     "${mod}+Shift+q" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
     "${mod}+Shift+e" = "exec swaylock";
