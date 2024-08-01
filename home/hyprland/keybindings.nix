@@ -28,7 +28,7 @@
 
 				"$mod, F, fullscreen, "
 				
-				"$mod, escape, exec, swaylock"  
+				"$mod, escape, exec, swaylock --screenshots --clock --effect-blur 9x9 --fade-in 0.2"  
 
 				"$mod, P, exec, ~/.config/rofi/powermenu/type-4/powermenu.sh"
 

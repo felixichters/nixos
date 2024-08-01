@@ -33,6 +33,10 @@
 				config = to_lua_file ./plugin/lsp.lua;
       }
       
+			{
+				plugin = oil-nvim;
+				config = to_lua_file ./plugin/oil.lua;
+			}
 			nvim-cmp 
       {
         plugin = nvim-cmp;
@@ -42,7 +46,7 @@
 			
 			cmp_luasnip
       cmp-nvim-lsp
-
+			
       luasnip
       friendly-snippets
 			

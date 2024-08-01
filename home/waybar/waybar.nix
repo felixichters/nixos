@@ -154,7 +154,7 @@
 
       window#waybar {
         border: none; 
-        opacity: 0.7;
+        opacity: 0.9;
       }
 
       .modules-left #workspaces button {

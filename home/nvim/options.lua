@@ -15,4 +15,5 @@ vim.opt.shiftround = true
 vim.opt.expandtab = false
 vim.opt.showmatch = true
 
-vim.cmd [[colorscheme lackluster-hack]]
+vim.cmd [[colorscheme catppuccin-latte]]
+

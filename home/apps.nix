@@ -34,5 +34,6 @@
   	prismlauncher
 		whitesur-icon-theme
 		xdg_utils
+		swaylock-effects
 	];
 }

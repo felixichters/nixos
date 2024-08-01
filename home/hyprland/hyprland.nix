@@ -5,7 +5,7 @@
 		./keybindings.nix
 	];
 	
-	programs.swaylock.enable = true;
+	#programs.swaylock.enable = true;
 
 	wayland.windowManager.hyprland = {	
 		enable = true;
@@ -25,7 +25,7 @@
       ];
 			exec-once = [
 				"waybar"
-				"swaylock"
+				"swaylock --screenshots --clock --effect-blur 10x10"
 			];
       input = {
         kb_layout = "de";
@@ -41,8 +41,8 @@
 
       general = {
         border_size = "0";
-        gaps_in = "10";
-        gaps_out = "15";
+        gaps_in = "8";
+        gaps_out = "13";
         resize_on_border = "true";
         extend_border_grab_area = "15";
       };
@@ -61,7 +61,8 @@
         #active_opacity = "1.0";
     #inactive_opacity = "0.9";
         shadow_range = "12";
-        #shadow_scale = "0.9";
+        shadow_offset = "3 4";
+				#shadow_scale = "0.9";
 				"col.shadow" = lib.mkForce "rgba(000000a1)";
         "col.shadow_inactive" = lib.mkForce "rgba(00000070)";
         dim_inactive = "true";

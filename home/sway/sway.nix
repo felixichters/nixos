@@ -9,7 +9,7 @@
     #autotiling
   ]; 
   
-  programs.swaylock.enable = true;
+	#programs.swaylock.enable = true;
   wayland.windowManager.sway = {
     enable = true;
     #wrapperFeatures.gtk = true;
