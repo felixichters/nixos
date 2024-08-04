@@ -6,7 +6,7 @@
 		./home/kitty/kitty.nix
 		./home/vscode/vscode.nix
 		./home/sway/sway.nix
-		./home/stylix/stylix.nix
+		./home/theme/theme.nix
 		./home/git/git.nix
 		./home/waybar/waybar.nix
 		./home/firefox/firefox.nix

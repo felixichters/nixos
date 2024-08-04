@@ -23,8 +23,7 @@
   home.packages = with pkgs; [
     neofetch
 		rofi-wayland
-		#kickoff
-		#tofi
+		killall
 		cmus
 		wev
 		zip

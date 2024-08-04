@@ -6,14 +6,14 @@
       mainBar = {
         layer = "top";
         position = "top";
-        #height = 10;
+				#height = 5;
         output = [
           "eDP-1"
           "HDMI-A-1"
         ];
-        modules-left = [ "custom/power" "hyprland/workspaces" ];
+        modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "hyprland/window" ];
-        modules-right = ["disk" "memory" "cpu" "pulseaudio" "backlight" "battery" "network" "clock" ];
+        modules-right = [ "backlight" "pulseaudio" "battery" "network" "clock" ];
 
         "sway/workspaces" = {
           disable-scroll = true;
@@ -25,9 +25,9 @@
             #"2" = "";
             #"3" = "";
             #"4" = "";
-            #"5" = "";
-            focused = "";
-            default = "";
+            #"5" = "";
+            focused = "";
+            default = "";
           };
           persistent-workspaces = {
             "1" = [];
@@ -140,62 +140,71 @@
       };
     };
     style = ''
-      * {
-        padding: 0;
-        margin: 0;
-      }
-      .modules-left {
-        margin-left: 3px;
-      }
-
-      .modules-right {
-        margin-right: 3px;
-      }
-
-      window#waybar {
-        border: none; 
-        opacity: 0.9;
-      }
-
-      .modules-left #workspaces button {
-        border-bottom: none;
-        padding: 0 0px;
-      }
-
-      .modules-left #workspaces button.focused,
-        .modules-left #workspaces button.active, 
-        .modules-left #workspaces button.special {
-        border-bottom: none;
-        padding: 0 0px;
-      }
-
-      #workspaces button:hover {
-        box-shadow: inherit;
-        text-shadow: inherit;
-        background: inherit
-      }
-
 			
+			* {
+				font-family: "JetBrainsMono Nerd Font";
+				font-size: 11px;
+				padding: 0;
+				margin: 0;
+			}
+			
+			window#waybar {
+				background: #dce0e8;	
+			}
+      
 			@keyframes button_activate {
-				from { opacity: .3 }
+				from { opacity: .1 }
 				to { opacity: 1.; }
+			}
+			
+			#workspaces {
+				border-bottom: none ;
+			}
+
+			#workspaces button {
+				border-bottom: none;
+				opacity: .35;
+    		transition: all 0.3s ease-in-out;
+				color: #4c4f69;
 			}
 
 			#workspaces button.active {
-				animation: button_activate .2s ease-in-out;
+				padding: 0 7px;
+				border-bottom: none;
+    		transition: all 0.1s ease;
+				opacity: 1.;
+				color: inherit;
 			}
-	
+
+			#workspaces button.urgent {
+				border-bottom: none;
+			opacity: 1.;
+			}
+
+			#workspaces button:hover {	
+				box-shadow: inherit;
+				text-shadow: inherit;
+				background: inherit;
+				opacity: 1.;
+				color: inherit;
+			}	
+			
 			#custom-power,
       #battery,
       #network,
       #backlight,
       #clock,
       #pulseaudio,
-      #cpu
+      #cpu,
+			#memory,
+			#disk
       {
-        padding: 0 10px;
-      }
+        padding: 0 8px;
+      	color: #4c4f69;
+			}
   '';  
   };
+	
+	
 
 }

@@ -4,55 +4,60 @@
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     "$term" = "kitty";
-		"$menu" = "rofi -show drun -icon-theme 'WhiteSur' -show-icons";
+		"$menu" = "./.config/rofi/launchers/type-1/launcher.sh";
     #"$menu" = "fuzzel -B 0 -a center";
     "$files" = "kitty ranger";
-    bind =
-      [
-        "$mod Shift, Q, exit,"
-        "$mod, Q, killactive,"
-        
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"     
-        ", XF86MonBrightnessUp, exec, light -A 10"
-        ", XF86MonBrightnessDown, exec, light -U 10"
-        
-        "$mod, R, exec, $menu" 
-        "$mod, Return, exec, $term"
-        "$mod, E, exec, $files"
+		bindm = [
+			"$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindowpixel"
+		];
+		binde = [
+			", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+      ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"     
+      ", XF86MonBrightnessUp, exec, light -A 10"
+      ", XF86MonBrightnessDown, exec, light -U 10"
+      
+			"$mod, h, resizeactive, -10 0"
+			"$mod, l, resizeactive, 10 0"
+			"$mod, k, resizeactive, 0 -10"
+			"$mod, j, resizeactive, 0 10"
 
-				"$mod, T, exec, $term --class=floating_term --override remember_window_size=no --override initiaö_window_width=80c --override initial_window_height=20c"
-					
-				"$mod, o, overview:toggle,"
 
-				"$mod, F, fullscreen, "
-				
-				"$mod, escape, exec, swaylock --screenshots --clock --effect-blur 9x9 --fade-in 0.2"  
+		];
+    bind = [
+			"$mod Shift, Q, exit,"
+			"$mod, Q, killactive,"
+			
+			"$mod, R, exec, $menu" 
+			"$mod, Return, exec, $term"
+			"$mod, E, exec, $files"
 
-				"$mod, P, exec, ~/.config/rofi/powermenu/type-4/powermenu.sh"
+			#"$mod, T, exec, $term --class=floating_term --override remember_window_size=no --override initiaö_window_width=80c --override initial_window_height=20c"
+			
+			"$mod, o, overview:toggle,"
 
-        "$mod, h, resizeactive, -10 0"
-        "$mod, l, resizeactive, 10 0"
-        "$mod, k, resizeactive, 0 -10"
-        "$mod, j, resizeactive, 0 10"
+			"$mod, F, fullscreen, "
+			
+			"$mod, escape, exec, swaylock --screenshots --clock --effect-blur 9x9 --fade-in 0.2"  
 
-        "$mod, Tab, cyclenext,"
+			"$mod, P, exec, ~/.config/rofi/powermenu/type-4/powermenu.sh"
 
-        "$mod, SPACE, togglefloating," 
-        "$mod, mouse:273, movewindow,"
-        "$mod, mouse:272, resizewindowpixel,"
-				
-        "$mod Shift, h, movewindow, l"
-        "$mod Shift, l, movewindow, r"
-        "$mod Shift, k, movewindow, u"
-        "$mod Shift, j, movewindow, d"
+			"$mod, Tab, cyclenext,"
+			"$mod, Tab, bringactivetotop,"
 
-        "$mod, S, togglespecialworkspace, magic"
-        "$mod, S, movetoworkspace, +0"
-        "$mod, S, togglespecialworkspace, magic"
-        "$mod, S, movetoworkspace, special:magic"
-        "$mod, S, togglespecialworkspace, magic"
+			"$mod, SPACE, togglefloating," 
+			
+			"$mod Shift, h, movewindow, l"
+			"$mod Shift, l, movewindow, r"
+			"$mod Shift, k, movewindow, u"
+			"$mod Shift, j, movewindow, d"
+
+			"$mod, S, togglespecialworkspace, magic"
+			"$mod, S, movetoworkspace, +0"
+			"$mod, S, togglespecialworkspace, magic"
+			"$mod, S, movetoworkspace, special:magic"
+			"$mod, S, togglespecialworkspace, magic"
       ]
       ++ (
         builtins.concatLists (builtins.genList (

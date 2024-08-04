@@ -44,7 +44,7 @@
         gaps_in = "8";
         gaps_out = "13";
         resize_on_border = "true";
-        extend_border_grab_area = "15";
+        extend_border_grab_area = "30";
       };
 
       dwindle = {
@@ -67,9 +67,6 @@
         "col.shadow_inactive" = lib.mkForce "rgba(00000070)";
         dim_inactive = "true";
         dim_strength = "0.1";
-        layerrule = [
-          "blur, waybar"
-        ];
         blur = {
           size = "16";
           noise = "0.0117";
@@ -88,11 +85,18 @@
 
       windowrule = [ 
         "opacity 0.8 0.8, mako"
+				"noblur, kando"
+				"size 100%, 100%, kando"
+				"noborder, kando"
+				"noanim, kando"
+				"float, kando"
+				"pin, kando"
       ];
 			windowrulev2 = [
 			 	"opacity 1.0 0.8,class:^(kitty)$"
 				"opacity 1.0 1.0 ,title:^(.*NVIM.*)$"
-				"float, class:(floating_term)"
+				#"float, class:^(kitty)$"
+				#"size 950 600, floating:1"
 			];
 
 			workspace = "3, monitor:HDMI-A-1";
