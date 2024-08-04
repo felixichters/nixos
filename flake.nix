@@ -21,7 +21,7 @@
 		stylix.url = "github:danth/stylix";
 	};
 
-	outputs = { self, nixpkgs, home-manager, catppuccin, stylix, ...} @ inputs:
+	outputs = { self, nixpkgs, catppuccin,home-manager, stylix, ...} @ inputs:
 		let 
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -41,8 +41,8 @@
 			navi = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
 				extraSpecialArgs = { inherit inputs; };
-					modules = [
-				./home.nix
+						modules = [
+			./home.nix
 					stylix.homeManagerModules.stylix
 					catppuccin.homeManagerModules.catppuccin
 						#hyprland.homeManagerModules.default
