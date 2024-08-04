@@ -1,0 +1,45 @@
+{config, lib, pkgs, ...}:
+
+{
+  wayland.windowManager.hyprland.settings = {
+    "$mod" = "SUPER";
+    "$term" = "kitty";
+    "$menu" = "fuzzel";
+    "$files" = "kitty ranger";
+    bind =
+      [
+        "$mod Shift, Q, exit,"
+        "$mod, Q, killactive,"
+        
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"     
+        ", XF86MonBrightnessUp, exec, light -A 10"
+        ", XF86MonBrightnessDown, exec, light -U 10"
+        
+        "$mod, R, exec, $menu" 
+        "$mod, Return, exec, $term"
+        "$mod, E, exec, $files"
+
+        "$mod, left, movefocus, l"
+bind = $mainMod, right, movefocus, r
+bind = $mainMod, up, movefocus, u
+bind = $mainMod, down, movefocus, d
+
+      ]
+      ++ (
+        builtins.concatLists (builtins.genList (
+            x: let
+              ws = let
+                c = (x + 1) / 10;
+              in
+                builtins.toString (x + 1 - (c * 10));
+            in [
+              "$mod, ${ws}, workspace, ${toString (x + 1)}"
+              "$mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+            ]
+          )
+          10)
+      );
+  };
+}

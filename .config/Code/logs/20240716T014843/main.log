@@ -1,0 +1,5 @@
+2024-07-16 01:48:43.215 [info] update#setState idle
+2024-07-16 01:49:13.219 [info] update#setState checking for updates
+2024-07-16 01:49:13.233 [info] update#setState available for download
+2024-07-16 01:51:14.147 [info] Extension host with pid 1433 exited with code: 0, signal: unknown.
+2024-07-16 01:51:14.148 [error] ptyHost terminated unexpectedly with code 0

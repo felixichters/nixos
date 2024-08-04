@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(lists)
+
+# Header-Dateien Verzeichnis
+include_directories(include)
+
+# Executable erstellen
+add_executable(YourExecutable
+    src/main.cpp
+    src/random_vector.cpp
+)

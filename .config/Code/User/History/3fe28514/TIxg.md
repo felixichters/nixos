@@ -1,0 +1,14 @@
+# Question 1
+Answer: 0
+Explanation: incrementing bar does not increment foo (bar is not a reference)
+# Question 2
+Answer: A1
+Explanation: auto functions can have return types 
+# Question 3
+Answer: 1426
+Explanation: b1 gets initialized and prints 14, then b2 with std::move. In B's move, a is initialized prints 2 and B's move prints 6.  
+# Question 4
+Answer: 1255
+Explanation: y1 creates an instance of Y with an x data member, which is 1 by default. std::move(y1) creates another Y and the copy constructor gets called, printing 2. Then y1 and y2 getting destroyed, printing 55. 
+# Question 5
+Answer: ABCDABCd

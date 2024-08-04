@@ -1,0 +1,6 @@
+2024/07/27-22:41:25.501 24e0 Reusing MANIFEST /home/navi/.config/GoPanda2/Local Storage/leveldb/MANIFEST-000001
+2024/07/27-22:41:25.502 24e0 Recovering log #6
+2024/07/27-22:41:25.503 24e0 Reusing old log /home/navi/.config/GoPanda2/Local Storage/leveldb/000006.log 
+2024/07/27-22:42:25.724 2522 Level-0 table #10: started
+2024/07/27-22:42:25.736 2522 Level-0 table #10: 17739 bytes OK
+2024/07/27-22:42:25.740 2522 Delete type=0 #6

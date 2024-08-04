@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(YourProject VERSION 1.0)
+
+# C++ Standard festlegen
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Header-Dateien Verzeichnis
+include_directories(include)
+
+# Executable erstellen
+add_executable(YourExecutable
+    src/main.cpp
+    src/random_vector.cpp
+)

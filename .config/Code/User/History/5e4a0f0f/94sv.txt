@@ -1,0 +1,76 @@
+# Initial setup
+#---------------------------------------------------------------------------------------#
+cmake_minimum_required(VERSION 3.15)
+
+project(OOP4SC)
+
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 20)
+#---------------------------------------------------------------------------------------#
+
+# Google test / Google benchmark
+#---------------------------------------------------------------------------------------#
+add_subdirectory(googletest)
+include_directories(googletest/googletest/include)
+set(GTEST_LIB gtest gtest_main gmock gmock_main)
+enable_testing()
+
+# Sheet 1
+#---------------------------------------------------------------------------------------#
+# nothing to compile here
+
+# Sheet 2
+#---------------------------------------------------------------------------------------#
+# Sheet 3
+#---------------------------------------------------------------------------------------#
+# Sheet 4
+#---------------------------------------------------------------------------------------#
+# Sheet 5
+#---------------------------------------------------------------------------------------#
+add_library(TemplateMatrix 
+	Sheet05/exercise1/Vector.cpp
+	Sheet05/exercise1/TestMatrix.cpp
+	Sheet05/exercise1/matrix.cpp
+	Sheet05/exercise1/rational.cpp)
+add_executable(TestTemplateMatrix Sheet05/exercise1/TestMatrix.cpp)
+target_link_libraries(TestTemplateMatrix ${GTEST_LIB} TemplateMatrix)
+add_test(TestTemplateMatrix TestTemplateMatrix)
+
+#---------------------------------------------------------------------------------------#
+# Sheet 6
+#---------------------------------------------------------------------------------------#
+add_library(Quadrature 
+	Sheet06/exercise01/Composite.cpp
+	Sheet06/exercise01/Functor.cpp
+	Sheet06/exercise01/Simpson.cpp
+	Sheet06/exercise01/Trapez.cpp
+	Sheet06/exercise01/TestQuadratureRules.cpp)
+add_executable(TestQuadrature Sheet06/exercise01/TestQuadratureRules.cpp)
+target_link_libraries(TestQuadrature ${GTEST_LIB} Quadrature)
+add_test(TestQuadrature TestQuadrature)
+
+#---------------------------------------------------------------------------------------#
+# Sheet 7
+#---------------------------------------------------------------------------------------#
+
+# exercise 1
+add_executable(FibonacciTest Sheet07/exercise_1/FibonacciTest.cpp)
+
+# Add include directories if necessary
+target_include_directories(FibonacciTest PRIVATE ${CMAKE_SOURCE_DIR})
+
+# Specify sources
+set(FIBONACCI_SOURCES
+	Sheet07/exercise_1/FibonacciTemplateMetaprogram.cpp
+    Sheet07/exercise_1/FibonacciRecursiveRuntime.cpp
+    Sheet07/exercise_1/FibonacciConstexpr.cpp
+)
+
+foreach(source ${FIBONACCI_SOURCES})
+    target_sources(FibonacciTest PRIVATE ${source})
+endforeach()
+
+#exercise 2
+
+add_executable(TestPrimeNumbersRecursiveCompileTime Sheet07/exercise02/TestPrimeNumbersRecursiveCompileTime.cpp)
+add_executable(TestPrimeNumbersConstexpr Sheet07/exercise02/TestPrimeNumbersConstexpr.cpp)

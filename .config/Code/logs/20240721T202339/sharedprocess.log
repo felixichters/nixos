@@ -1,0 +1,7 @@
+2024-07-21 20:23:43.841 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/navi/.vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/navi/.vscode/extensions/extensions.json.vsctmp'
+    at h.create (/nix/store/p4miq91phxp1bjhhrmbrqn8l04v5dkxg-vscode-1.91.0/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/nix/store/p4miq91phxp1bjhhrmbrqn8l04v5dkxg-vscode-1.91.0/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/nix/store/p4miq91phxp1bjhhrmbrqn8l04v5dkxg-vscode-1.91.0/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/nix/store/p4miq91phxp1bjhhrmbrqn8l04v5dkxg-vscode-1.91.0/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/nix/store/p4miq91phxp1bjhhrmbrqn8l04v5dkxg-vscode-1.91.0/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/nix/store/p4miq91phxp1bjhhrmbrqn8l04v5dkxg-vscode-1.91.0/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
