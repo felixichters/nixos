@@ -37,12 +37,12 @@
 				];
 			};
 		};
-		homeConfigurations = {
+			homeConfigurations = {
 			navi = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
 				extraSpecialArgs = { inherit inputs; };
-				modules = [
-					./home.nix
+					modules = [
+				./home.nix
 					stylix.homeManagerModules.stylix
 					catppuccin.homeManagerModules.catppuccin
 						#hyprland.homeManagerModules.default
@@ -51,7 +51,7 @@
 						#}
 					];
 			};
-		};
+			};
 	};
 
 }

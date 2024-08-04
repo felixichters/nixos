@@ -14,6 +14,3 @@ vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = false
 vim.opt.showmatch = true
-
-vim.cmd [[colorscheme catppuccin-latte]]
-

@@ -57,11 +57,6 @@
       }
 
       {
-        plugin = catppuccin-nvim;
-					#config = "colorscheme catppuccin-latte";
-      }
-
-      {
         plugin = nvim-solarized-lua;
         #config = "colorscheme solarized";
       }
