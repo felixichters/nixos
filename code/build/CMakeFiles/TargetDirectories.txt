@@ -1,0 +1,3 @@
+/home/navi/Uni/alda/code/build/CMakeFiles/lists.dir
+/home/navi/Uni/alda/code/build/CMakeFiles/edit_cache.dir
+/home/navi/Uni/alda/code/build/CMakeFiles/rebuild_cache.dir
