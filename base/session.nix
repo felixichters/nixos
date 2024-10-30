@@ -3,16 +3,22 @@
 {
 	programs.hyprland.enable = true;
 	security.pam.services.swaylock = {};
-
-	services.greetd = {
-  	enable = true;
-  	settings = rec {
-    	initial_session = {
-      	command = "${pkgs.hyprland}/bin/hyprland";
-      	user = "navi";
-    	};
-    	default_session = initial_session;
-  	};
-	};
 	security.polkit.enable = true;
+	
+	environment.systemPackages = [(
+  	pkgs.catppuccin-sddm.override {
+    	flavor = "latte";
+			#font  = "Noto Sans";
+    	fontSize = "9";
+			background = "${../home/theme/a1.png}";
+			loginBackground = true;
+  	}
+	)];
+	
+	services.displayManager.sddm = {
+  	enable = true;
+		wayland.enable = true;
+  	theme = "catppuccin-latte";
+		package = pkgs.kdePackages.sddm;
+	};
 }

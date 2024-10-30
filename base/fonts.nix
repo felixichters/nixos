@@ -5,8 +5,7 @@
 	fonts.packages = with pkgs; [
 		font-awesome
 		fira-code
-		nerdfonts
-		
+		nerdfonts	
 	];
 
 }
