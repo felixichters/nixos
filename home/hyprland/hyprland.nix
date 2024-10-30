@@ -5,42 +5,34 @@
 		./keybindings.nix
 	];
 	
-	#programs.swaylock.enable = true;
-
 	wayland.windowManager.hyprland = {	
 		enable = true;
-		#package = inputs.hyprland.packages."${pkgs.system}".hyprland;	
-   	plugins = with pkgs; [
-			#hyprlandPlugins.hypr-dynamic-cursors
+		plugins = with pkgs; [
 			hyprlandPlugins.hyprexpo
 			hyprlandPlugins.hyprspace
-			#hyprlandPlugins.hypr-dynamic-cursors
 		];
 
 		settings =  {
 
       monitor = [ 
 				"eDP-1, 1920x1080@60, 0x0, 1"
-				"HDMI-A-1, preferred, 0x0, 1, mirror, eDP-1" 
+				"HDMI-A-1, preferred, 0x0, 1" 
       ];
 			exec-once = [
 				"waybar"
-				"swaylock -C ~/.dotfiles/home/hyprland/swaylock --screenshots --clock --effect-blur 10x10"
+				#"swaylock -C ~/.dotfiles/home/hyprland/swaylock --screenshots --clock --effect-blur 10x10"
 			];
       input = {
         kb_layout = "de";
         touchpad = {
           natural_scroll = "true";
         };
+				scroll_factor = "0.7";
       };
 
       gestures = {
         workspace_swipe = "true";
         workspace_swipe_fingers = "3";
-      };
-
-      dwindle = {
-        no_gaps_when_only = "1";
       };
 
       misc = {
@@ -50,7 +42,8 @@
 
       animation = [
         "fade, 1, 3, default"
-        "windows, 1, 2, default, popin"
+        "windows, 1, 2, default, slide"
+				"layers, 1, 2, default, slide"
         "workspaces, 1, 5, default"
       ];
 

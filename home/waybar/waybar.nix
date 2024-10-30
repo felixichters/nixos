@@ -13,7 +13,7 @@
         ];
 				#modules-left = [ "hyprland/workspaces" ];
 				#modules-center = [ "hyprland/window" ];
-        modules-right = [ "backlight" "pulseaudio" "battery" "network" "clock" ];
+        modules-right = [ "disk" "memory" "cpu" "backlight" "pulseaudio" "battery" "network" "clock" ];
 
         "sway/workspaces" = {
           disable-scroll = true;

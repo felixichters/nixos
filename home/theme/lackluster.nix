@@ -4,7 +4,7 @@
 	nixpkgs.overlays = [
   inputs.nixneovimplugins.overlays.default
 ];
-	stylix.image = ./wallhaven-dark.jpg;
+	stylix.image = ./car.jpg;
 	stylix.base16Scheme = {	
 		base00 = "101010"; #  ----
 		base01 = "2a2a2a"; #  ---
@@ -20,8 +20,8 @@
 		base0B = "789978"; # green
 		base0C = "7788aa"; # cyan
 		base0D = "708090"; # blue 
-		base0E = "789978"; #purple 
-		base0F = "7788aa"; #brown
+		base0E = "789978"; # purple 
+		base0F = "7788aa"; # brown
 	};
 
 	programs.neovim.plugins = [
@@ -31,20 +31,21 @@
     }
 	];
 	wayland.windowManager.hyprland.plugins = [
-    pkgs.hyprlandPlugins.borders-plus-plus
-  ];
+		pkgs.hyprlandPlugins.borders-plus-plus
+	];
 	
 	wayland.windowManager.hyprland.settings = {
 		general = {
-			border_size = "5";
-			gaps_in = "10";
-			gaps_out = "15";
+			border_size = "4";
+			gaps_in = "0";
+			gaps_out = "0";
 			resize_on_border = "true";
 			extend_border_grab_area = "20";
 		};
 
+		dwindle.no_gaps_when_only = "0";
 		decoration = {
-			rounding = "5";
+			rounding = "0";
 			shadow_range = "15";
 			shadow_offset = "5 5";
 			"col.shadow" = lib.mkForce "rgba(000000a1)";
@@ -52,6 +53,10 @@
 			dim_inactive = "true";
 			dim_strength = "0.3";
 		};
+		
+		bind = [
+			"SUPER, R, exec, ./.config/rofi/launchers/type-1d/launcher.sh"
+		];
 	};
 
 	programs.waybar.settings.mainBar = {
@@ -68,7 +73,7 @@
 		}
 		
 		window#waybar {
-			background: #080808;
+			background-color: #2a2a2a;
 		}
     
 		@keyframes button_activate {
@@ -119,7 +124,7 @@
 		#disk
     {
       padding: 0 8px;
-      color: #aaaaaa;
+      color: #deeeed;
 		}
   '';  
 

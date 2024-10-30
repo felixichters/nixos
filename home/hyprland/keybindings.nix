@@ -4,7 +4,7 @@
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     "$term" = "kitty";
-		"$menu" = "./.config/rofi/launchers/type-1/launcher.sh";
+		#"$menu" = "./.config/rofi/launchers/type-1/launcher.sh";
     #"$menu" = "fuzzel -B 0 -a center";
     "$files" = "kitty ranger";
 		bindm = [
@@ -28,8 +28,9 @@
     bind = [
 			"$mod Shift, Q, exit,"
 			"$mod, Q, killactive,"
-			 
-			"$mod, R, exec, $menu" 
+      "$mod, b, exec, hyprctl keyword monitor eDP-1,disable"
+	    "$mod Shift, b, exec, hyprctl keyword monitor eDP-1,preferred"
+			#"$mod, R, exec, $menu" 
 			"$mod, Return, exec, $term"
 			"$mod, E, exec, $files"
 
