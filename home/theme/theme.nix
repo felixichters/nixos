@@ -15,9 +15,9 @@
 		targets.vim.enable = false;
 
     cursor = {
-      package = pkgs.apple-cursor;
-      name = "macOS-BigSur";
-      size = 25;
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors-light";
+      size = 30;
     };
     fonts = {
       monospace = {

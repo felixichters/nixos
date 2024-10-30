@@ -4,7 +4,7 @@ let
 	to_lua = str: "lua << EOF\n${str}\nEOF\n";
 in 
 {
-	stylix.image = ./solid-light.jpeg;
+	stylix.image = ./cool2.png;
 	stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
 	
 	stylix.targets.kitty.enable = false;
@@ -18,9 +18,10 @@ in
     	resize_on_border = "true";
     	extend_border_grab_area = "30";
 		};
+		#dwindle.no_gaps_when_only = "1";
 		decoration = {
-      rounding = "10";
-      shadow_range = "12";
+      rounding = "20";
+      shadow_range = "10";
       shadow_offset = "3 3";
 			#shadow_scale = "0.9";
 			"col.shadow" = lib.mkForce "rgba(000000a1)";
@@ -34,7 +35,11 @@ in
         brightness = "0.3";
         vibrancy = "0.1696";
       };
-    };
+    };		
+		bind = [
+			"SUPER, R, exec, ./.config/rofi/launchers/type-1/launcher.sh"
+		];
+
 	};
 
 	programs.waybar.settings.mainBar = {
@@ -158,7 +163,7 @@ in
 		}
 		
 		window#waybar {
-			background: linear-gradient(90deg, #dce0e8 0%, #e6e9ef 100%);	
+			background: transparent;
 		}
     
 		@keyframes button_activate {
@@ -167,6 +172,7 @@ in
 		}
 		
 		#workspaces {
+			
 			border-bottom: none ;
 		}
 
@@ -211,6 +217,7 @@ in
       padding: 0 8px;
       color: #4c4f69;
 		}
+		
   '';  
 
 }
