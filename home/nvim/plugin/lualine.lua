@@ -11,7 +11,7 @@ local function set_lualine_theme()
 require('lualine').setup {
 	options = {
 		icons_enabled = true,
-		theme = 'catppuccin-latte',
+		theme = 'auto',
 	},
 	sections = {
 		lualine_a = {
