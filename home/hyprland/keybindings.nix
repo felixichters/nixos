@@ -40,7 +40,7 @@
 			
 			"$mod, escape, exec, swaylock -C ~/.dotfiles/home/hyprland/swaylock --screenshots --clock --effect-blur 9x9 --fade-in 0.2"  
 
-			"$mod, P, exec, ~/.config/rofi/powermenu/type-4/powermenu.sh"
+			"$mod, P, exec, ~/.config/rofi/powermenu/type-2/powermenu.sh"
 
 			"$mod, Tab, cyclenext,"
 			"$mod, Tab, bringactivetotop,"

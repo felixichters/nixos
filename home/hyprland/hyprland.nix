@@ -8,7 +8,7 @@
 	wayland.windowManager.hyprland = {	
 		enable = true;
 		plugins = with pkgs; [
-			hyprlandPlugins.hyprexpo
+			#hyprlandPlugins.hyprexpo
 			hyprlandPlugins.hyprspace
 		];
 
@@ -41,8 +41,8 @@
       };
 
       animation = [
-        "fade, 1, 3, default"
-        "windows, 1, 2, default, slide"
+        "fade, 0, 3, default"
+        "windows, 0, 2, default, slide"
 				"layers, 1, 2, default, slide"
         "workspaces, 1, 5, default"
       ];
