@@ -15,7 +15,7 @@
 		./home/hyprland/hyprland.nix
 		./home/mako/mako.nix
 		./home/nvim/nvim.nix
-		#./home/networks.nix
+		./home/vm/vm.nix
 	];
 	
 	fonts.fontconfig.enable = true;

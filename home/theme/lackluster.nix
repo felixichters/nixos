@@ -31,27 +31,30 @@
     }
 	];
 	wayland.windowManager.hyprland.plugins = [
-		pkgs.hyprlandPlugins.borders-plus-plus
+		#pkgs.hyprlandPlugins.borders-plus-plus
 	];
 	
 	wayland.windowManager.hyprland.settings = {
 		general = {
-			border_size = "4";
+			border_size = "2";
 			gaps_in = "0";
 			gaps_out = "0";
 			resize_on_border = "true";
 			extend_border_grab_area = "20";
+			"col.active_border" = lib.mkForce "0xff789978";
+			"col.inactive_border" = lib.mkForce "0xff2a2a2a";
 		};
 
 		dwindle.no_gaps_when_only = "0";
 		decoration = {
 			rounding = "0";
+			drop_shadow = "false";
 			shadow_range = "15";
 			shadow_offset = "5 5";
 			"col.shadow" = lib.mkForce "rgba(000000a1)";
       "col.shadow_inactive" = lib.mkForce "rgba(00000050)";
 			dim_inactive = "true";
-			dim_strength = "0.3";
+			dim_strength = "0.2";
 		};
 		
 		bind = [
@@ -61,7 +64,7 @@
 
 	programs.waybar.settings.mainBar = {
 		modules-left = ["hyprland/workspaces"];
-		modules-center = [];
+		modules-center = ["hyprland/window"];
 	};
 
 	programs.waybar.style = ''	
@@ -73,7 +76,7 @@
 		}
 		
 		window#waybar {
-			background-color: #2a2a2a;
+			background-color: #191919;
 		}
     
 		@keyframes button_activate {
@@ -88,29 +91,33 @@
 		#workspaces button {
 			border-bottom: none;
 			opacity: .35;
-    	transition: all 0.3s ease-in-out;
-			color: #aaaaaa;
+    	transition: all 0.2s ease-in-out;
+			color: #dddddd;
+			padding-left: 7px;
+			padding-right: 7px;
 		}
 
 		#workspaces button.active {
-			padding: 0 7px;
 			border-bottom: none;
     	transition: all 0.1s ease;
 			opacity: 1.;
-			color: inherit;
+			color: #deeeed;
+			border-radius: 0px;
+			background: #708090
 		}
 
 		#workspaces button.urgent {
 			border-bottom: none;
-		opacity: 1.;
+			opacity: 1.;
 		}
 
 		#workspaces button:hover {	
 			box-shadow: inherit;
 			text-shadow: inherit;
-			background: inherit;
+			background: #2a2a2a;
 			opacity: 1.;
-			color: inherit;
+			color: #deeeed;
+			border-radius: 0px;
 		}	
 		
 		#custom-power,
@@ -124,7 +131,7 @@
 		#disk
     {
       padding: 0 8px;
-      color: #deeeed;
+      color: #cccccc;
 		}
   '';  
 
