@@ -17,6 +17,8 @@
 			nil
       #rnix-lsp
 			ccls
+			asm-lsp
+			pyright
 			wl-clipboard
     ];
 
@@ -85,6 +87,7 @@
           p.tree-sitter-lua
           p.tree-sitter-python
           p.tree-sitter-cpp
+					p.tree-sitter-asm
         ]));
 				#type = "lua";
         config = to_lua_file ./plugin/treesitter.lua;
