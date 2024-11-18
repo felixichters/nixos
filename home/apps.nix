@@ -28,5 +28,6 @@
 		whitesur-icon-theme
 		xdg-utils
 		swaylock-effects
+		bitwarden
 	];
 }
