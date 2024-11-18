@@ -29,6 +29,9 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 --require('neodev').setup()
 require('lspconfig').lua_ls.setup {}
 require("lspconfig").nil_ls.setup{}
+require("lspconfig").asm_lsp.setup{}
+require("lspconfig").ccls.setup{}
+require("lspconfig").pyright.setup{}
 --require('lspconfig').rnix.setup {
 --	    on_attach = on_attach,
 --    capabilities = capabilities,

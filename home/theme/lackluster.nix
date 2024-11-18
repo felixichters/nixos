@@ -4,7 +4,7 @@
 	nixpkgs.overlays = [
   inputs.nixneovimplugins.overlays.default
 ];
-	stylix.image = ./car.jpg;
+	stylix.image = ./wallpaper/car.jpg;
 	stylix.base16Scheme = {	
 		base00 = "101010"; #  ----
 		base01 = "2a2a2a"; #  ---
