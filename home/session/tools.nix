@@ -9,9 +9,9 @@
 	
 	config = lib.mkIf config.session_tools.enable {
 		services.udiskie.enable = true;
-		services.udsikie.automount = true;
+		services.udiskie.automount = true;
 		programs.zathura.enable = true;  
-		program.feh.enable = true; 
+		programs.feh.enable = true; 
 		
 		home.packages = with pkgs; [
 			libreoffice-qt

@@ -5,14 +5,14 @@
 		type = lib.types.bool;
 		default = true;
 		description = "enable hyprland";
-	};
+	};		
+	
+	imports = [
+		./keybindings.nix
+	];
 	
 	config = lib.mkIf config.hyprland.enable {
-		
-		imports = [
-			./keybindings.nix
-		];
-		
+	
 		home.packages = with pkgs; [
 			xdg-utils
 		];
