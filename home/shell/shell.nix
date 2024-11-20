@@ -2,6 +2,9 @@
 
 {
 	imports = [
-		./sh.nix
+		./kitty.nix
+		./ranger.nix
+		./tools.nix
+		./zsh.nix
 	];
 }
