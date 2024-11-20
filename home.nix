@@ -7,8 +7,8 @@
 		./home/git/git.nix
 		./home/session/session.nix
 		./home/shell/shell.nix
-		./theme/theme.nix
-
+		./home/theme/theme.nix
+		./home/dev/dev.nix
 	];
 	
 	fonts.fontconfig.enable = true;
