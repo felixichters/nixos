@@ -14,28 +14,23 @@ in
 	};
 
 	config = lib.mkIf config.zsh.enable {
+		home.packages = with pkgs; [
+			pure-prompt
+		];
 		programs.zsh = {
 			enable = true;
 			enableCompletion = true;
 			autosuggestion.enable = true;
 			syntaxHighlighting.enable = true;
-			#syntaxHighlighting.catppuccin.enable = true;
-			#syntaxHighlighting.catppuccin.flavor = "latte";
 			shellAliases = myAliases;
 			oh-my-zsh = {
-			enable = true;
-			plugins = [ "git" ];
-				#theme = "avit";
-			#theme = "bira";
-			#theme = "kphoen";
-			#theme = "gnzh";
+				enable = true;
+				plugins = [ "git" "copyfile" ];
 			};
 			initExtra = ''
-			neofetch --off
-			fpath+=($HOME/.zsh/pure)
-			autoload -U promptinit; promptinit
-			prompt pure
-			unsetopt BEEP
+				autoload -U promptinit; promptinit
+				prompt pure
+				unsetopt BEEP
 			'';
 		};
 	};
