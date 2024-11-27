@@ -3,28 +3,13 @@
 	description = "nixos-config";
 
 	inputs = {
-		nixpkgs.url = "nixpkgs/nixos-unstable";
-		home-manager.url = "github:nix-community/home-manager";
+		nixpkgs.url = "nixpkgs/nixos-24.11";
+		home-manager.url = "github:nix-community/home-manager/release-24.11";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 		nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
-
-
-		
-		#hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-		#hyprland-plugins = {
-		#  url = "github:hyprwm/hyprland-plugins";
-		#  inputs.hyprland.follows = "hyprland";
-		#};
-		#hypr-dynamic-cursors = {
-		#    url = "github:VirtCode/hypr-dynamic-cursors";
-		#    inputs.hyprland.follows = "hyprland"; 
-		#};
-
-		#catppuccin.url = "github:catppuccin/nix";
-		stylix.url = "github:danth/stylix";
 	};
 
-	outputs = { self, nixpkgs, home-manager, stylix, ...} @ inputs:
+	outputs = { self, nixpkgs, home-manager, ...} @ inputs:
 		let 
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -46,7 +31,6 @@
 				extraSpecialArgs = { inherit inputs; };
 						modules = [
 			./home.nix
-					stylix.homeManagerModules.stylix
 					#catppuccin.homeManagerModules.catppuccin
 						#hyprland.homeManagerModules.default
 						#{

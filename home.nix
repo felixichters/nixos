@@ -9,8 +9,11 @@
 		./home/shell/shell.nix
 		./home/theme/theme.nix
 		./home/dev/dev.nix
+		./home/font.nix
 	];
 	
+	lackluster.enable = true;
+
 	fonts.fontconfig.enable = true;
 	
 	home.username = "navi";

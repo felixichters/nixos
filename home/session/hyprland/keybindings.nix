@@ -35,7 +35,7 @@
 				"$mod, Return, exec, $term"
 				"$mod, E, exec, $files"
 
-				"$mod, o, overview:toggle,"
+				#"$mod, o, overview:toggle,"
 
 				"$mod, F, exec, ./.dotfiles/home/hyprland/waybar.sh "
 				
