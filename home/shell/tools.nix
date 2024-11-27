@@ -8,9 +8,12 @@
 	config = lib.mkIf config.shell_tools.enable {
 		programs.fzf.enable = true;
 		programs.htop.enable = true;
+		programs.ripgrep.enable = true;
 		home.packages = with pkgs; [
 			cmatrix
 			neofetch
+			fastfetch
+			cowsay
 			killall
 			zip
 			unzip
@@ -19,4 +22,3 @@
 		];
 	};
 }
-

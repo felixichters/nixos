@@ -21,7 +21,7 @@
 			enable = true;
 			plugins = with pkgs; [
 				#hyprlandPlugins.hyprexpo
-				hyprlandPlugins.hyprspace
+				#hyprlandPlugins.hyprspace
 			];
 
 			settings =  {
@@ -53,10 +53,12 @@
 				};
 
 				animation = [
-					"fade, 0, 3, default"
+					"fade,0"
+
+					"border, 0"	
 					"windows, 0, 2, default, slide"
 					"layers, 1, 2, default, slide"
-					"workspaces, 1, 5, default"
+					"workspaces, 1, 4, default"
 				];
 
 				windowrule = [ 

@@ -23,28 +23,6 @@
 					#modules-center = [ "hyprland/window" ];
 					modules-right = [ "disk" "memory" "cpu" "backlight" "pulseaudio" "battery" "network" "clock" ];
 
-					"sway/workspaces" = {
-						disable-scroll = true;
-						disable-markup = false;
-						all-outputs = true;
-						format = "{icon}";
-						format-icons = {
-							#"1" = "";
-							#"2" = "";
-							#"3" = "";
-							#"4" = "";
-							#"5" = "";
-							focused = "";
-							default = "";
-						};
-						persistent-workspaces = {
-							"1" = [];
-							"2" = [];
-							"3" = [];
-						};
-						tooltip = false;
-					};
-
 					"hyprland/window" = {
 						format = "{initialTitle}"; 
 					};

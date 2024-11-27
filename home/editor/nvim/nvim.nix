@@ -8,6 +8,10 @@
 	
 	config = lib.mkIf config.nvim.enable {
 		
+		nixpkgs.overlays = [
+  		inputs.nixneovimplugins.overlays.default
+		];
+	
 		programs.neovim = 
 		let
 			to_lua = str: "lua << EOF\n${str}\nEOF\n";

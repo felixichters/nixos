@@ -14,6 +14,7 @@
 			userEmail = "felix.ichters@gmail.com";
 			extraConfig = {
 				init.defaultBranch = "main";
+				#advice.addIgnoredFile = "false";
 			};
 		};
 	};	
