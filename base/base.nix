@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-
 	imports = [
 		./navi.nix 
 		./networking.nix 
@@ -12,7 +11,7 @@
 	];
 	
 	boot.loader.systemd-boot.enable = true;
-	boot.loader.efi.canTouchEfiVariables = true;
+	boot.loader.efi.canTouchEfiVariables = true;	
 	
 	programs.zsh.enable = true;
 	users.defaultUserShell = pkgs.zsh;
