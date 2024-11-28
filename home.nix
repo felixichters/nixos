@@ -7,15 +7,12 @@
 		./home/git/git.nix
 		./home/session/session.nix
 		./home/shell/shell.nix
-		./home/theme/theme.nix
 		./home/dev/dev.nix
-		./home/font.nix
+		./home/appearance/appearance.nix
 	];
 	
-	lackluster.enable = true;
+	sway.enable = true;
 
-	fonts.fontconfig.enable = true;
-	
 	home.username = "navi";
   home.homeDirectory = "/home/navi";
   home.stateVersion = "24.05";

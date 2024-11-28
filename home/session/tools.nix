@@ -20,6 +20,7 @@
 			qalculate-qt
 			swaylock-effects
 			bitwarden
+			xdg-utils
 		];
 	};
 }
