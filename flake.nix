@@ -21,7 +21,6 @@
 				specialArgs = { inherit inputs; };
 				modules = [
 				./configuration.nix
-				#stylix.nixosModules.stylix
 				];
 			};
 		};
@@ -31,11 +30,6 @@
 				extraSpecialArgs = { inherit inputs; };
 						modules = [
 			./home.nix
-					#catppuccin.homeManagerModules.catppuccin
-						#hyprland.homeManagerModules.default
-						#{
-						#wayland.windowManager.hyprland.enable = true;
-						#}
 					];
 			};
 			};

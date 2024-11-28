@@ -19,8 +19,8 @@
 						"eDP-1"
 						"HDMI-A-1"
 					];
-					#modules-left = [ "hyprland/workspaces" ];
-					#modules-center = [ "hyprland/window" ];
+					modules-left = [ "hyprland/workspaces" ];
+					modules-center = [ "hyprland/window" ];
 					modules-right = [ "disk" "memory" "cpu" "backlight" "pulseaudio" "battery" "network" "clock" ];
 
 					"hyprland/window" = {
@@ -97,6 +97,62 @@
 					};
 				};
 			};
+			style = ''	
+				* {
+					font-family: "Fira Code";
+					font-size: 11px;
+					padding: 0;
+					margin: 0;
+				}
+				
+				window#waybar {
+					background-color: #191919;
+				}
+				
+				#workspaces {
+					border-bottom: none ;
+				}
+
+				#workspaces button {
+					border-bottom: none;
+					color: #dddddd;
+					padding-left: 7px;
+					padding-right: 7px;
+				}
+
+				#workspaces button.active {
+					border-bottom: none;
+					color: #deeeed;
+					border-radius: 0px;
+					background: #708090
+				}
+
+				#workspaces button.urgent {
+					border-bottom: none;
+					opacity: 1.;
+				}
+
+				#workspaces button:hover {	
+					background: #2a2a2a;
+					color: #deeeed;
+					border-radius: 0px;
+				}	
+				
+				#custom-power,
+				#battery,
+				#network,
+				#backlight,
+				#clock,
+				#pulseaudio,
+				#cpu,
+				#memory,
+				#disk
+				{
+					padding: 0 8px;
+					color: #cccccc;
+				}
+			'';  
+
 		};
 	};
 }

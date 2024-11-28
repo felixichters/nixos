@@ -89,7 +89,6 @@
 					#type = "lua";
 					config = to_lua_file ./plugin/nvim-tree.lua;
 				}
-					
 				nvim-web-devicons
 
 				{
@@ -103,6 +102,10 @@
 					]));
 					#type = "lua";
 					config = to_lua_file ./plugin/treesitter.lua;
+				}
+				{
+				plugin = pkgs.vimExtraPlugins.lackluster-nvim;
+				config = "autocmd VimEnter * colorscheme lackluster";
 				}
 			];
 		};
