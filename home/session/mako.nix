@@ -6,7 +6,7 @@
 		description = "enable mako";
 	};
 
-	config = lib.mkIf (config.mako.enable && config.hyprland.enable) {
+	config = lib.mkIf config.mako.enable {
 		services.mako = { 
 			enable = true;
 			font = "Iosevka Nerd Font 10";
