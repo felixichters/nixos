@@ -3,7 +3,7 @@
 let
   mod = "Mod4";
   term = "kitty";
-  menu = "./.config/rofi/launchers/type-1d/launcher.sh";
+  menu = "tofi-run | xargs swaymsg exec --";
   files = "kitty ranger";
 	power = "~/.config/rofi/powermenu/type-2/powermenu.sh";
 	lock = "swaylock -C ~/.dotfiles/home/hyprland/swaylock --screenshots --clock --effect-blur 9x9 --fade-in 0.2";  

@@ -5,7 +5,19 @@
 		fira-code
 		iosevka
 		inconsolata
+		overpass
 		(nerdfonts.override { fonts = [ "FiraCode" "Iosevka" "IosevkaTerm" "IosevkaTermSlab" ]; })
 	];
-	fonts.fontconfig.enable = true;
+	gtk.enable = true;
+	gtk.font.name = "overpas";
+	fonts = { 
+		fontconfig = { 
+			enable = true;
+			defaultFonts = {
+				serif = ["overpass"];
+				sansSerif = ["overpass"];
+				monospace = ["Iosevka Nerd Font"];
+			};
+		};
+	};
 }

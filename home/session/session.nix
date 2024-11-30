@@ -7,5 +7,6 @@
 		./mako.nix
 		./tools.nix
 		./waybar.nix
+		./tofi.nix
 	];
 }

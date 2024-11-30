@@ -12,7 +12,8 @@
 		services.udiskie.automount = true;
 		programs.zathura.enable = true;  
 		programs.feh.enable = true; 
-		
+		programs.tofi.enable = true;
+
 		home.packages = with pkgs; [
 			libreoffice-qt
 			rofi-wayland
