@@ -2,7 +2,8 @@
 
 {
 	imports = [
-		./itsec.nix 
-		./tools.nix
+		./dev.nix
+		./ranger.nix
+		./security.nix 
 	];
 }
