@@ -2,17 +2,12 @@
 
 {
   imports = [
-		./home/browser/browser.nix
-		./home/editor/editor.nix
-		./home/git/git.nix
-		./home/session/session.nix
-		./home/shell/shell.nix
-		./home/dev/dev.nix
-		./home/appearance/appearance.nix
+		./home/core/core.nix
+		./home/tools/tools.nix 
+		./home/apps/apps.nix
 	];
 	
 	sway.enable = true;
-
 	home.username = "navi";
   home.homeDirectory = "/home/navi";
   home.stateVersion = "24.05";

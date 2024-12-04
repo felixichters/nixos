@@ -2,11 +2,11 @@
 
 let
   mod = "Mod4";
-  term = "kitty";
+  term = "foot";
   menu = "tofi-run | xargs swaymsg exec --";
-  files = "kitty ranger";
-	power = "~/.config/rofi/powermenu/type-2/powermenu.sh";
-	lock = "swaylock -C ~/.dotfiles/home/hyprland/swaylock --screenshots --clock --effect-blur 9x9 --fade-in 0.2";  
+  files = "foot ranger";
+	power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
+	lock = "swaylock -c 000000";  
 in
 {
 
@@ -22,7 +22,7 @@ in
 		
 			"${mod}+Shift+r" = "reload";
 			"${mod}+Shift+q" = "exec swaynag -t warning -m 'exit sway?' -B 'Yes, exit sway' 'swaymsg exit'";
-			"${mod}+Shift+e" = "exec ${lock}";
+			"${mod}+escape" = "exec ${lock}";
 
 			"${mod}+Return" = "exec ${term}";
 			"${mod}+q" = "kill";
