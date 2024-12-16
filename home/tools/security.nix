@@ -18,6 +18,8 @@
 			tcpdump
 			thc-hydra
 			john
+			sqlmap
+			ccrypt
 		];
 	};
 }
