@@ -12,9 +12,9 @@
 			settings = {
 				main = {
 					term = "foot";
-					font = "IosevkaTerm Nerd Font:size=7";
+					font = "IosevkaTerm Nerd Font:size=12";
 					pad = "10x8";
-					dpi-aware = "yes";
+					dpi-aware = "no";
 				};
 				cursor = {
 					blink = "yes";
