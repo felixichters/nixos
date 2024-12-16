@@ -5,5 +5,6 @@
 		./firefox.nix
 		./mako.nix 
 		./pkgs.nix
+		./chromium.nix
 	];
 }
