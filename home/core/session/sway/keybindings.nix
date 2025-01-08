@@ -16,7 +16,9 @@ in
 			
 			XF86AudioMute = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
 			XF86AudioRaiseVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+			"${mod}+Shift+plus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
 			XF86AudioLowerVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+			"${mod}+Shift+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
 			XF86MonBrightnessUp = "exec light -A 10";
 			XF86MonBrightnessDown = "exec light -U 10";
 		

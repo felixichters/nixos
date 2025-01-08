@@ -7,9 +7,10 @@
 		home-manager.url = "github:nix-community/home-manager/release-24.11";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 		nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
+		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 	};
 
-	outputs = { self, nixpkgs, home-manager, ...} @ inputs:
+	outputs = { self, nixpkgs, home-manager, nixos-hardware, ...} @ inputs:
 		let 
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -21,6 +22,7 @@
 				specialArgs = { inherit inputs; };
 				modules = [
 				./configuration.nix
+				nixos-hardware.nixosModules.lenovo-thinkpad-l13-yoga
 				];
 			};
 		};
