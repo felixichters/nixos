@@ -2,20 +2,22 @@
 
 {
 	imports = [
-		./navi.nix 
+		./user.nix 
 		./networking.nix 
 		./sound.nix
 		./session.nix
-		./hardware.nix
+		./performance.nix
 		./locales.nix
+		./system-extra.nix
 	];
 	
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;	
 	
-	programs.zsh.enable = true;
-	users.defaultUserShell = pkgs.zsh;
-	
+	hardware.bluetooth.enable = true;
+	hardware.bluetooth.powerOnBoot = true;
+	services.blueman.enable = true;
+
 	programs.light.enable = true;
 	
 	programs.dconf.enable = true;
@@ -26,11 +28,8 @@
 	
 	services.gvfs.enable = true;
 	
-	hardware.graphics.enable = true;
 	
 	security.pam.services.swaylock = {};
 	
-	environment.systemPackages = with pkgs; [
-		nasm
-	];
+
 }
