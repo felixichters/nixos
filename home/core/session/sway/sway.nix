@@ -37,6 +37,7 @@
 				bars = [{
 					position = "top";
 					statusCommand = "i3status";
+					trayOutput = "none";
 					fonts = {
 						names = ["Iosevka"];
 						size = 11.0;
