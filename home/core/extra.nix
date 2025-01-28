@@ -1,15 +1,16 @@
 {config, lib, pkgs, ...}:
 {
-	options.core_pkgs.enable = lib.mkOption {
+	options.core_extra.enable = lib.mkOption {
 		type = lib.types.bool;
 		default = true;
-		description = "enable core pkgs";
+		description = "enable core extras";
 	};
-	config = lib.mkIf config.core_pkgs.enable {
+	config = lib.mkIf config.core_extra.enable {
 		services.udiskie.enable = true;
 		services.udiskie.automount = true;
 		programs.zathura.enable = true; 
 		programs.feh.enable = true;
+		programs.fzf.enable = true;
 
 		programs.htop.enable = true;
 		home.packages = with pkgs; [

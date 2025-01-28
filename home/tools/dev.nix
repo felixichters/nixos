@@ -10,10 +10,10 @@
 	config = lib.mkIf config.dev.enable {
 		home.packages = with pkgs; [
 			python3
-			python3Packages.pwntools
 			gcc
 			#clang
 			gdb
+			p7zip
 		];
 	};
 }

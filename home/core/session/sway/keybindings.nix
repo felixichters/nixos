@@ -6,6 +6,8 @@ let
   menu = "tofi-run | xargs swaymsg exec --";
   files = "foot ranger";
 	power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
+	reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
+	exit = "exec swaynag -t warning -m 'exit sway?' -B 'yes' 'swaymsg exit'";
 	lock = "swaylock -c 000000";  
 in
 {
@@ -23,14 +25,15 @@ in
 			XF86MonBrightnessDown = "exec light -U 10";
 		
 			"${mod}+Shift+r" = "reload";
-			"${mod}+Shift+q" = "exec swaynag -t warning -m 'exit sway?' -B 'Yes, exit sway' 'swaymsg exit'";
 			"${mod}+escape" = "exec ${lock}";
 
 			"${mod}+Return" = "exec ${term}";
 			"${mod}+q" = "kill";
 			"${mod}+r" = "exec ${menu}";
 			"${mod}+e" = "exec ${files}";
-			"${mod}+p" = "exec ${power}";
+			"${mod}+s" = "exec ${power}";
+			"${mod}+p" = "exec ${reboot}";
+			"${mod}+Shift+q" = "exec ${exit}";
 			"${mod}+minus" = "exec swaymsg move scratchpad";
 			"${mod}+plus" = "exec swaymsg scratchpad show";
 			"${mod}+Shift+space" = "floating toggle";
