@@ -18,6 +18,7 @@
 			zip
 			unzip
 			xdg-utils
+			p7zip
 		];
 	};
 }

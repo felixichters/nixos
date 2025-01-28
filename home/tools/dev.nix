@@ -13,7 +13,6 @@
 			gcc
 			#clang
 			gdb
-			p7zip
 		];
 	};
 }
