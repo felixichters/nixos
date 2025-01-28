@@ -13,8 +13,11 @@
 	environment.systemPackages = with pkgs; [
 		mangohud
 		nasm
+		openconnect
+		openvpn
 	];
 	
+	programs.gamemode.enable = true;
 	programs.wireshark.enable = true;
 	
 	virtualisation.docker.enable = true;
