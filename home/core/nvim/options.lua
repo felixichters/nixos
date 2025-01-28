@@ -5,8 +5,8 @@ vim.opt.number = true
 vim.opt.cursorline = false
 vim.opt.cursorcolumn = false
 vim.opt.clipboard = 'unnamedplus'
---vim.opt.list = true
---vim.opt.listchars = {tab = '>-' }
+vim.opt.list = true
+vim.opt.listchars = {tab = '>-' }
 vim.opt.autoindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2

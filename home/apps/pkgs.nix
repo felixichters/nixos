@@ -10,6 +10,8 @@
 	config = lib.mkIf config.app_pkgs.enable {
 		home.packages = with pkgs; [
 			spotify
+			discord
+			dolphin-emu 
 		];
 	};
 }

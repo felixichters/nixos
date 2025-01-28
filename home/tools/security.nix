@@ -20,6 +20,7 @@
 			john
 			sqlmap
 			ccrypt
+			prelink
 		];
 	};
 }

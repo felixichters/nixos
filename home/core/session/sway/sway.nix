@@ -12,6 +12,7 @@
 	];
 	
 	config = lib.mkIf config.sway.enable {
+		programs.swaylock.enable = true;
 		wayland.windowManager.sway = {
 			enable = true;
 			config = {
