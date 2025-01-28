@@ -2,22 +2,21 @@
 
 {
 	home.packages = with pkgs; [
-		fira-code
 		iosevka
-		inconsolata
-		overpass
-		(nerdfonts.override { fonts = [ "FiraCode" "Iosevka" "IosevkaTerm" "IosevkaTermSlab" ]; })
+		noto-fonts
+		ubuntu_font_family
+		(nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" "IosevkaTermSlab" ]; })
 	];
 	gtk.enable = true;
-	gtk.font.name = "overpas";
+	gtk.font.name = "Ubuntu";
 	fonts = { 
-		fontconfig = { 
-			enable = true;
-			defaultFonts = {
-				serif = ["overpass"];
-				sansSerif = ["overpass"];
-				monospace = ["Iosevka Nerd Font"];
+			fontconfig = { 
+				enable = true;
+				defaultFonts = {
+					serif = ["Noto Serif"];
+					sansSerif = ["Ubuntu" "Noto Sans"];
+					monospace = ["Iosevka Nerd Font"];
+				};
 			};
 		};
-	};
 }

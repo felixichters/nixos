@@ -4,6 +4,7 @@ let
 		ll = "ls -l";
 		ls = "ls -G";
 		uni = "sudo openconnect --protocol=anyconnect --useragent='AnyConnect'  vpn-ac.uni-heidelberg.de";
+		fvim = "nvim $(fzf --preview=\"cat {}\")";
 	};
 in
 {
@@ -31,6 +32,8 @@ in
 				autoload -U promptinit; promptinit
 				prompt pure
 				unsetopt BEEP
+  			source "$(fzf-share)/key-bindings.zsh"
+  			source "$(fzf-share)/completion.zsh"
 			'';
 		};
 	};

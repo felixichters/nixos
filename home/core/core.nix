@@ -8,7 +8,7 @@
 		./foot.nix
 		./git.nix
 		./kitty.nix
-		./pkgs.nix 
+		./extra.nix 
 		./tofi.nix
 		./zsh.nix
 	];
