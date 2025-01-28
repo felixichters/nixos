@@ -3,7 +3,7 @@
 {
 	options.sway.enable = lib.mkOption {
 		type = lib.types.bool;
-		default = false;
+		default = true;
 		description = "enable sway";
 	};
   

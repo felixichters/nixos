@@ -2,9 +2,6 @@
 
 {
 	hardware.graphics.enable = true;
-	
-	programs.gamemode.enable = true;
-	
 	services.thermald.enable = true;
 	
 	services.tlp = {

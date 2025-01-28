@@ -7,7 +7,6 @@
 		./home/apps/apps.nix
 	];
 	
-	sway.enable = true;
 	home.username = "navi";
   home.homeDirectory = "/home/navi";
   home.stateVersion = "24.05";

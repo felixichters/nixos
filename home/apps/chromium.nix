@@ -2,7 +2,7 @@
 {
 	options.chromium.enable = lib.mkOption {
 		type = lib.types.bool;
-		default = true;
+		default = false;
 		description = "enable chromium";
 	};
 	config = lib.mkIf config.chromium.enable {
