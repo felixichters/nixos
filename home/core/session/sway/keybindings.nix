@@ -25,8 +25,8 @@ in
 			
 			XF86MonBrightnessUp = "exec light -A 10";
 			XF86MonBrightnessDown = "exec light -U 10";
-			"${mod}+L+plus" = "exec light -A 10";
-			"${mod}+L+minus" = "exec light -U 10";
+			"${mod}+o" = "exec light -A 10";
+			"${mod}+i" = "exec light -U 10";
 
 			"${mod}+Shift+r" = "reload";
 
