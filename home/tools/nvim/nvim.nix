@@ -1,12 +1,12 @@
 { config, pkgs, lib, inputs, ... }:
 {
-  options.nvim.enable = lib.mkOption {
+  options.nvim_conf.enable = lib.mkOption {
 		type = lib.types.bool;
 		default = true;
-		description = "enable neovim";
+		description = "enable advanced neovim config";
 	};
 	
-	config = lib.mkIf config.nvim.enable {
+	config = lib.mkIf config.nvim_conf.enable {
 		
 		nixpkgs.overlays = [
   		inputs.nixneovimplugins.overlays.default
@@ -18,7 +18,7 @@
 			to_lua_file = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
 		in
 		{
-			enable = true;
+			#enable = true;
 
 			viAlias = true;
 			vimAlias = true;

@@ -4,6 +4,7 @@
 	imports = [
 		./dev.nix
 		./ranger.nix
-		./security.nix 
+		./security.nix
+		./nvim/nvim.nix
 	];
 }
