@@ -2,7 +2,6 @@
 
 {
 	imports = [
-		./nvim/nvim.nix 
 		./session/session.nix
 		./font.nix
 		./foot.nix
