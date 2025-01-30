@@ -11,14 +11,15 @@
 		programs.zathura.enable = true; 
 		programs.feh.enable = true;
 		programs.fzf.enable = true;
-
 		programs.htop.enable = true;
+		programs.neovim.enable = true;
 		home.packages = with pkgs; [
 			cmatrix
 			zip
 			unzip
 			xdg-utils
 			p7zip
+			wget
 		];
 	};
 }
