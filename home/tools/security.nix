@@ -22,5 +22,6 @@
 			ccrypt
 			prelink
 		];
+		programs.gpg.enable = true;
 	};
 }
