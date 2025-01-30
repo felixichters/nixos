@@ -8,7 +8,8 @@ let
 	power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
 	reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
 	exit = "exec swaynag -t warning -m 'exit sway?' -B 'yes' 'swaymsg exit'";
-	lock = "swaylock -c 000000";  
+	lock = "swaylock -c 000000"; 
+	editor = "foot nvim $(fzf --preview=\"cat {}\")";
 in
 {
 
@@ -21,22 +22,36 @@ in
 			"${mod}+Shift+plus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
 			XF86AudioLowerVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
 			"${mod}+Shift+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+			
 			XF86MonBrightnessUp = "exec light -A 10";
 			XF86MonBrightnessDown = "exec light -U 10";
-		
+			"${mod}+L+plus" = "exec light -A 10";
+			"${mod}+L+minus" = "exec light -U 10";
+
 			"${mod}+Shift+r" = "reload";
+
 			"${mod}+escape" = "exec ${lock}";
 
 			"${mod}+Return" = "exec ${term}";
+			
 			"${mod}+q" = "kill";
+			
 			"${mod}+r" = "exec ${menu}";
+			
 			"${mod}+e" = "exec ${files}";
+			"${mod}+Shift+e" = "exec ${editor}";
+
 			"${mod}+s" = "exec ${power}";
+			
 			"${mod}+p" = "exec ${reboot}";
+			
 			"${mod}+Shift+q" = "exec ${exit}";
+			
 			"${mod}+minus" = "exec swaymsg move scratchpad";
 			"${mod}+plus" = "exec swaymsg scratchpad show";
+			
 			"${mod}+Shift+space" = "floating toggle";
+			
 			"${mod}+f" = "fullscreen";
 
 			"${mod}+h" = "focus left";
@@ -53,15 +68,15 @@ in
 			"${mod}+Tab"= "workspace next_on_output";
 			"${mod}+Shift+Tab"= "workspace prev_on_output";
 			
-			"${mod}+Shift+h" = "move left";
-			"${mod}+Shift+j" = "move down";
-			"${mod}+Shift+k" = "move up";
-			"${mod}+Shift+l" = "move right";
+			"${mod}+Shift+Left" = "move left";
+			"${mod}+Shift+Down" = "move down";
+			"${mod}+Shift+Up" = "move up";
+			"${mod}+Shift+Right" = "move right";
 
-			"${mod}+Shift+Left" = "resize shrink width 10px";
-			"${mod}+Shift+Down" = "resize grow height 10px";
-			"${mod}+Shift+Up" = "resize shrink height 10px";
-			"${mod}+Shift+Right" = "resize grow width 10px";
+			"${mod}+Shift+h" = "resize shrink width 10px";
+			"${mod}+Shift+j" = "resize grow height 10px";
+			"${mod}+Shift+k" = "resize shrink height 10px";
+			"${mod}+Shift+l" = "resize grow width 10px";
 			#"${mod}+Shift+h" = "resize shrink width 10px";
 			#"${mod}+Shift+j" = "resize grow height 10px";
 			#"${mod}+Shift+k" = "resize shrink height 10px";
