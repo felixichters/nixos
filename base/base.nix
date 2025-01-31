@@ -9,23 +9,8 @@
 		./performance.nix
 		./locales.nix
 		./system-extra.nix
+		./openssh.nix
+		./boot.nix
+		./gaming.nix
 	];
-	
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.efi.canTouchEfiVariables = true;	
-	
-	hardware.bluetooth.enable = true;
-	hardware.bluetooth.powerOnBoot = true;
-	services.blueman.enable = true;
-
-	programs.light.enable = true;
-	
-	programs.dconf.enable = true;
-	
-	programs.appimage.enable = true;	
-	
-	services.udisks2.enable = true;
-	
-	services.gvfs.enable = true;
-
 }
