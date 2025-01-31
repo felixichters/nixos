@@ -13,6 +13,7 @@
 			gcc
 			#clang
 			gdb
+			nasm
 		];
 	};
 }

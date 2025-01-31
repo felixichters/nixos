@@ -15,6 +15,7 @@
 		programs.swaylock.enable = true;
 		wayland.windowManager.sway = {
 			enable = true;
+			xwayland = true;
 			config = {
 				modifier = "Mod4";
 				terminal = "kitty";

@@ -9,10 +9,11 @@
 	config = lib.mkIf config.security.enable {
 		home.packages = with pkgs; [
 			openvpn
+			openconnect
 			nmap
 			masscan
 			hashcat
-			netcat
+			netcat-gnu
 			dsniff
 			arp-scan
 			tcpdump
