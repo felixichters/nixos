@@ -9,7 +9,7 @@ let
 	reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
 	exit = "exec swaynag -t warning -m 'exit sway?' -B 'yes' 'swaymsg exit'";
 	lock = "swaylock -c 000000"; 
-	editor = "foot nvim $(fzf --preview=\"cat {}\")";
+	#editor = "foot nvim $(fzf --preview=\"cat {}\")";
 in
 {
 
@@ -39,7 +39,7 @@ in
 			"${mod}+r" = "exec ${menu}";
 			
 			"${mod}+e" = "exec ${files}";
-			"${mod}+Shift+e" = "exec ${editor}";
+			#"${mod}+Shift+e" = "exec ${editor}";
 
 			"${mod}+s" = "exec ${power}";
 			
