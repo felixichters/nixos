@@ -22,6 +22,7 @@
 			sqlmap
 			ccrypt
 			prelink
+			metasploit
 		];
 		programs.gpg.enable = true;
 	};
