@@ -14,6 +14,7 @@
 			#clang
 			gdb
 			nasm
+			#rpi-imager
 		];
 	};
 }
