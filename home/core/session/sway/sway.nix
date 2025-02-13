@@ -36,34 +36,36 @@
 					names = ["Iosevka"];
 					size = 10.0;
 				};
+				output."*".bg = "#708090 solid_color";
 				bars = [{
-					position = "top";
-					statusCommand = "i3status";
-					trayOutput = "none";
-					fonts = {
-						names = ["Iosevka"];
-						size = 11.0;
-					};
-					colors = {
-						background = "#191919";
-						statusline = "#aaaaaa";
-						separator = "#7a7a7a";
-						focusedWorkspace = {
-							background = "#708090";
-							border = "708090";
-							text = "cccccc";
-						};
-						activeWorkspace = {
-							background = "#444444";
-							border = "#789978";
-							text = "aaaaaa";
-						};
-						inactiveWorkspace = {
-							background = "#2a2a2a";
-							border = "#191919";
-							text = "#7a7a7a";
-						};
-					};
+					#position = "top";
+					command = "${pkgs.waybar}/bin/waybar";
+					#statusCommand = "while ~/.dotfiles/home/core/session/sway/status.sh; do sleep 1; done";
+					#trayOutput="none";
+					#fonts = {
+					#	names = ["Iosevka"];
+					#	size = 11.0;
+					#};
+					#colors = {
+					#	background = "#191919";
+					#	statusline = "#aaaaaa";
+					#	separator = "#7a7a7a";
+					#	focusedWorkspace = {
+					#		background = "#708090";
+					#		border = "708090";
+					#		text = "cccccc";
+					#	};
+					#	activeWorkspace = {
+					#		background = "#444444";
+					#		border = "#789978";
+					#		text = "aaaaaa";
+					#	};
+					#	inactiveWorkspace = {
+					#		background = "#2a2a2a";
+					#		border = "#191919";
+					#		text = "#7a7a7a";
+					#	};
+					#};
 				}];
 				colors = {
 					background = "#101010";
@@ -71,8 +73,8 @@
 						border = "#708090";
 						background = "#708090";
 						text = "#cccccc";
-						indicator = "708090";
-						childBorder = "708090";
+						indicator = "#708090";
+						childBorder = "#708090";
 					};
 					focusedInactive = {
 						border = "#708090";
@@ -98,61 +100,61 @@
 				};
 			};
 		};
-		programs.i3status = {
-			enable = true;
-			enableDefault = false;
-			general = {
-				colors = true;
-				color_good = "#789978";
-				color_degraded = "#ff88aa";
-				color_bad = "#d70000";
-				interval = 5;
-			};
-			modules = {
-				"time" = {
-					position = 6;
-					settings = {
-						format = "%Y-%m-%d %H:%M";
-					};
-				};
-				"battery 0" = {
-					position = 5;
-					settings = {
-						format = "%status %percentage";
-						low_threshold = "30";
-					};
-				};
-				"wireless _first_" = {
-					position = 3;
-					settings = {
-						format_up = "(%bitrate %essid) %ip";
-						format_down = "down";
-					};
-				};
-				"volume master" = {
-    			position = 4;
-    			settings = {
-      			format = "VOL %volume";
-      			format_muted = "MUTE (%volume)";
-      			device = "default";
-    			};
-				};
-				"memory" = {
-					position = 1;
-					settings = {
-						format = "MEM %used / %total";
-						threshold_degraded = "10%";
-						threshold_critical = "5%";
-					};
-				};
-				"cpu_usage" = {
-					position = 2;
-					settings = {
-						format = "CPU %usage";
-						max_threshold = "75";
-					};
-				};
-			};
-		};
+		#programs.i3status = {
+		#	enable = true;
+		#	enableDefault = false;
+		#	general = {
+		#		colors = true;
+		#		color_good = "#789978";
+		#		color_degraded = "#ff88aa";
+		#		color_bad = "#d70000";
+		#		interval = 5;
+		#	};
+		#	modules = {
+		#		"time" = {
+		#			position = 6;
+		#			settings = {
+		#				format = "%Y-%m-%d %H:%M";
+		#			};
+		#		};
+		#		"battery 0" = {
+		#			position = 5;
+		#			settings = {
+		#				format = "%status %percentage";
+		#				low_threshold = "30";
+		#			};
+		#		};
+		#		"wireless _first_" = {
+		#			position = 3;
+		#			settings = {
+		#				format_up = "(%bitrate %essid) %ip";
+		#				format_down = "down";
+		#			};
+		#		};
+		#		"volume master" = {
+    #			position = 4;
+    #			settings = {
+    #  			format = "VOL %volume";
+    #  			format_muted = "MUTE (%volume)";
+    #  			device = "default";
+    #			};
+		#		};
+		#		"memory" = {
+		#			position = 1;
+		#			settings = {
+		#				format = "MEM %used / %total";
+		#				threshold_degraded = "10%";
+		#				threshold_critical = "5%";
+		#			};
+		#		};
+		#		"cpu_usage" = {
+		#			position = 2;
+		#			settings = {
+		#				format = "CPU %usage";
+		#				max_threshold = "75";
+		#			};
+		#		};
+		#	};
+		#};
 	};
 }

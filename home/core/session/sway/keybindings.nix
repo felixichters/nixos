@@ -2,14 +2,13 @@
 
 let
   mod = "Mod4";
-  term = "foot";
+  term = "kitty";
   menu = "tofi-run | xargs swaymsg exec --";
-  files = "foot ranger";
+  files = "kitty ranger";
 	power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
 	reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
 	exit = "exec swaynag -t warning -m 'exit sway?' -B 'yes' 'swaymsg exit'";
 	lock = "swaylock -c 000000"; 
-	#editor = "foot nvim $(fzf --preview=\"cat {}\")";
 in
 {
 
@@ -41,16 +40,16 @@ in
 			"${mod}+e" = "exec ${files}";
 			#"${mod}+Shift+e" = "exec ${editor}";
 
-			"${mod}+s" = "exec ${power}";
-			
-			"${mod}+p" = "exec ${reboot}";
+			"${mod}+s" = "exec systemctl suspend";
+			"${mod}+p" = "exec ${power}";
+			"${mod}+Shift+p" = "exec ${reboot}";
 			
 			"${mod}+Shift+q" = "exec ${exit}";
 			
 			"${mod}+minus" = "exec swaymsg move scratchpad";
 			"${mod}+plus" = "exec swaymsg scratchpad show";
 			
-			"${mod}+Shift+space" = "floating toggle";
+			"${mod}+space" = "floating toggle";
 			
 			"${mod}+f" = "fullscreen";
 

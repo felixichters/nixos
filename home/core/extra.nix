@@ -13,6 +13,7 @@
 		programs.fzf.enable = true;
 		programs.htop.enable = true;
 		programs.neovim.enable = true;
+		programs.jq.enable = true;
 		home.packages = with pkgs; [
 			cmatrix
 			zip
@@ -20,6 +21,7 @@
 			xdg-utils
 			p7zip
 			wget
+			usbutils
 		];
 	};
 }

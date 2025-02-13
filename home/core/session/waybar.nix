@@ -3,7 +3,7 @@
 
 	options.waybar.enable = lib.mkOption {
 		type = lib.types.bool;
-		default = false;
+		default = true;
 		description = "enable waybar";
 	};
 
@@ -14,27 +14,49 @@
 				mainBar = {
 					layer = "top";
 					position = "top";
-					#height = 5;
+					height = 27;
 					output = [
 						"eDP-1"
 						"HDMI-A-1"
 					];
-					modules-left = [ "hyprland/workspaces" ];
-					modules-center = [ "hyprland/window" ];
-					modules-right = [ "disk" "memory" "cpu" "backlight" "pulseaudio" "battery" "network" "clock" ];
-
-					"hyprland/window" = {
-						format = "{initialTitle}"; 
+					modules-left = [ "sway/workspaces" "custom/scratchpad"];
+					modules-right = [ "custom/ssh" "custom/vpn" "network" "memory" "cpu" "temperature" "pulseaudio" "backlight" "battery" "clock" ];
+					"custom/scratchpad" = {
+						interval = 3;
+						return-type = "json";
+						exec = "swaymsg -t get_tree | jq --unbuffered --compact-output '(recurse(.nodes[]) | select(.name == \"__i3_scratch\") | .focus) as $scratch_ids | [..  | (.nodes? + .floating_nodes?) // empty | .[] | select(.id |IN($scratch_ids[]))] as $scratch_nodes | if ($scratch_nodes|length) > 0 then { text: \"\\($scratch_nodes | length)\", tooltip: $scratch_nodes | map(\"\\(.app_id // .window_properties.class) (\\(.id)): \\(.name)\") | join(\"\\n\") } else empty end'";
+						format = "{}";
+						on-click = "exec swaymsg 'scratchpad show'";
+						on-click-right = "exec swaymsg 'move scratchpad'";
+					};
+					"custom/ssh" = {
+						format = "SSH";
+						exec = "echo SSH";
+						exec-if = "ss -t -p | grep -q 'ESTAB.*ssh'";
+						interval = 10;
+						tooltip = false;
+					};
+					"custom/pubip" = {
+						format = "PUB-IP {}";
+						#exec = "curl -4 -s --connect-timeout 5 https://ifconfig.me";
+						intervall = 50;
+						tooltip = false;
+					};
+					"custom/vpn" = {
+						format = "VPN";
+						exec = "echo '{\"class\": \"connected\"}'";
+						exec-if = "test -d /proc/sys/net/ipv4/conf/tun0";
+						return-type = "json";
+						interval = 5;
+						tooltip = false;
 					};
 					"cpu" = {
 						interval = 1;
-						format = "{icon}";
-						format-alt = "CPU {usage}%";
-						format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+						format = "CPU {usage}%";
 						tooltip = false;
 					};
 					"clock" = {
-						format-alt = "{:%Y/%m/%d}";
+						format-alt = "{:%Y/%d/%m}";
 						format = "{:%H:%M}";
 						tooltip = false;
 					};
@@ -44,100 +66,87 @@
 							warning = 30;
 							critical = 15;
 						};
-						format = "{icon}";
-						format-alt = "{capacity}%";
-						# "format-good" = ""; # An empty format will hide the module
-						# "format-full" = "";
-						format-icons = [ "" "" "" "" "" ];
+						format = "BAT {capacity}%";
 						tooltip = false;
 					};
 					"network" = {
-						# "interface" = "wlp2s0"; # (Optional) To force the use of this interface
-						format-wifi = "";
-						format-alt = "{essid} ({signalStrength}%)";
-						format-disconnected = "";
-						interval = 7;
-						tooltip = false;
+						format = "{ifname}";
+						format-wifi = "{essid} ({signalStrength}%) {ipaddr}";
+						tooltip-format-wifi = "{ifname}";
+						format-ethernet = "{ipaddr}";
+						tooltip-format-ethernet = "{ifname}";
+						format-disconnected = "down";
+						interval = 5;
+						tooltip = true;
 					};
 					"backlight" = {
-						format = "{icon}";
-						format-icons = ["" "" "" "" "" "" "" "" "" ""];
+						format = "BL {percent}%";
 						tooltip = false;
 					};  
 					"memory" = {
-						format = "{icon}";
-						format-alt= "RAM {}%";
-						format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+						format = "RAM {used} / {total}";
+						interval = 5;
 						tooltip = false;
 					};
 					"disk" = {
-						format = " ";
-						format-alt = "{used} / {total}";
+						format = "DISK {used} / {total}";
 						tooltip = false;
 					};
 					"pulseaudio" = {
-						format = "{icon}";
-						format-alt = "{volume}%";
-						format-bluetooth = "{volume}% {icon}";
-						format-muted = "";
-						format-icons = {
-							headphones = "";
-							default = ["" ""];
-						};
-						tooltip = false;
-						states = {
-
-						};
+						format = "VOL {volume}%";
+						tooltip-format = "{desc}" ;
 					};
-
+					"temperature" = {
+						format = "{temperatureC}°C";
+						tooltip = false;
+					};
 					"custom/power" = {
-						format = "";
-						on-click = "~/.config/rofi/powermenu/type-4/powermenu.sh";
+						format = "POWER";
+						on-click = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
 						tooltip = false; 
 					};
 				};
 			};
 			style = ''	
 				* {
-					font-family: "Fira Code";
-					font-size: 11px;
-					padding: 0;
-					margin: 0;
+					border-radius: 0;
+					font-family: "Iosevka";
+					font-size: 13px;
+					min-height: 0;
 				}
-				
+				tooltip {
+					background: #191919;
+					border: 1px solid #2a2a2a;
+				}
+				tooltip label {
+					color: #cccccc;
+				}
 				window#waybar {
 					background-color: #191919;
 				}
 				
-				#workspaces {
-					border-bottom: none ;
-				}
-
 				#workspaces button {
-					border-bottom: none;
-					color: #dddddd;
-					padding-left: 7px;
-					padding-right: 7px;
+					padding: 0 4px;
+					color: #7a7a7a;
 				}
-
-				#workspaces button.active {
-					border-bottom: none;
-					color: #deeeed;
-					border-radius: 0px;
-					background: #708090
-				}
-
-				#workspaces button.urgent {
-					border-bottom: none;
-					opacity: 1.;
-				}
-
-				#workspaces button:hover {	
-					background: #2a2a2a;
-					color: #deeeed;
-					border-radius: 0px;
-				}	
 				
+				#workspaces button.focused {
+					color: #deeeed;
+					background: #708090;
+				}
+				#workspaces button:hover {
+					color: #deeeed;
+					background: #444444;
+					box-shadow: none;
+					text-shadow: none;
+				}
+				
+				#custom-scratchpad {
+					padding: 0 14px;
+					color: #dddddd;
+					background: #2a2a2a;
+					border-top: 2px solid #708090;
+				}
 				#custom-power,
 				#battery,
 				#network,
@@ -146,10 +155,44 @@
 				#pulseaudio,
 				#cpu,
 				#memory,
-				#disk
+				#disk,
+				#temperature, 
+				#custom-vpn,
+				#custom-ssh
 				{
-					padding: 0 8px;
-					color: #cccccc;
+					padding: 0 5px;
+					color: #aaaaaa;
+					border-left: 3px solid #2a2a2a;
+				}
+				#custom-ssh {
+					color: #708090;
+				}
+				#custom-vpn {
+					color: #7788aa;
+				}
+				#pulseaudio.bluetooth {
+					color: #7788aa;
+				}
+				#pulseaudio.muted {
+					color: #ffaa88;
+				}
+				#network.disconnected, #network.disabled {
+					color: #d70000;
+				}
+				#network.wifi {
+					color: #789978;
+				}
+				#network.ethernet {
+					color: #708090;
+				}
+				#battery.critical {
+					color: #d70000;
+				}
+				#battery.charging {
+					color: #789978;
+				}
+				#temperature.critical {
+					color: #ffaa88;
 				}
 			'';  
 

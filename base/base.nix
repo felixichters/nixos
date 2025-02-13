@@ -5,7 +5,6 @@
 		./user.nix 
 		./networking.nix 
 		./sound.nix
-		./session.nix
 		./performance.nix
 		./locales.nix
 		./system-extra.nix
