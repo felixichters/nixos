@@ -54,7 +54,7 @@ in
 					print -P '%F{blue}%B%~%b%f ''${vcs_info_msg_0_}'
 				}
 				PROMPT='%(!.#.$) '
-				RPROMPT='%F{10}%m@%n%f'
+				RPROMPT='%F{8}%? %f%F{10}%m@%n%f'
 				source "$(fzf-share)/key-bindings.zsh"
 				source "$(fzf-share)/completion.zsh"
 			'';

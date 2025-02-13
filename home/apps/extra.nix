@@ -1,17 +1,18 @@
 {config,lib,pkgs,...}:
 
 {
-	options.app_pkgs.enable = lib.mkOption {
+	options.app_extra.enable = lib.mkOption {
 		type = lib.types.bool;
 		default = true;
-		description = "enable app packages";
+		description = "enable extra apps";
 	};
 
-	config = lib.mkIf config.app_pkgs.enable {
+	config = lib.mkIf config.app_extra.enable {
 		home.packages = with pkgs; [
 			spotify
 			discord
 			dolphin-emu 
+			anki
 		];
 	};
 }
