@@ -4,7 +4,7 @@
 		./vscode.nix
 		./firefox.nix
 		./mako.nix 
-		./pkgs.nix
+		./extra.nix
 		./chromium.nix
 	];
 }

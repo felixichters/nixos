@@ -7,8 +7,6 @@
 		ubuntu_font_family
 		(nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" "IosevkaTermSlab" ]; })
 	];
-	gtk.enable = true;
-	gtk.font.name = "Ubuntu";
 	fonts = { 
 			fontconfig = { 
 				enable = true;
