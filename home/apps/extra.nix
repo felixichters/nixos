@@ -11,8 +11,11 @@
 		home.packages = with pkgs; [
 			spotify
 			discord
-			dolphin-emu 
+			dolphin-emu
+			libreoffice-qt
+			wpsoffice
 			anki
+			grim
 		];
 	};
 }
