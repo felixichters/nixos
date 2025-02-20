@@ -9,7 +9,6 @@
 	config = lib.mkIf config.security.enable {
 		home.packages = with pkgs; [
 			keepassxc
-			bitwarden
 			openvpn
 			openconnect
 			networkmanagerapplet

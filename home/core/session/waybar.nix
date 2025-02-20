@@ -21,6 +21,7 @@
 					];
 					modules-left = [ "sway/workspaces" "custom/scratchpad"];
 					modules-right = [ "custom/ssh" "custom/vpn" "network" "memory" "cpu" "temperature" "pulseaudio" "backlight" "battery" "clock" ];
+					
 					"custom/scratchpad" = {
 						interval = 3;
 						return-type = "json";
@@ -139,6 +140,8 @@
 					background: #444444;
 					box-shadow: none;
 					text-shadow: none;
+					border: none;
+					transition: none;
 				}
 				
 				#custom-scratchpad {
@@ -165,10 +168,12 @@
 					border-left: 3px solid #2a2a2a;
 				}
 				#custom-ssh {
-					color: #708090;
+					color: #7788aa;
+					border-top: 2px solid #708090;
 				}
 				#custom-vpn {
 					color: #7788aa;
+					border-top: 2px solid #708090;
 				}
 				#pulseaudio.bluetooth {
 					color: #7788aa;

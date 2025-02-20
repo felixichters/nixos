@@ -3,7 +3,7 @@
 {
 	options.foot.enable = lib.mkOption {
 		type = lib.types.bool;
-		default = true;
+		default = false;
 		description = "enable foot";
 	};
 	config = lib.mkIf config.foot.enable {
