@@ -22,10 +22,8 @@
 			arp-scan
 			tcpdump
 			thc-hydra
-			john
 			sqlmap
 			ccrypt
-			prelink
 			metasploit
 			ettercap
 		];

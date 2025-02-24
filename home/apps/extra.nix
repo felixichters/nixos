@@ -12,10 +12,9 @@
 			spotify
 			discord
 			dolphin-emu
-			libreoffice-qt
-			wpsoffice
 			anki
-			grim
+			katago
+			gnugo
 		];
 	};
 }

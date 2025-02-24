@@ -16,9 +16,9 @@
 				DisablePocket = true;
 			};
 			profiles.navi = {
-				id = 0;	#default profile
+				id = 0;
 				search = {
-					force = true;	#overwrite existing search config
+					force = true;
 					default = "DuckDuckGo";
 					privateDefault = "DuckDuckGo";
 					engines = {
@@ -32,21 +32,22 @@
 									{ name = "query"; value = "{searchTerms}"; }
 								];
 							}];
-							icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
 							definedAliases = [ "@np" ];
 						};
 					};
 				};
 				settings = {
-					"browser.startup.page" = "0";
+					"browser.startup.page" = "2";
 					"browser.startup.homepage" = "about:blank";
 					"browser.newtabpage.enabled" = "false";
 					"browser.toolbars.bookmarks.visibility" = "true";
-					"browser.urlbar.suggest.engines" = "false";
 					"browser.urlbar.suggest.topsites" = "false";
 					"browser.tabs.hoverPreview.enabled" = "false";
-					"browser.download.useDir" = "false";
 					"browser.uidensity" = "1";
+					"browser.translations.automaticallyPopup" = "false";
+					"browser.translations.enable" = "false";
+					"browser.download.useDownloadDir" = "false";
+
 					"signon.rememberSignons" = "false";
 					"layout.spellcheckDefault" = "0";
 					
@@ -56,6 +57,7 @@
 					"geo.enabled" = "false";
 					"media.navigator.enabled" = "false";
 					"media.peerconnection.enabled" = "false";
+
 					"privacy.resistFingerprinting" = "true";
 					"privacy.trackingprotection.enabled" = "true";
 					"privacy.firstparty.isolate" = "true";

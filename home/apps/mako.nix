@@ -9,7 +9,7 @@
 	config = lib.mkIf config.mako.enable {
 		services.mako = { 
 			enable = true;
-			font = "Iosevka Nerd Font 10";
+			font = "IBM Plex Mono 10";
 			borderSize = 2;
 			borderRadius = 0;
 			ignoreTimeout = true;

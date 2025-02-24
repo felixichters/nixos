@@ -12,7 +12,6 @@
 		programs.feh.enable = true;
 		programs.fzf.enable = true;
 		programs.htop.enable = true;
-		programs.neovim.enable = true;
 		programs.jq.enable = true;
 		home.packages = with pkgs; [
 			cmatrix
@@ -22,6 +21,7 @@
 			p7zip
 			wget
 			usbutils
+			ripgrep
 		];
 	};
 }
