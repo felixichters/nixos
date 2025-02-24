@@ -111,8 +111,8 @@
 			style = ''	
 				* {
 					border-radius: 0;
-					font-family: "Iosevka";
-					font-size: 13px;
+					font-family: "IBM Plex Mono";
+					font-size: 12px;
 					min-height: 0;
 				}
 				tooltip {

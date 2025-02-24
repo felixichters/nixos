@@ -1,16 +1,17 @@
-{
 
+{
 	description = "nixos-config";
 
 	inputs = {
-		nixpkgs.url = "nixpkgs/nixos-24.11";
-		home-manager.url = "github:nix-community/home-manager/release-24.11";
-		home-manager.inputs.nixpkgs.follows = "nixpkgs";
-		nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
-		#nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+		nixpkgs.url = "nixpkgs/nixos-unstable";
+		home-manager = {
+			url = "github:nix-community/home-manager";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+		nixvim.url = "github:nix-community/nixvim";
 	};
 
-	outputs = { self, nixpkgs, home-manager, nixos-hardware, ...} @ inputs:
+	outputs = { self, nixpkgs, home-manager, nixvim, ...} @ inputs:
 		let 
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -21,20 +22,19 @@
 				inherit system;
 				specialArgs = { inherit inputs; };
 				modules = [
-				./configuration.nix
-				#nixos-hardware.nixosModules.lenovo-thinkpad-l13-yoga
+					./configuration.nix
 				];
 			};
 		};
-			homeConfigurations = {
+		homeConfigurations = {
 			navi = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
 				extraSpecialArgs = { inherit inputs; };
-						modules = [
-			./home.nix
-					];
+				modules = [
+					./home.nix
+					nixvim.homeManagerModules.nixvim
+				];
 			};
-			};
+		};
 	};
-
 }

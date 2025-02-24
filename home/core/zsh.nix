@@ -1,12 +1,9 @@
 { config, pkgs, lib,...}:
 let 
 	myAliases = {
-		ll = "ls -l --color=auto";
 		ls = "ls --color=auto";
-		la = "ls -l -A --color=auto";
 		uni = "sudo openconnect --protocol=anyconnect --useragent='AnyConnect'  vpn-ac.uni-heidelberg.de";
 		fvim = "nvim $(fzf --preview=\"cat {}\")";
-		op = "ss -tuln | awk '/LISTEN/ { split($5, a, \":\"); print a[length(a)] }'";
 	};
 in
 {
@@ -23,11 +20,6 @@ in
 			autosuggestion.enable = true;
 			syntaxHighlighting.enable = true;
 			shellAliases = myAliases;
-			#history.append = true;
-			#oh-my-zsh = {
-			#	enable = true;
-			#	plugins = [ "git" "copyfile" ];
-			#};
 			initExtra = ''
 				unsetopt BEEP
 				

@@ -1,5 +1,4 @@
 {config, lib, pkgs, ...}:
-
 {
 	options.sway.enable = lib.mkOption {
 		type = lib.types.bool;
@@ -33,7 +32,7 @@
 					};
 				};
 				fonts = {
-					names = ["Iosevka"];
+					names = ["IBM Plex Mono"];
 					size = 10.0;
 				};
 				output."*".bg = "#708090 solid_color";
