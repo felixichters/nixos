@@ -2,18 +2,15 @@
 
 {
 	home.packages = with pkgs; [
-		iosevka
-		noto-fonts
-		ubuntu_font_family
-		(nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" "IosevkaTermSlab" ]; })
+		ibm-plex
 	];
 	fonts = { 
 			fontconfig = { 
 				enable = true;
 				defaultFonts = {
-					serif = ["Noto Serif"];
-					sansSerif = ["Ubuntu" "Noto Sans"];
-					monospace = ["Iosevka Nerd Font"];
+					serif = ["IBM Plex Serif"];
+					sansSerif = ["IBM Plex Sans"];
+					monospace = ["IBM Plex Mono"];
 				};
 			};
 		};

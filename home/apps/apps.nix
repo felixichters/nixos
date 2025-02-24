@@ -5,6 +5,5 @@
 		./firefox.nix
 		./mako.nix 
 		./extra.nix
-		./chromium.nix
 	];
 }

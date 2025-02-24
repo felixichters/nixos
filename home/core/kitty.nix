@@ -11,8 +11,8 @@
 		programs.kitty = {
 			enable = true;
 			font = {
-				name = "IosevkaTerm Nerd Font";
-				size = 12;
+				name = "IBM Plex Mono";
+				size = 11;
 			};
 			settings = {
 				enable_audio_bell = false;
