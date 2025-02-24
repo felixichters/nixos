@@ -10,7 +10,7 @@
 		./extra.nix 
 		./tofi.nix
 		./zsh.nix
-		./nvim/nvim.nix
+		./nvim.nix
 		./ranger.nix
 	];
 }
