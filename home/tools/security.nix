@@ -11,21 +11,11 @@
 			keepassxc
 			openvpn
 			openconnect
-			networkmanagerapplet
 			networkmanager-openconnect
 			tor-browser
 			nmap
-			masscan
-			hashcat
 			netcat-gnu
-			dsniff
-			arp-scan
 			tcpdump
-			thc-hydra
-			sqlmap
-			ccrypt
-			metasploit
-			ettercap
 		];
 		programs.gpg.enable = true;
 	};

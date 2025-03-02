@@ -16,7 +16,7 @@
 				updatetime = 100;
 
 				number = true; 
-				cursorline = false;
+				cursorline = true;
 				cursorcolumn = false;
 				autoindent = true;
 				smartindent = true;
@@ -24,15 +24,18 @@
 				
 				swapfile = false;
 
-				tabstop = 4;
-				shiftwidth = 4;
+				tabstop = 2;
+				shiftwidth = 2;
 				expandtab = false;
 			};
 			plugins = { 
-				lualine.enable = true;
 				oil.enable = true;
 				telescope.enable = true;
 				web-devicons.enable = true;
+				autoclose.enable = true;
+				lualine = {
+					enable = true;
+				};
 				treesitter = {
 					enable = true;
 					settings = {
@@ -55,12 +58,12 @@
 					enable = true;
 					autoEnableSources = true;
 					settings = {
-            			sources = [
-              				{ name = "nvim_lsp"; }
-              				{ name = "luasnip"; }
-              				{ name = "buffer"; }
-              				{ name = "path"; }
-            			];
+        		sources = [
+							{ name = "nvim_lsp"; }
+							{ name = "luasnip"; }
+							{ name = "buffer"; }
+							{ name = "path"; }
+						];
 						mapping = {
 							"<CR>" = "cmp.mapping.confirm({ select = true })";
 							"<Down>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
@@ -130,7 +133,7 @@
 				vim.opt.list = true
 				vim.opt.listchars = { 
 					tab = ">-",
-					space = ".",
+					eol = "↴"
 				}
 			'';
 		};
