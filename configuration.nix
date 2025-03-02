@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-	imports = [ 
+	imports = [
 		./hardware-configuration.nix
 		./base/base.nix
 	];
