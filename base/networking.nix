@@ -1,7 +1,7 @@
-{ config, pkgs, lib, ... }:
+{hostname, ... }:
 
 {
-	networking.hostName = "l13y"; 
+	networking.hostName = hostname; 
 	networking.networkmanager.enable = true;
 	networking.firewall = { 
 		enable = true;
