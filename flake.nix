@@ -1,6 +1,5 @@
-
 {
-	description = "nixos-config";
+	description = "nixos/home-manager configuration";
 
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -12,24 +11,34 @@
 	};
 
 	outputs = { self, nixpkgs, home-manager, nixvim, ...} @ inputs:
-		let 
+		let
+			user = "navi";
+			hostname = "nixos";
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
 			pkgs = nixpkgs.legacyPackages.${system};
 		in {
 		nixosConfigurations = {
-			l13y = lib.nixosSystem {
+			hostname = lib.nixosSystem {
 				inherit system;
-				specialArgs = { inherit inputs; };
+				specialArgs = { 
+					inherit inputs;
+					inherit hostname;
+					inherit user;
+				};
 				modules = [
 					./configuration.nix
 				];
 			};
 		};
 		homeConfigurations = {
-			navi = home-manager.lib.homeManagerConfiguration {
+			user = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
-				extraSpecialArgs = { inherit inputs; };
+				extraSpecialArgs = { 
+					inherit inputs;
+					inherit hostname;
+					inherit user;
+				};
 				modules = [
 					./home.nix
 					nixvim.homeManagerModules.nixvim
