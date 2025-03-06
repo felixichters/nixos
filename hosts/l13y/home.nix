@@ -2,9 +2,9 @@
 
 {
   imports = [
-		./home/core/core.nix
-		./home/tools/tools.nix 
-		./home/apps/apps.nix
+		../../modules/home/core/core.nix
+		../../modules/home/tools/tools.nix 
+		../../modules/home/apps/apps.nix
 	];
 	
 	home.username = user;
