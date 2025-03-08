@@ -9,7 +9,6 @@
 		./locales.nix
 		./system-extra.nix
 		./openssh.nix
-		./boot.nix
 		./gaming.nix
 	];
 }
