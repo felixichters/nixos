@@ -1,9 +1,10 @@
-{ config, pkgs, lib,...}:
+{ config, host, lib,...}:
 let 
 	myAliases = {
-		ls = "ls --color=auto";
 		uni = "sudo openconnect --protocol=anyconnect --useragent='AnyConnect'  vpn-ac.uni-heidelberg.de";
 		fvim = "nvim $(fzf --preview=\"cat {}\")";
+		system-rebuild = "nixos-rebuild switch --flake ~/.dotfiles/hosts/${host}/";
+		home-rebuild = "home-manager switch --flake ~/.dotfiles/hosts/${host}/";
 	};
 in
 {

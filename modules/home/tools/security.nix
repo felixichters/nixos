@@ -12,6 +12,7 @@
 			openvpn
 			openconnect
 			networkmanager-openconnect
+			networkmanagerapplet
 			tor-browser
 			nmap
 			netcat-gnu
