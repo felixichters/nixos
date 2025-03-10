@@ -15,10 +15,7 @@
 					layer = "top";
 					position = "top";
 					height = 27;
-					output = [
-						"eDP-1"
-						"HDMI-A-1"
-					];
+					#output = [];
 					modules-left = [ "sway/workspaces" "custom/scratchpad"];
 					modules-right = [ "custom/ssh" "custom/vpn" "network" "memory" "cpu" "temperature" "pulseaudio" "backlight" "battery" "clock" ];
 					
