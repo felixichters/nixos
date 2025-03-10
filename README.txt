@@ -24,3 +24,4 @@
 		security - true
 -- system/ --
 		gaming - false
+		openssh - false

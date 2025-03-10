@@ -3,6 +3,7 @@
 {
 	home.packages = with pkgs; [
 		ibm-plex
+		#nerd-fonts.ibm-plex-mono
 	];
 	fonts = { 
 			fontconfig = { 

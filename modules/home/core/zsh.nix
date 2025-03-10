@@ -3,7 +3,7 @@ let
 	myAliases = {
 		uni = "sudo openconnect --protocol=anyconnect --useragent='AnyConnect'  vpn-ac.uni-heidelberg.de";
 		fvim = "nvim $(fzf --preview=\"cat {}\")";
-		system-rebuild = "nixos-rebuild switch --flake ~/.dotfiles/hosts/${host}/";
+		system-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles/hosts/${host}/";
 		home-rebuild = "home-manager switch --flake ~/.dotfiles/hosts/${host}/";
 	};
 in
