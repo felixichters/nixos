@@ -10,5 +10,6 @@
 		./system-extra.nix
 		./openssh.nix
 		./gaming.nix
+		./security.nix
 	];
 }

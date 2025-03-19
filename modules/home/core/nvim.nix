@@ -10,7 +10,6 @@
 		programs.nixvim = {
 			enable = true;
 			defaultEditor = true;
-			#colorschemes.everforest.enable = true;
 			clipboard.register = "unnamedplus";
 			opts = {
 				updatetime = 100;
@@ -35,6 +34,12 @@
 				autoclose.enable = true;
 				lualine = {
 					enable = true;
+					settings.sections = {
+						lualine_c = [ { 
+							__unkeyed-1 = "filename";
+							path = 3;
+						}];
+					};
 				};
 				treesitter = {
 					enable = true;

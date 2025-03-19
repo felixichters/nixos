@@ -10,8 +10,8 @@
 	config = lib.mkIf config.git.enable {
 		programs.git = {
 			enable = true;
-			userName  = "felix";
-			userEmail = "";
+			userName  = "Felix";
+			userEmail = "f.ichters@proton.me";
 			extraConfig = {
 				init.defaultBranch = "main";
 			};
