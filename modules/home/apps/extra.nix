@@ -13,8 +13,6 @@
 			discord
 			dolphin-emu
 			anki
-			katago
-			gnugo
 		];
 	};
 }
