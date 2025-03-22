@@ -21,6 +21,7 @@
 			wget
 			usbutils
 			ripgrep
+			exfatprogs
 		];
 	};
 }

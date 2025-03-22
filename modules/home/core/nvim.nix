@@ -63,7 +63,7 @@
 					enable = true;
 					autoEnableSources = true;
 					settings = {
-        		sources = [
+						sources = [
 							{ name = "nvim_lsp"; }
 							{ name = "luasnip"; }
 							{ name = "buffer"; }
@@ -81,10 +81,6 @@
 						};
 					};
 				};
-				cmp-nvim-lsp.enable = true; 
-				cmp-buffer.enable = true; 
-				cmp-path.enable = true;
-				luasnip.enable = true;
 			};
 			extraPlugins = [(pkgs.vimUtils.buildVimPlugin {
 				name = "lackluster";
