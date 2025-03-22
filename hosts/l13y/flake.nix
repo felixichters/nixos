@@ -13,7 +13,7 @@
 	outputs = { self, nixpkgs, home-manager, nixvim, ...} @ inputs:
 		let
 			user = "navi";
-			host = "nixos";
+			host = "l13y";
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
 			pkgs = nixpkgs.legacyPackages.${system};
