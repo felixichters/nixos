@@ -12,7 +12,7 @@
 			settings = {
 				main = {
 					term = "foot";
-					font = "IosevkaTerm Nerd Font:size=12";
+					font = "IBM Plex Mono:size=12";
 					pad = "10x8";
 					dpi-aware = "no";
 				};
