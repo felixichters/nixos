@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, theme, ... }:
 {
   options.nixvim.enable = lib.mkOption {
 		type = lib.types.bool;
@@ -11,6 +11,7 @@
 			enable = true;
 			defaultEditor = true;
 			clipboard.register = "unnamedplus";
+			colorschemes.catppuccin.enable = if theme.background == "#eff1f5" then true else false; 
 			opts = {
 				updatetime = 100;
 
@@ -130,7 +131,7 @@
 				}
 			];
 			extraConfigLua = ''
-				vim.cmd("colorscheme lackluster")
+				${if theme.background == "#101010" then "vim.cmd('colorscheme lackluster')" else ""}
 				vim.opt.list = true
 				vim.opt.listchars = { 
 					tab = ">-",
