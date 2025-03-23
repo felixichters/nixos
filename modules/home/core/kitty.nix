@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, theme, ... }:
 
 {
 	options.kitty.enable = lib.mkOption {
@@ -42,41 +42,31 @@
 			shellIntegration.mode = "no-cursor";
 			shellIntegration.enableZshIntegration = true;
 			extraConfig = ''
-				background #101010
-				foreground #cccccc
-				selection_background #cccccc
-				selection_foreground #101010
+				background ${theme.background}
+				foreground ${theme.foreground}
+				selection_background ${theme.selection_bg}
+				selection_foreground ${theme.selection_fg}
 				cursor none
-				url_color #aaaaaa
-				active_border_color #555555
-				inactive_border_color #2a2a2a
-				active_tab_background #101010
-				active_tab_foreground #cccccc
-				inactive_tab_background #2a2a2a
-				inactive_tab_foreground #aaaaaa
-				tab_bar_background #2a2a2a
-				wayland_titlebar_color #101010
-				macos_titlebar_color #101010
 
 				# normal
-				color0 #080808
-				color1 #d70000
-				color2 #789978
-				color3 #ffaa88
-				color4 #708090
-				color5 #789978
-				color6 #7788aa
-				color7 #dddddd
+				color0 ${theme.color00} 
+				color1 ${theme.color01}
+				color2 ${theme.color02}
+				color3 ${theme.color03}
+				color4 ${theme.color04}
+				color5 ${theme.color05}
+				color6 ${theme.color06}
+				color7 ${theme.color07}
 
 				# bright
-				color8 #555555
-				color9 #ffaa88
-				color10 #2a2a2a
-				color11 #444444
-				color12 #aaaaaa
-				color13 #dddddd
-				color14 #7788aa
-				color15 #deeeed
+				color8 ${theme.color08}
+				color9 ${theme.color09}
+				color10 ${theme.color10}
+				color11 ${theme.color11}
+				color12 ${theme.color12}
+				color13 ${theme.color13}
+				color14 ${theme.color14}
+				color15 ${theme.color15}
 			'';
 		};
 	};

@@ -1,4 +1,4 @@
-{config, lib, ...}:
+{config, lib, theme, ...}:
 {
 	options.tofi.enable = lib.mkOption {
 		type = lib.types.bool;
@@ -21,11 +21,9 @@
 				font = "monospace";
 				font-size = 15;
 				background-color = "#000A";
-				prompt-color = "#aaaaaa";
-				input-color = "#cccccc";
-				default-result-color = "#dddddd";
-				selection-color = "#789978";
-				placeholder-color ="#ffaa88";
+				text-color = theme.color15;
+				selection-color = theme.color04;
+				placeholder-color = theme.color01;
 			};
 		};
 	};
