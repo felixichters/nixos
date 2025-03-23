@@ -1,4 +1,4 @@
-{config, lib, pkgs, ...}:
+{config, lib, theme, ...}:
 {
 
 	options.waybar.enable = lib.mkOption {
@@ -17,7 +17,7 @@
 					height = 27;
 					#output = [];
 					modules-left = [ "sway/workspaces" "custom/scratchpad"];
-					modules-right = [ "custom/ssh" "custom/vpn" "network" "memory" "cpu" "temperature" "pulseaudio" "backlight" "battery" "clock" ];
+					modules-right = [ "custom/ssh" "custom/vpn" "network" "pulseaudio" "backlight" "battery" "clock" ];
 					
 					"custom/scratchpad" = {
 						interval = 3;
@@ -69,8 +69,8 @@
 					};
 					"network" = {
 						format = "{ifname}";
-						format-wifi = "{essid} ({signalStrength}%) {ipaddr}";
-						tooltip-format-wifi = "{ifname}";
+						format-wifi = "{essid}";
+						tooltip-format-wifi = "{ifname} ({signalStrength}%) {ipaddr}";
 						format-ethernet = "{ipaddr}";
 						tooltip-format-ethernet = "{ifname}";
 						format-disconnected = "down";
@@ -113,28 +113,28 @@
 					min-height: 0;
 				}
 				tooltip {
-					background: #191919;
-					border: 1px solid #2a2a2a;
+					background: ${theme.background_alt};
+					border: 1px solid ${theme.border_unfocused};
 				}
 				tooltip label {
-					color: #cccccc;
+					color: ${theme.foreground};
 				}
 				window#waybar {
-					background-color: #191919;
+					background-color: ${theme.background_alt};
 				}
 				
 				#workspaces button {
 					padding: 0 4px;
-					color: #7a7a7a;
+					color: ${theme.foreground};
 				}
 				
 				#workspaces button.focused {
-					color: #deeeed;
-					background: #708090;
+					color: ${theme.foreground};
+					background: ${theme.border_focused};
 				}
 				#workspaces button:hover {
-					color: #deeeed;
-					background: #444444;
+					color: ${theme.foreground};
+					background: ${theme.border_unfocused};
 					box-shadow: none;
 					text-shadow: none;
 					border: none;
@@ -143,9 +143,9 @@
 				
 				#custom-scratchpad {
 					padding: 0 14px;
-					color: #dddddd;
-					background: #2a2a2a;
-					border-top: 2px solid #708090;
+					color: ${theme.foreground};
+					background: ${theme.border_unfocused};
+					border-top: 2px solid ${theme.border_focused};
 				}
 				#custom-power,
 				#battery,
@@ -160,41 +160,40 @@
 				#custom-vpn,
 				#custom-ssh
 				{
-					padding: 0 5px;
-					color: #aaaaaa;
-					border-left: 3px solid #2a2a2a;
+					padding: 0 10px;
+					color: ${theme.foreground};
 				}
 				#custom-ssh {
-					color: #7788aa;
-					border-top: 2px solid #708090;
+					color: ${theme.color04};
+					border-top: 2px solid ${theme.color04};
 				}
 				#custom-vpn {
-					color: #7788aa;
-					border-top: 2px solid #708090;
+					color: ${theme.color04};
+					border-top: 2px solid ${theme.color04};
 				}
 				#pulseaudio.bluetooth {
-					color: #7788aa;
+					color: ${theme.color04};
 				}
 				#pulseaudio.muted {
 					color: #ffaa88;
 				}
 				#network.disconnected, #network.disabled {
-					color: #d70000;
+					color: ${theme.color01};
 				}
 				#network.wifi {
-					color: #789978;
+					color: ${theme.foreground};
 				}
 				#network.ethernet {
-					color: #708090;
+					color: ${theme.foreground};
 				}
 				#battery.critical {
-					color: #d70000;
+					color: ${theme.color01};
 				}
 				#battery.charging {
-					color: #789978;
+					color: ${theme.color02};
 				}
 				#temperature.critical {
-					color: #ffaa88;
+					color: ${theme.color01};
 				}
 			'';  
 
