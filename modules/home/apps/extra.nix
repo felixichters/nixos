@@ -13,8 +13,11 @@
 			discord
 			dolphin-emu
 			anki
-			katago
 			gnugo
+			(katago.override {
+				backend = "eigen";
+				enableAVX2 = true;
+			})
 		];
 	};
 }
