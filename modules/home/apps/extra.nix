@@ -14,10 +14,6 @@
 			dolphin-emu
 			anki
 			gnugo
-			(katago.override {
-				backend = "eigen";
-				enableAVX2 = true;
-			})
 		];
 	};
 }

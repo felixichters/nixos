@@ -1,4 +1,4 @@
-{ user,... }:
+{ user, pkgs, ... }:
 
 {
   imports = [
@@ -13,4 +13,8 @@
 	foot.enable = true;  
 	programs.home-manager.enable = true;
 	nixpkgs.config.allowUnfree = true;
+	
+	home.packages = with pkgs; [
+		katago
+	];
 }
