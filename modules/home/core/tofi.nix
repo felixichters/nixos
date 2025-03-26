@@ -21,9 +21,10 @@
 				font = "monospace";
 				font-size = 15;
 				background-color = "#000A";
-				text-color = theme.color15;
-				selection-color = theme.color04;
-				placeholder-color = theme.color01;
+				text-color = "#6c6f85";
+				selection-color = "#ccd0da";
+				input-color = "#eff1f5";
+				prompt-color = "#ccd0da";
 			};
 		};
 	};
