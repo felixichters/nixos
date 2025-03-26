@@ -25,7 +25,7 @@
 					selection_bg = "#cccccc";
 					selection_fg = "#101010";
 					border_focused = "#708090";
-					border_unfocused = "#2a2a2a";
+					border_unfocused = "#444444";
 					wallpaper = "#191919";
 					
 					color00 = "#080808";
@@ -51,8 +51,8 @@
 					foreground = "#4c4f69";
 					selection_bg = "#dc8a78";
 					selection_fg = "#eff1f5";
-					border_unfocused = "#dce0e8";
-					border_focused = "#bcc0cc";
+					border_unfocused = "#bcc0cc";
+					border_focused = "#6c6f85";
 					wallpaper = "#e6e9ef";
 
 					color00 = "#5c5f77";
@@ -73,7 +73,7 @@
 					color15 = "#bcc0cc";
 				};
 			};
-		theme = themes.light;
+		theme = themes.dark;
 		in {
 		nixosConfigurations = {
 			${host} = lib.nixosSystem {
