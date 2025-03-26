@@ -3,6 +3,7 @@
 {
 	home.packages = with pkgs; [
 		ibm-plex
+		nerd-fonts.fira-code
 		#nerd-fonts.ibm-plex-mono
 	];
 	fonts = { 
@@ -11,7 +12,7 @@
 				defaultFonts = {
 					serif = ["IBM Plex Serif"];
 					sansSerif = ["IBM Plex Sans"];
-					monospace = ["IBM Plex Mono"];
+					monospace = ["FiraCode Nerd Font"];
 				};
 			};
 		};
