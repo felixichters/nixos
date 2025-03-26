@@ -18,5 +18,5 @@
 		xkb.layout = "de";
 		xkb.variant = "";
 	};
-	console.keyMap = "de";
+		console.keyMap = "de";
 }

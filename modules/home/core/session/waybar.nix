@@ -100,7 +100,7 @@
 						tooltip = false;
 					};
 					"pulseaudio" = {
-						format = " ";
+						format = "";
 						format-bluetooth = "";
 						format-muted = "";
 						tooltip-format = "{desc} {volume}%" ;
@@ -136,7 +136,7 @@
 				
 				#workspaces button {
 					padding: 0 4px;
-					color: ${theme.border_focused};
+					color: ${theme.border_unfocused};
 				}
 				#workspaces button.focused {
 					color: ${theme.foreground}
@@ -144,6 +144,7 @@
 				
 				#workspaces button:hover {
 					color: ${theme.foreground};
+					background: none;
 					box-shadow: none;
 					text-shadow: none;
 					border: none;
@@ -168,7 +169,7 @@
 				#custom-vpn,
 				#custom-ssh
 				{
-					padding: 0 10px;
+					padding: 0 15px;
 					color: ${theme.foreground};
 				}
 				#custom-ssh {
@@ -183,7 +184,7 @@
 					color: ${theme.color04};
 				}
 				#pulseaudio.muted {
-					color: #ffaa88;
+					color: ${theme.color01};
 				}
 				#network.disconnected, #network.disabled {
 					color: ${theme.color01};
