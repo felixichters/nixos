@@ -1,4 +1,4 @@
-{ user,... }:
+{ user, pkgs, ... }:
 
 {
   imports = [
@@ -13,4 +13,10 @@
   
 	programs.home-manager.enable = true;
 	nixpkgs.config.allowUnfree = true;
+	home.packages = with pkgs; [
+		(katago.override {
+			backend = "eigen";
+			enableAVX2 = true;
+		})
+	];
 }
