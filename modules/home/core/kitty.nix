@@ -11,7 +11,7 @@
 		programs.kitty = {
 			enable = true;
 			font = {
-				name = "IBM Plex Mono";
+				name = "FiraCode Nerd Font";
 				size = 11;
 			};
 			settings = {

@@ -15,9 +15,9 @@
 					layer = "top";
 					position = "top";
 					height = 27;
-					#output = [];
 					modules-left = [ "sway/workspaces" "custom/scratchpad"];
-					modules-right = [ "custom/ssh" "custom/vpn" "network" "pulseaudio" "backlight" "battery" "clock" ];
+					modules-center = ["clock"];
+					modules-right = [ "custom/ssh" "custom/vpn" "network" "pulseaudio" "backlight" "battery" ];
 					
 					"custom/scratchpad" = {
 						interval = 3;
@@ -27,6 +27,13 @@
 						on-click = "exec swaymsg 'scratchpad show'";
 						on-click-right = "exec swaymsg 'move scratchpad'";
 					};
+					#"sway/workspaces" = {
+					#	format = "{icon}";
+					#	format-icons = {
+					#		default = "";
+					#		focused = "";
+					#	};
+					#};
 					"custom/ssh" = {
 						format = "SSH";
 						exec = "echo SSH";
@@ -64,13 +71,14 @@
 							warning = 30;
 							critical = 15;
 						};
-						format = "BAT {capacity}%";
-						tooltip = false;
+						format = "";
+						tooltip-format = "{capacity}%";
+						tooltip = true;
 					};
 					"network" = {
 						format = "{ifname}";
-						format-wifi = "{essid}";
-						tooltip-format-wifi = "{ifname} ({signalStrength}%) {ipaddr}";
+						format-wifi = "";
+						tooltip-format-wifi = "{ifname} {essid} ({signalStrength}%) {ipaddr}";
 						format-ethernet = "{ipaddr}";
 						tooltip-format-ethernet = "{ifname}";
 						format-disconnected = "down";
@@ -78,8 +86,9 @@
 						tooltip = true;
 					};
 					"backlight" = {
-						format = "BL {percent}%";
-						tooltip = false;
+						format = "";
+						tooltip-format = "{percent}%";
+						tooltip = true;
 					};  
 					"memory" = {
 						format = "RAM {used} / {total}";
@@ -91,8 +100,10 @@
 						tooltip = false;
 					};
 					"pulseaudio" = {
-						format = "VOL {volume}%";
-						tooltip-format = "{desc}" ;
+						format = " ";
+						format-bluetooth = "";
+						format-muted = "";
+						tooltip-format = "{desc} {volume}%" ;
 					};
 					"temperature" = {
 						format = "{temperatureC}°C";
@@ -108,7 +119,7 @@
 			style = ''	
 				* {
 					border-radius: 0;
-					font-family: "IBM Plex Mono";
+					font-family: "FiraCode Nerd Font";
 					font-size: 12px;
 					min-height: 0;
 				}
@@ -125,16 +136,14 @@
 				
 				#workspaces button {
 					padding: 0 4px;
-					color: ${theme.foreground};
+					color: ${theme.border_focused};
+				}
+				#workspaces button.focused {
+					color: ${theme.foreground}
 				}
 				
-				#workspaces button.focused {
-					color: ${theme.foreground};
-					background: ${theme.border_focused};
-				}
 				#workspaces button:hover {
 					color: ${theme.foreground};
-					background: ${theme.border_unfocused};
 					box-shadow: none;
 					text-shadow: none;
 					border: none;
@@ -144,8 +153,7 @@
 				#custom-scratchpad {
 					padding: 0 14px;
 					color: ${theme.foreground};
-					background: ${theme.border_unfocused};
-					border-top: 2px solid ${theme.border_focused};
+					border-bottom: 2px solid ${theme.border_focused};
 				}
 				#custom-power,
 				#battery,

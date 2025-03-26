@@ -34,7 +34,7 @@
 					};
 				};
 				fonts = {
-					names = ["IBM Plex Mono"];
+					names = ["FiraCode Nerd Font"];
 					size = 10.0;
 				};
 				output."*".bg = "${theme.wallpaper} solid_color";
