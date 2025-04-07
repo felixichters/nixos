@@ -3,7 +3,7 @@
 let
   mod = "Mod4";
   term = "kitty";
-  menu = "tofi-run | xargs swaymsg exec --";
+  menu = "tofi-drun | xargs swaymsg exec --";
   files = "kitty ranger";
 	power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
 	reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
@@ -40,7 +40,7 @@ in
 			"${mod}+e" = "exec ${files}";
 			#"${mod}+Shift+e" = "exec ${editor}";
 
-			"${mod}+s" = "exec systemctl suspend";
+			"${mod}+Shift+s" = "exec systemctl suspend";
 			"${mod}+p" = "exec ${power}";
 			"${mod}+Shift+p" = "exec ${reboot}";
 			
