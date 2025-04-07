@@ -23,4 +23,14 @@
 	programs.virt-manager.enable = true;
 	virtualisation.libvirtd.enable = true;
 	virtualisation.spiceUSBRedirection.enable = true;
+
+	programs.nix-ld = { 
+		enable = true;
+		libraries = with pkgs; [
+			libGL
+			xorg.libX11
+			libpng
+			stdenv.cc.cc.lib
+		];
+	};
 }
