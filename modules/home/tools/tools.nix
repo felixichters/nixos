@@ -2,7 +2,7 @@
 
 {
 	imports = [
-		./dev.nix
+		./extra.nix
 		./security.nix
 	];
 }
