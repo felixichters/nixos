@@ -73,7 +73,7 @@
 					color15 = "#bcc0cc";
 				};
 			};
-		theme = themes.dark;
+		theme = themes.light;
 		in {
 		nixosConfigurations = {
 			${host} = lib.nixosSystem {
