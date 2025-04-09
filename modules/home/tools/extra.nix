@@ -7,7 +7,7 @@
 		description = "enable extra tools";
 	};
 
-	config = lib.mkIf config.dev.enable {
+	config = lib.mkIf config.extra.enable {
 		home.packages = with pkgs; [
 			python3
 			gcc
@@ -15,7 +15,6 @@
 			gdb
 			nasm
 			#rpi-imager
-			wineWowPackages.waylandFull
 		];
 	};
 }
