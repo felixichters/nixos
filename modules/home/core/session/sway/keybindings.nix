@@ -40,7 +40,7 @@ in
 			"${mod}+e" = "exec ${files}";
 			#"${mod}+Shift+e" = "exec ${editor}";
 
-			"${mod}+s" = "exec systemctl suspend";
+			"${mod}+Shift+s" = "exec systemctl suspend";
 			"${mod}+p" = "exec ${power}";
 			"${mod}+Shift+p" = "exec ${reboot}";
 			
