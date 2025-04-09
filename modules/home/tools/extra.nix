@@ -1,13 +1,13 @@
 {config,lib,pkgs,...}:
 
 {
-	options.dev.enable = lib.mkOption {
+	options.extra.enable = lib.mkOption {
 		type = lib.types.bool;
 		default = true;
-		description = "enable development tools";
+		description = "enable extra tools";
 	};
 
-	config = lib.mkIf config.dev.enable {
+	config = lib.mkIf config.extra.enable {
 		home.packages = with pkgs; [
 			python3
 			gcc
