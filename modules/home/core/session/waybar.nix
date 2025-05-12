@@ -102,7 +102,7 @@
 					"pulseaudio" = {
 						format = "";
 						format-bluetooth = "";
-						format-muted = "";
+						format-muted = "";
 						tooltip-format = "{desc} {volume}%" ;
 					};
 					"temperature" = {
