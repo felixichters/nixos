@@ -14,6 +14,9 @@
 			dolphin-emu
 			anki
 			gnugo
+			snes9x
+			bsnes-hd
+			pcsx2
 		];
 	};
 }
