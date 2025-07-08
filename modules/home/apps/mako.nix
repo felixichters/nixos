@@ -10,7 +10,7 @@
 		services.mako = { 
 			enable = true;
 			settings = {
-				font = "IBM Plex Mono 10";
+				font = "FiraCode Nerd Font";
 				borderSize = 2;
 				borderRadius = 0;
 				ignoreTimeout = true;

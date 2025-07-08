@@ -3,7 +3,7 @@
 let
   mod = "Mod4";
   term = "kitty";
-  menu = "tofi-drun | xargs swaymsg exec --";
+  menu = "tofi-run | xargs -r swaymsg exec --";
   files = "kitty ranger";
 	power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
 	reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
