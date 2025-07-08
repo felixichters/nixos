@@ -21,7 +21,7 @@ in
 			autosuggestion.enable = true;
 			syntaxHighlighting.enable = true;
 			shellAliases = myAliases;
-			initExtra = ''
+			initContent = ''
 				unsetopt BEEP
 				
 				autoload -Uz vcs_info
