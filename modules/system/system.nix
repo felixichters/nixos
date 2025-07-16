@@ -11,5 +11,6 @@
 		./openssh.nix
 		./gaming.nix
 		./security.nix
+		./boot.nix
 	];
 }
