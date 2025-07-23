@@ -5,6 +5,7 @@
 		../../modules/home/core/core.nix
 		../../modules/home/tools/tools.nix 
 		../../modules/home/apps/apps.nix
+		./extra.nix
 	];
 	
 	home.username = user;
@@ -13,8 +14,4 @@
 	foot.enable = true;  
 	programs.home-manager.enable = true;
 	nixpkgs.config.allowUnfree = true;
-	
-	home.packages = with pkgs; [
-		katago
-	];
 }
