@@ -132,6 +132,7 @@
 				}
 				window#waybar {
 					background-color: ${theme.background_alt};
+						
 				}
 				
 				#workspaces button {

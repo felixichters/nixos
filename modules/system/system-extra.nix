@@ -19,10 +19,12 @@
 	programs.wireshark.enable = true;
 	
 	virtualisation.docker.enable = true;
-
 	programs.virt-manager.enable = true;
 	virtualisation.libvirtd.enable = true;
 	virtualisation.spiceUSBRedirection.enable = true;
+	
+	environment.systemPackages = with pkgs; [
+	];
 
 	programs.nix-ld = { 
 		enable = true;
