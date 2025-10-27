@@ -11,13 +11,13 @@
 			enable = true;
 			settings = {
 				font = "FiraCode Nerd Font";
-				borderSize = 2;
-				borderRadius = 0;
-				ignoreTimeout = true;
-				defaultTimeout = 3000;
-				borderColor = "#2a2a2a";
-				textColor = "#cccccc";
-				backgroundColor = "#191919";
+				border-size = 2;
+				border-radius = 0;
+				ignore-timeout = true;
+				default-timeout = 3000;
+				border-color = "#2a2a2a";
+				text-color = "#cccccc";
+				background-color = "#191919";
 			};
 		};
 	};
