@@ -4,6 +4,7 @@
 	imports = [
 		./hardware-configuration.nix
 		./boot.nix
+		./performance.nix
 		../../modules/system/system.nix
 	];
 	gaming.enable = true;
