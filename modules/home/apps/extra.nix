@@ -15,8 +15,8 @@
 			anki
 			gnugo
 			pcsx2
-			winetricks			
-			wineWowPackages.stable
+			xournalpp
+			libreoffice
 		];
 	};
 }
