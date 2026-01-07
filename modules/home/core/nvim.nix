@@ -44,11 +44,9 @@
 				};
 				treesitter = {
 					enable = true;
-					settings = {
-						#indent = true;
-						highlight.enable = true;
-						auto_install = true;
-					};
+					#indent = true;
+					highlight.enable = true;
+					auto_install = true;
 				};
 				lsp = {
 					enable = true;
