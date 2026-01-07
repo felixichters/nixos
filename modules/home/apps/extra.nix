@@ -16,6 +16,7 @@
 			gnugo
 			pcsx2
 			xournalpp
+			libreoffice
 		];
 	};
 }

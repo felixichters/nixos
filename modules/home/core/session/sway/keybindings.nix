@@ -3,7 +3,7 @@
 let
   mod = "Mod4";
   term = "kitty";
-  menu = "tofi-run | xargs -r swaymsg exec --";
+  menu = "tofi-drun | xargs -r swaymsg exec --";
   files = "kitty ranger";
 	power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
 	reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
@@ -22,8 +22,8 @@ in
 			XF86AudioLowerVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
 			"${mod}+Shift+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
 			
-			XF86MonBrightnessUp = "exec light -A 10";
-			XF86MonBrightnessDown = "exec light -U 10";
+			XF86MonBrightnessUp = "exec light -A 1";
+			XF86MonBrightnessDown = "exec light -U 1";
 			"${mod}+o" = "exec light -A 10";
 			"${mod}+i" = "exec light -U 10";
 
