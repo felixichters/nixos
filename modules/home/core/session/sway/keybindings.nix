@@ -1,10 +1,10 @@
 {config, lib, pkgs, ...}:
 
 let
-  mod = "Mod4";
-  term = "kitty";
-  menu = "tofi-drun | xargs -r swaymsg exec --";
-  files = "kitty ranger";
+	mod = "Mod4";
+	term = "kitty";
+	menu = "tofi-drun | xargs -r swaymsg exec --";
+	files = "kitty ranger";
 	power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
 	reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
 	exit = "exec swaynag -t warning -m 'exit sway?' -B 'yes' 'swaymsg exit'";
@@ -62,10 +62,10 @@ in
 			"${mod}+Up" = "focus up";
 			"${mod}+Right" = "focus right"; 
 
-			#"${mod}+Tab" = "focus right";
-			#"${mod}+Shift+Tab" = "focus left";
-			"${mod}+Tab"= "workspace next_on_output";
-			"${mod}+Shift+Tab"= "workspace prev_on_output";
+			"${mod}+Tab" = "focus next";
+			"${mod}+Shift+Tab" = "focus prev";
+			#"${mod}+Tab"= "workspace next_on_output";
+			#"${mod}+Shift+Tab"= "workspace prev_on_output";
 			
 			"${mod}+Shift+Left" = "move left";
 			"${mod}+Shift+Down" = "move down";
