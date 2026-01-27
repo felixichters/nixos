@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }:
 {
+	boot.kernelPackages = pkgs.linuxPackages;
 	hardware.graphics.enable = true;
 	nixpkgs.config.nvidia.acceptLicense = true;
 	services.xserver.videoDrivers = ["nvidia"];
@@ -9,6 +10,6 @@
 		powerManagement.finegrained = false;
 		open = false;
 		nvidiaSettings = true;
-		package = config.boot.kernelPackages.nvidiaPackages.latest;
+		package = config.boot.kernelPackages.nvidiaPackages.stable;
 	};
 }
