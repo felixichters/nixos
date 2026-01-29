@@ -62,8 +62,8 @@ in
 			"${mod}+Up" = "focus up";
 			"${mod}+Right" = "focus right"; 
 
-			"${mod}+Tab" = "focus next";
-			"${mod}+Shift+Tab" = "focus prev";
+			"${mod}+Tab" = "focus mode_toggle; focus next";
+			"${mod}+Shift+Tab" = "focus mode_toggle; focus prev";
 			#"${mod}+Tab"= "workspace next_on_output";
 			#"${mod}+Shift+Tab"= "workspace prev_on_output";
 			

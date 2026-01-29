@@ -18,8 +18,16 @@
 			config = {
 				modifier = "Mod4";
 				terminal = "kitty";
-				window.titlebar = false;
-				window.border = 2;
+				window = {
+					titlebar = false;
+					border = 2;
+					commands = [
+						{
+							criteria = { app_id = "org.keepassxc.KeePassXC"; };
+							command = "floating enable, move position center";
+						}
+					];
+				};
 				gaps = {
 					inner = 10;
 					smartBorders = "on";
