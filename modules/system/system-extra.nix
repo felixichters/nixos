@@ -3,7 +3,7 @@
 {
 	security.pam.services.swaylock = {};
 	security.polkit.enable = true;
-
+	services.udisks2.enable = true;
 	programs.light.enable = true;	
 
 	programs = {
