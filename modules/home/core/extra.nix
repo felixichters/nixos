@@ -6,6 +6,7 @@
 		description = "enable core extras";
 	};
 	config = lib.mkIf config.core_extra.enable {
+		services.playerctld.enable = true;
 		services.udiskie.enable = true;
 		programs.zathura.enable = true; 
 		programs.feh.enable = true;
