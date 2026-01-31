@@ -15,9 +15,9 @@
 					layer = "top";
 					position = "top";
 					height = 27;
-					modules-left = [ "sway/workspaces" "custom/scratchpad"];
+					modules-left = [ "sway/workspaces" "custom/scratchpad" "mpris"];
 					modules-center = ["clock"];
-					modules-right = [ "custom/ssh" "custom/vpn" "network" "pulseaudio" "backlight" "battery" ];
+					modules-right = ["custom/ssh" "custom/vpn" "network" "pulseaudio" "backlight" "battery" ];
 					
 					"custom/scratchpad" = {
 						interval = 3;
@@ -114,6 +114,20 @@
 						on-click = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
 						tooltip = false; 
 					};
+					"mpris" = {
+						format = "{status_icon}  {artist} - {title}";
+						status-icons = {
+							paused = "";
+							playing = "";
+							stopped = "";
+						};
+						#player-icons = {
+						#	default = "";
+						#	spotify = "";
+						#};
+						ignored-players = ["firefox"];
+						tooltip-format = "{player} ({status}): {artist} - {title} - ({album}) [{length}]";
+					};
 				};
 			};
 			style = ''	
@@ -168,7 +182,8 @@
 				#disk,
 				#temperature, 
 				#custom-vpn,
-				#custom-ssh
+				#custom-ssh,
+				#mpris
 				{
 					padding: 0 15px;
 					color: ${theme.foreground};
