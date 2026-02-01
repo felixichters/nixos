@@ -13,6 +13,7 @@
 		programs.fzf.enable = true;
 		programs.htop.enable = true;
 		programs.jq.enable = true;
+		programs.tmux.enable = true;
 		home.packages = with pkgs; [
 			wl-clipboard
 			cmatrix
