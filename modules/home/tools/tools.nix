@@ -4,5 +4,6 @@
 	imports = [
 		./extra.nix
 		./security.nix
+		./ai.nix
 	];
 }
