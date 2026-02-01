@@ -19,14 +19,16 @@
 				cursorline = true;
 				cursorcolumn = false;
 				autoindent = true;
-				smartindent = true;
+				smartindent = false;
 				spell = false;
 				
 				swapfile = false;
 
 				tabstop = 4;
+				softtabstop = 4;
 				shiftwidth = 4;
-				expandtab = false;
+				expandtab = true;
+				smarttab = true;
 			};
 			plugins = { 
 				oil.enable = true;
@@ -44,7 +46,7 @@
 				};
 				treesitter = {
 					enable = true;
-					#indent = true;
+					#indent = false;
 					highlight.enable = true;
 					auto_install = true;
 				};
@@ -133,6 +135,7 @@
 				vim.opt.list = true
 				vim.opt.listchars = { 
 					tab = ">-",
+					lead = ".",
 				}
 			'';
 		};
