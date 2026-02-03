@@ -11,21 +11,21 @@
         
         programs.vscode = {
             enable = true;
+            package = pkgs.vscodium;
             profiles = {
                 default = {
                     extensions = with pkgs.vscode-extensions; [
+                        ms-python.python
+                        llvm-vs-code-extensions.vscode-clangd
+                        jnoortheen.nix-ide
+                        ms-toolsai.jupyter
                     ];
                     userSettings = {
-                        "telemetry.telemetryLevel" = "off";
-                        #"editor.fontFamily" = "JetBrains Mono Nerd Font";
-                        #"editor.fontSize" = 13;
-                        #"editor.fontLigatures" = true;
-                        #"editor.tabSize" = 4;
-                        #"window.menuBarVisibility" = "toggle";
-                        #"workbench.colorTheme" = lib.mkForce "Solarized Dark";
-                        #"workbench.colorTheme" = lib.mkForce "Catppuccin Latte";
-                        #"workbench.iconTheme" = "vscode-great-icons";
-                        #"catppuccin.accentColor" = "blue"; 
+                        "editor.fontFamily" = "FiraCode Nerd Font";
+                        "editor.fontLigatures" = "true";
+                        "terminal.integrated.defaultProfile.linux" = "zsh";
+                        #"files.autoSave" = "off";
+                        #"editor.formatOnSave" = "true";
                     };
                 };
             };
