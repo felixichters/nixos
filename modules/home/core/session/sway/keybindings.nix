@@ -3,7 +3,7 @@
 let
 	mod = "Mod4";
 	term = "kitty";
-	menu = "tofi-drun | xargs -r swaymsg exec --";
+	menu = "tofi-run | xargs -r swaymsg exec --";
 	files = "kitty ranger";
 	power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
 	reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
@@ -64,7 +64,6 @@ in
 
 			"${mod}+Tab" = "focus mode_toggle; focus next";
 			"${mod}+Shift+Tab" = "focus mode_toggle; focus prev";
-			#"${mod}+Tab"= "workspace next_on_output";
 			#"${mod}+Shift+Tab"= "workspace prev_on_output";
 			
 			"${mod}+Shift+Left" = "move left";
