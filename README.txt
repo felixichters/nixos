@@ -1,27 +1,11 @@
--- home/apps --
-	app_extra - true
-	firefox - true 
-	mako - true
-	vscode - false
--- home/core --
-	extra - true 
-	font - true
-	foot - false
-	git - true
-	kitty - true
-	nvim - true
-	ranger - true
-	tofi - true
-	zsh - true
-	-- /session/hyprland/ --
-		hyprland - true
-	-- /session/sway/ -- 
-		sway - true
-	-- /session/ --
-		waybar - true
--- home/tools/ --
-    dev - true 
-		security - true
--- system/ --
-		gaming - false
-		openssh - false
+-- Update -- 
+
+nix flake update
+sudo nixos-rebuild switch --flake . (alias: system-rebuild)
+home-manager switch --flake . (alias: home-rebuild)
+
+-- Cleanup --
+
+sudo nix-collect-garbage -d
+nix-collect-garbage -d
+( sudo nix-store --gc )
