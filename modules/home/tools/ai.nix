@@ -14,6 +14,7 @@
         programs.aider-chat = {
             enable = true;
             settings = {
+                dark-mode = true;
             };
         };
         home.packages = with pkgs; [
