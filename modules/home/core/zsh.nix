@@ -49,7 +49,7 @@ in
                 nix_prompt_prefix() {
                     [[ -n "$IN_NIX_SHELL" ]] && echo "[nix] "
                 }
-                PROMPT='$(nix_prompt_prefix)%(!.#.$) '
+                PROMPT='%F{green}$(nix_prompt_prefix)%f%(!.#.$) '
                 #RPROMPT='%F{8}%? %f%F{10}%m@%n%f'
                 source "$(fzf-share)/key-bindings.zsh"
                 source "$(fzf-share)/completion.zsh"
