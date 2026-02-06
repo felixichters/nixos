@@ -22,11 +22,23 @@
                     ];
                     userSettings = {
                         "editor.fontFamily" = "FiraCode Nerd Font";
-                        "editor.fontLigatures" = "true";
+                        "editor.fontLigatures" = true;
                         "terminal.integrated.defaultProfile.linux" = "zsh";
+                        "files.simpleDialog.enable"=  true;
                         #"files.autoSave" = "off";
                         #"editor.formatOnSave" = "true";
                     };
+                    keybindings = [
+                        {
+                            key = "ctrl+enter ctrl+enter";
+                            command = "workbench.action.terminal.toggleTerminal";
+                            when = "editorTextFocus || terminalFocus";
+                        }
+                        #{
+                            #key = "ctrl+enter+a";
+                            #command = "workbench.action.terminal.new";
+                        #}
+                    ];
                 };
             };
         };
