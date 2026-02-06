@@ -7,10 +7,10 @@
         description = "enable ai/llm tools";
     };
     config = lib.mkIf config.ai.enable {
-        services.ollama = {
-            enable = true;
+        #services.ollama = {
+        #    enable = true;
             #acceleration = "cuda";
-        };
+        #};
         programs.aider-chat = {
             enable = true;
             settings = {
