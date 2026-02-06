@@ -19,6 +19,6 @@
 			mangohud
 		];
 		programs.gamemode.enable = true;
-		services.logmein-hamachi.enable = true;
+		#services.logmein-hamachi.enable = true;
 	};
 }
