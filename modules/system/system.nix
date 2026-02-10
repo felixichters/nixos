@@ -11,5 +11,6 @@
 		./gaming.nix
 		./security.nix
 		./filesystems.nix
+		./ai.nix
 	];
 }
