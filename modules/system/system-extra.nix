@@ -11,7 +11,7 @@
 			enable = true;
 			binfmt = true;
 			package = pkgs.appimage-run.override {
-				extraPkgs = pkgs: [ pkgs.xorg.libxshmfence ];
+				extraPkgs = pkgs: [ pkgs.libxshmfence ];
 			};
 		};
 	};
@@ -29,7 +29,7 @@
 		enable = true;
 		libraries = with pkgs; [
 			libGL
-			xorg.libX11
+			libX11
 			libpng
 			stdenv.cc.cc.lib
 		];
