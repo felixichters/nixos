@@ -1,8 +1,6 @@
 {pkgs, ...}:
 
 {
-	security.pam.services.swaylock = {};
-	security.polkit.enable = true;
 	services.udisks2.enable = true;
 	programs.light.enable = true;	
 	hardware.graphics.enable = true;	
@@ -16,7 +14,6 @@
 		};
 	};
 
-	programs.wireshark.enable = true;
 	virtualisation.docker.enable = true;
 	programs.virt-manager.enable = true;
 	virtualisation.libvirtd.enable = true;

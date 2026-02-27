@@ -17,6 +17,9 @@
 			nmap
 			netcat-gnu
 			tcpdump
+			bettercap
+			#sleuthkit
+			#autopsy
 		];
 		programs.gpg.enable = true;
 	};
