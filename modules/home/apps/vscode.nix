@@ -19,6 +19,7 @@
                         llvm-vs-code-extensions.vscode-clangd
                         jnoortheen.nix-ide
                         ms-toolsai.jupyter
+                        mads-hartmann.bash-ide-vscode
                     ];
                     userSettings = {
                         "editor.fontFamily" = "FiraCode Nerd Font";

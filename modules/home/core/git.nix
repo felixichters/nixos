@@ -13,7 +13,7 @@
 			settings = {
 				user = {
 					name  = "Felix";
-					email = "f.ichters@proton.me";
+					email = "ichters.fe@gmail.com";
 				};
 				init.defaultBranch = "main";
 			};
