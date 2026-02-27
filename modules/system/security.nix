@@ -7,4 +7,8 @@
 		enable = true;
 		#allowedTCPPorts = [12345];
 	};
+	security.pam.services.swaylock = {};
+	security.polkit.enable = true;
+	
+	programs.wireshark.enable = true;
 }
