@@ -13,7 +13,7 @@
       openconnect
       networkmanager-openconnect
       networkmanagerapplet
-      tor-browser
+      #tor-browser
       nmap
       netcat-gnu
       tcpdump
