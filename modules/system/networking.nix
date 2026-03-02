@@ -1,6 +1,6 @@
 {host, ... }:
 
 {
-    networking.hostName = host; 
-    networking.networkmanager.enable = true;
+  networking.hostName = host; 
+  networking.networkmanager.enable = true;
 }
