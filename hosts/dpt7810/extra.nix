@@ -1,7 +1,7 @@
 {pkgs, ...}:
 {
-	home.packages = with pkgs; [
-		katago
-		prismlauncher
-	];
+  home.packages = with pkgs; [
+    #katago
+    prismlauncher
+  ];
 }

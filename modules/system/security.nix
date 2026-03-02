@@ -1,14 +1,14 @@
 {pkgs, ...}:
 {
-	security.sudo.extraConfig = ''
-		Defaults timestamp_timeout=30
-	'';
-	networking.firewall = { 
-		enable = true;
-		#allowedTCPPorts = [12345];
-	};
-	security.pam.services.swaylock = {};
-	security.polkit.enable = true;
-	
-	programs.wireshark.enable = true;
+  security.sudo.extraConfig = ''
+    Defaults timestamp_timeout=30
+  '';
+  networking.firewall = { 
+    enable = true;
+    #allowedTCPPorts = [12345];
+  };
+  security.pam.services.swaylock = {};
+  security.polkit.enable = true;
+  
+  programs.wireshark.enable = true;
 }
