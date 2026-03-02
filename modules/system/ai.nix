@@ -22,7 +22,7 @@ in
           ];
         };
         "Qwen2.5-Coder-7B-Instruct-abliterated-Q4_K_M" = {
-          cmd = ''${llama-server} 
+          cmd = ''${llama-server} \ 
             --port ''${PORT} \ 
             -m /mnt/stash/models/Qwen2.5-Coder-7B-Instruct-abliterated-Q4_K_M.gguf \ 
             -c 4096 \
