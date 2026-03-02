@@ -12,9 +12,7 @@
             spotify
             discord
             dolphin-emu
-            anki
             gnugo
-            pcsx2
             xournalpp
             libreoffice
         ];
