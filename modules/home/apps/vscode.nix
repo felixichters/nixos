@@ -20,6 +20,7 @@
                         jnoortheen.nix-ide
                         ms-toolsai.jupyter
                         mads-hartmann.bash-ide-vscode
+                        anthropic.claude-code
                     ];
                     userSettings = {
                         "editor.fontFamily" = "FiraCode Nerd Font";
