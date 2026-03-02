@@ -12,9 +12,9 @@
             spotify
             discord
             dolphin-emu
-            gnugo
-            xournalpp
-            libreoffice
+            #gnugo
+            #xournalpp
+            #libreoffice
         ];
     };
 }
