@@ -1,11 +1,11 @@
 { pkgs, user, ...}:
 {
-	users.users.${user} = {
-		isNormalUser = true;
-		description = "felix";
-		extraGroups = [ "networkmanager" "wheel" "video" "audio" "wireshark" "libvirtd" "docker" "gamemode"];
-	};
-	
-	programs.zsh.enable = true;
-	users.defaultUserShell = pkgs.zsh;
+  users.users.${user} = {
+    isNormalUser = true;
+    description = "felix";
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "wireshark" "libvirtd" "docker" "gamemode"];
+  };
+  
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 }
