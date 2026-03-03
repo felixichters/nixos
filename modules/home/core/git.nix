@@ -12,11 +12,14 @@
       enable = true;
       settings = {
         user = {
-          name  = "Felix";
+          name  = "felix";
           email = "ichters.fe@gmail.com";
         };
         init.defaultBranch = "main";
       };
+      ignores = [
+        "CLAUDE.md"
+      ];
     };
   };	
 }
