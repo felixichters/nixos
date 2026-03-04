@@ -9,6 +9,19 @@
   config = lib.mkIf config.ai.enable {
     programs.claude-code = {
       enable = true;
+      settings = {
+        statusline = {
+          type = "command";
+          command = ''jq -r '"[\(.model.display_name)] \(.workspace.project_dir | split("/") | last) | ctx: \(.context_window.used_percentage | floor)%"' '';
+          padding = 0;
+        };
+      };
+      agents = {
+        code-reviewer = ''
+
+        '';
+        documentation =
+      };
     }; 
     #programs.aider-chat = {
     #  enable = true;
