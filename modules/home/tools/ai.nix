@@ -10,19 +10,24 @@
     programs.claude-code = {
       enable = true;
       settings = {
-        statusline = {
+        statusLine = {
           type = "command";
-          command = ''jq -r '"[\(.model.display_name)] \(.workspace.project_dir | split("/") | last) | ctx: \(.context_window.used_percentage | floor)%"' '';
+          command = ''jq -r '"[\(.model.display_name)] \(.workspace.project_dir | split("/") | last) | ctx: \((.context_window.used_percentage // 0) | floor)%"' '';
           padding = 0;
         };
       };
       agents = {
-        code-reviewer = ''
-
+        code-review = ''
+          ---
+          name: code-review
+          description: Reviews code
+          model: inherit
+          ---
+          You are specializing in code reviews.
+          Focus on bugs, code quality, security, best practices etc..
         '';
-        documentation =
       };
-    }; 
+    };
     #programs.aider-chat = {
     #  enable = true;
     #  settings = {
