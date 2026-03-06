@@ -12,15 +12,16 @@
     programs.vscode = {
       enable = true;
       package = pkgs.vscodium;
+      mutableExtensionsDir = false;
       profiles = {
         default = {
           extensions = with pkgs.vscode-extensions; [
             ms-python.python
             llvm-vs-code-extensions.vscode-clangd
             jnoortheen.nix-ide
-            ms-toolsai.jupyter
+            #ms-toolsai.jupyter
             mads-hartmann.bash-ide-vscode
-            anthropic.claude-code
+            #anthropic.claude-code
           ];
           userSettings = {
             "editor.fontFamily" = "FiraCode Nerd Font";
