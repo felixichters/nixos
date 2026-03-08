@@ -12,7 +12,7 @@
 
   outputs = { self, nixpkgs, home-manager, nixvim, ...} @ inputs:
     let
-      user = "navi";
+      user = "felix";
       host = "dpt7810";
       lib = nixpkgs.lib;
       system = "x86_64-linux";
