@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     ./boot.nix
     ./performance.nix
-    ../../modules/system/system.nix
+    ../../modules/system
   ];
   gaming.enable = true;
   nixpkgs.config.allowUnfree = true;

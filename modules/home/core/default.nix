@@ -1,7 +1,7 @@
 {config,lib,pkgs,...}:
 {
   imports = [
-    ./session/session.nix
+    ./session
     ./font.nix
     ./foot.nix
     ./git.nix
