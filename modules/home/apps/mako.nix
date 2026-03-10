@@ -15,9 +15,9 @@
         border-radius = 0;
         ignore-timeout = true;
         default-timeout = 3000;
-        border-color = "theme.color10";
-        text-color = "theme.selection_bg";
-        background-color = "theme.background_alt";
+        border-color = theme.color10;
+        text-color = theme.selection_bg;
+        background-color = theme.background_alt;
       };
     };
   };
