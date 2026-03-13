@@ -52,7 +52,7 @@
           tools: Read, Glob, Grep, Bash
           model: haiku
           ---
-          Explore codebases by analyzing: 
+          Explore projects by analyzing: 
           - Project goals
           - Architecture ans structure
           - Inputs and Outputs

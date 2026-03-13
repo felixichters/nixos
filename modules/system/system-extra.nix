@@ -2,7 +2,7 @@
 
 {
   services.udisks2.enable = true;
-  programs.light.enable = true;	
+  #programs.light.enable = true;	
   hardware.graphics.enable = true;	
   programs = {
     appimage = {
@@ -29,6 +29,7 @@
       libX11
       libpng
       stdenv.cc.cc.lib
+      brightnessctl
     ];
   };
 }

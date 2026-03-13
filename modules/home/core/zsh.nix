@@ -44,7 +44,7 @@ in
         
         precmd() {
           vcs_info
-          print -P '%F{blue}%B%~%b%f ''${vcs_info_msg_0_} %F{8}%? %f%F{10}%m@%n%f'
+          print -P '%F{blue}%B%~%b%f ''${vcs_info_msg_0_} %F{8}%? %f%F{10}%n@%m%f'
         }
         nix_prompt_prefix() {
           [[ -n "$IN_NIX_SHELL" ]] && echo "[nix] "
