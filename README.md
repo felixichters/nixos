@@ -15,13 +15,13 @@ modules/
 Each module is optional like so:
 ```
 {
-  options.vscode.enable = lib.mkOption {
+  options.<module>.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
-    description = "enable vscode";
+    description = "enable module";
   };
 
-  config = lib.mkIf config.vscode.enable {
+  config = lib.mkIf config.<module>.enable {
   ...
   };
 }

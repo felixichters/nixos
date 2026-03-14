@@ -13,9 +13,6 @@ modules/
     apps/     # additional applications platforms
 ```
 
-## Module Pattern
-Each subdirectory has an import hub (e.g., `core/core.nix`, `tools/tools.nix`) that imports all sibling modules. Host `home.nix` and `configuration.nix` imports these hubs.
-
 ## Theme System
 Colors are defined as Nix variables in each host's `flake.nix`. To use them, import `theme` and access them via the variables `theme.<color>` e.g. `theme.background`.
 
@@ -23,16 +20,18 @@ Colors are defined as Nix variables in each host's `flake.nix`. To use them, imp
 1. Identify whether it's system-level (`modules/system/`) or user-level (`modules/home/`)
 2. Add to the relevant existing module file or create a new one and import it in the hub
 
+(ALWAYS try to find a appropiate Home Manager or NixOS option before suggesting something like home.file)
+
 If creating a new module add a appropriate option like so:
 ```
 {
-  options.vscode.enable = lib.mkOption {
+  options.<module>.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
-    description = "enable vscode";
+    description = "enable <module>";
   };
 
-  config = lib.mkIf config.vscode.enable {
+  config = lib.mkIf config.<module>.enable {
     ...
   };
 }
