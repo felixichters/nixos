@@ -2,7 +2,6 @@
 
 {
   services.udisks2.enable = true;
-  #programs.light.enable = true;	
   hardware.graphics.enable = true;	
   programs = {
     appimage = {
