@@ -13,7 +13,6 @@
   
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
-  programs.light.enable = true;	
   #home.packages = with pkgs; [
   #	(katago.override {
   #		backend = "eigen";
