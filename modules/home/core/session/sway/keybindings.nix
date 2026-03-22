@@ -72,12 +72,9 @@ in
       "${mod}+Shift+l" = "move right";
       
       "${mod}+Shift+Left" = "exec sh -c 'swaymsg resize shrink right 10px || swaymsg resize grow left 10px'";
-
       "${mod}+Shift+Right" = "exec sh -c 'swaymsg resize shrink left 10px || swaymsg resize grow right 10px'";
-      #"${mod}+Shift+h" = "resize shrink width 10px";
-      #"${mod}+Shift+j" = "resize grow height 10px";
-      #"${mod}+Shift+k" = "resize shrink height 10px";
-      #"${mod}+Shift+l" = "resize grow width 10px";
+      "${mod}+Shift+Up" = "exec sh -c 'swaymsg resize shrink down 10px || swaymsg resize grow up 10px'";
+      "${mod}+Shift+Down" = "exec sh -c 'swaymsg resize shrink up 10px || swaymsg resize grow down 10px'";
 
       "${mod}+1" = "workspace number 1";
       "${mod}+2" = "workspace number 2";
