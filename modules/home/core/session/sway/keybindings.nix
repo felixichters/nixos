@@ -66,15 +66,14 @@ in
       "${mod}+Shift+Tab" = "focus mode_toggle; focus prev";
       #"${mod}+Shift+Tab"= "workspace prev_on_output";
       
-      "${mod}+Shift+Left" = "move left";
-      "${mod}+Shift+Down" = "move down";
-      "${mod}+Shift+Up" = "move up";
-      "${mod}+Shift+Right" = "move right";
+      "${mod}+Shift+h" = "move left";
+      "${mod}+Shift+j" = "move down";
+      "${mod}+Shift+k" = "move up";
+      "${mod}+Shift+l" = "move right";
+      
+      "${mod}+Shift+Left" = "exec sh -c 'swaymsg resize shrink right 10px || swaymsg resize grow left 10px'";
 
-      "${mod}+Shift+h" = "resize shrink width 10px";
-      "${mod}+Shift+j" = "resize grow height 10px";
-      "${mod}+Shift+k" = "resize shrink height 10px";
-      "${mod}+Shift+l" = "resize grow width 10px";
+      "${mod}+Shift+Right" = "exec sh -c 'swaymsg resize shrink left 10px || swaymsg resize grow right 10px'";
       #"${mod}+Shift+h" = "resize shrink width 10px";
       #"${mod}+Shift+j" = "resize grow height 10px";
       #"${mod}+Shift+k" = "resize shrink height 10px";
