@@ -1,4 +1,6 @@
-# Architecture
+# NixOS Configuration
+
+## Architecture
 
 Flake based NixOS and Home Manager configuration.
 
@@ -12,7 +14,7 @@ modules/
     core/       # stuff thats needed to have a decent minimal linux expirence
     extended/   # additional utilities 
 ```
-## Modules
+### Modules
 
 Each module is optional like so:
 ```
@@ -28,11 +30,11 @@ Each module is optional like so:
   };
 }
 ```
-## Theme System
+### Theme System
 
 Colors are defined as Nix variables in each host's `flake.nix`. To use them, import `theme` and access them via the variables `theme.<color>` e.g. `theme.background`.
 
-# Maintenance
+## Maintenance
 
 ### Update 
 
