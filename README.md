@@ -1,6 +1,7 @@
+# Architecture
+
 Flake based NixOS and Home Manager configuration.
 
-# Architecture
 ```
 hosts/
   dpt7810/      # desktop
@@ -12,6 +13,7 @@ modules/
     extended/   # additional utilities 
 ```
 ## Modules
+
 Each module is optional like so:
 ```
 {
@@ -27,11 +29,13 @@ Each module is optional like so:
 }
 ```
 ## Theme System
+
 Colors are defined as Nix variables in each host's `flake.nix`. To use them, import `theme` and access them via the variables `theme.<color>` e.g. `theme.background`.
 
 # Maintenance
 
 ### Update 
+
 ```
 nix flake update
 sudo nixos-rebuild switch --flake . (alias: system-rebuild)
@@ -39,6 +43,7 @@ home-manager switch --flake . (alias: home-rebuild)
 ```
 
 ### Cleanup
+
 ```
 sudo nix-collect-garbage -d
 nix-collect-garbage -d
