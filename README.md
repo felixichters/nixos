@@ -1,5 +1,6 @@
-# Architecture
 Flake based NixOS and Home Manager configuration.
+
+# Architecture
 ```
 hosts/
   dpt7810/      # desktop
