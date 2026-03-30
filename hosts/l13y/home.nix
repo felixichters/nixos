@@ -3,8 +3,7 @@
 {
   imports = [
     ../../modules/home/core
-    ../../modules/home/tools 
-    ../../modules/home/apps
+    ../../modules/home/extended
   ];
   
   home.username = user;

@@ -2,14 +2,13 @@
 Flake based NixOS and Home Manager configuration.
 ```
 hosts/
-  dpt7810/    # desktop
-  l13y/       # laptop
+  dpt7810/      # desktop
+  l13y/         # laptop
 modules/
-  system/     # nixos-level configs (imported in configuration.nix)
-  home/       # User-level (home-manager) configs (imported in home.nix)
-    core/     # stuff thats needed to have a decent minimal linux expirence
-    tools/    # additional high cohesion utilities 
-    apps/     # additional applications platforms
+  system/       # nixos-level configs (imported in configuration.nix)
+  home/         # User-level (home-manager) configs (imported in home.nix)
+    core/       # stuff thats needed to have a decent minimal linux expirence
+    extended/   # additional utilities 
 ```
 ## Modules
 Each module is optional like so:
