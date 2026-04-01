@@ -8,7 +8,9 @@ let
   power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
   reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
   exit = "exec swaynag -t warning -m 'exit sway?' -B 'yes' 'swaymsg exit'";
-  lock = "swaylock -c 000000"; 
+  lock = "swaylock -c 000000";
+  screenshot = "grimshot save output - | tee ~/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy";
+  screenshot-region = "sh -c 'selection=$(slurp) && grim -g \"$selection\" - | tee ~/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy'";
 in
 {
 
@@ -40,7 +42,7 @@ in
       "${mod}+e" = "exec ${files}";
       #"${mod}+Shift+e" = "exec ${editor}";
 
-      "${mod}+Shift+s" = "exec systemctl suspend";
+      "${mod}+Shift+escape" = "exec systemctl suspend";
       "${mod}+p" = "exec ${power}";
       "${mod}+Shift+p" = "exec ${reboot}";
       
@@ -75,6 +77,9 @@ in
       "${mod}+Shift+Right" = "exec sh -c 'swaymsg resize shrink left 10px || swaymsg resize grow right 10px'";
       "${mod}+Shift+Up" = "exec sh -c 'swaymsg resize shrink down 10px || swaymsg resize grow up 10px'";
       "${mod}+Shift+Down" = "exec sh -c 'swaymsg resize shrink up 10px || swaymsg resize grow down 10px'";
+
+      "${mod}+s" = "exec ${screenshot}";
+      "${mod}+Shift+s" = "exec ${screenshot-region}";
 
       "${mod}+1" = "workspace number 1";
       "${mod}+2" = "workspace number 2";
