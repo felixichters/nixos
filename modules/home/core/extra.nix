@@ -25,6 +25,9 @@
       usbutils
       ripgrep
       exfatprogs
+      grim
+      slurp
+      sway-contrib.grimshot 
     ];
   };
 }
