@@ -2,7 +2,7 @@
 let 
   myAliases = {
     uni = "sudo openconnect --protocol=anyconnect --useragent='AnyConnect' vpn-ac.uni-heidelberg.de --no-external-auth";
-    fvim = "nvim $(fzf --preview=\"cat {}\")";
+    #fvim = "nvim $(fzf --preview=\"cat {}\")";
     system-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles/hosts/${host}/";
     home-rebuild = "home-manager switch --flake ~/.dotfiles/hosts/${host}/";
   };
@@ -15,6 +15,7 @@ in
   };
 
   config = lib.mkIf config.zsh.enable {
+    #programs.fzf.enableZshIntegration = true;
     programs.zsh = {
       enable = true;
       enableCompletion = true;
@@ -51,8 +52,6 @@ in
         }
         PROMPT='%F{green}$(nix_prompt_prefix)%f%(!.#.$) '
         #RPROMPT='%F{8}%? %f%F{10}%m@%n%f'
-        source "$(fzf-share)/key-bindings.zsh"
-        source "$(fzf-share)/completion.zsh"
       '';
     };
   };
