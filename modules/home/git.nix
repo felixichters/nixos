@@ -16,7 +16,10 @@
           email = "ichters.fe@gmail.com";
         };
         init.defaultBranch = "main";
+        pull.rebase = true;
+        push.autoSetupRemote = true;
       };
+      signing.format = null;
       ignores = [
         "CLAUDE.md"
       ];

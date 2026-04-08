@@ -15,7 +15,7 @@
         border-width = 0;
         outline-width = 0;
         padding-left = "35%";
-        padding-top = "30%";
+        padding-top = "35%";
         result-spacing = 0;
         num-results = 16;
         font = "monospace";
