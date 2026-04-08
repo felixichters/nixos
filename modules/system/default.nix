@@ -6,7 +6,9 @@
     ./networking.nix 
     ./sound.nix
     ./locales.nix
-    ./system-extra.nix
+    ./virtualization.nix
+    ./graphics.nix
+    ./compat.nix
     ./openssh.nix
     ./gaming.nix
     ./security.nix

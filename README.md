@@ -9,10 +9,9 @@ hosts/
   dpt7810/      # desktop
   l13y/         # laptop
 modules/
-  system/       # nixos-level configs (imported in configuration.nix)
-  home/         # User-level (home-manager) configs (imported in home.nix)
-    core/       # stuff thats needed to have a decent minimal linux expirence
-    extended/   # additional utilities 
+  system/       # system-level config
+  home/         # user-level config
+  themes/       # shared color themes
 ```
 ### Modules
 
@@ -32,7 +31,7 @@ Each module is optional like so:
 ```
 ### Theme System
 
-Colors are defined as Nix variables in each host's `flake.nix`. To use them, import `theme` and access them via the variables `theme.<color>` e.g. `theme.background`.
+Colors are defined in `modules/themes/default.nix` and imported by each host's `flake.nix`. To use them in a module, access `theme.<color>` e.g. `theme.background`.
 
 ## Fresh Install
 

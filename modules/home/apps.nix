@@ -12,13 +12,8 @@
         spotify
         discord
         dolphin-emu
-        gcc
-        clang-tools
-        gdb
-        nasm
-        nil
         #gnugo
-        #xournalpp
+        xournalpp
         #libreoffice
       ];
   };

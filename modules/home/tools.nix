@@ -28,6 +28,11 @@
       grim
       slurp
       sway-contrib.grimshot 
+      gcc
+      clang-tools
+      gdb
+      nasm
+      nil
     ];
   };
 }

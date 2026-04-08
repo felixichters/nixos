@@ -1,4 +1,4 @@
-# currently not used
+# currently not in use
 {config, pkgs, lib, ...}:
 let
   llama-cpp = pkgs.llama-cpp;

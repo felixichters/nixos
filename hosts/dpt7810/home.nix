@@ -2,8 +2,7 @@
 
 {
   imports = [
-    ../../modules/home/core
-    ../../modules/home/extended
+    ../../modules/home
     ./extra.nix
   ];
   
