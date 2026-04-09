@@ -2,7 +2,6 @@
 {
   imports = [
     ./sway/sway.nix
-    ./hyprland/hyprland.nix
     ./waybar.nix
     ./font.nix
     ./git.nix

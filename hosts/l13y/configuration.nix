@@ -8,7 +8,7 @@
     ../../modules/system
   ];
   gaming.enable = true;
-  programs.light.enable = true;
+  environment.systemPackages = [ pkgs.brightnessctl ];
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.11";
   nix.settings.experimental-features = ["nix-command" "flakes"];
