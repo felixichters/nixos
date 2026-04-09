@@ -169,7 +169,7 @@
         #custom-scratchpad {
           padding: 0 14px;
           color: ${theme.foreground};
-          border-bottom: 2px solid ${theme.border_focused};
+          border-top: 2px solid ${theme.color03};
         }
         #custom-power,
         #battery,
