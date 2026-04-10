@@ -17,7 +17,7 @@
           height = 27;
           modules-left = [ "sway/workspaces" "custom/scratchpad" "mpris"];
           modules-center = ["clock"];
-          modules-right = ["custom/ssh" "custom/vpn" "network" "pulseaudio" "backlight" "battery" ];
+          modules-right = ["custom/ssh" "custom/vpn" "cpu" "memory" "disk" "pulseaudio" "battery" "backlight" "network" ];
           
           "custom/scratchpad" = {
             interval = 3;
@@ -57,7 +57,7 @@
           };
           "cpu" = {
             interval = 1;
-            format = "CPU {usage}%";
+            format = "  {usage}%";
             tooltip = false;
           };
           "clock" = {
@@ -71,9 +71,9 @@
               warning = 30;
               critical = 15;
             };
-            format = "";
-            tooltip-format = "{capacity}%";
-            tooltip = true;
+            format = "  {capacity}%";
+            tooltip-format = "";
+            tooltip = false;
           };
           "network" = {
             format = "{ifname}";
@@ -91,19 +91,21 @@
             tooltip = true;
           };  
           "memory" = {
-            format = "RAM {used} / {total}";
+            format = "  {percentage}%";
             interval = 5;
-            tooltip = false;
+            tooltip-format = "RAM {used}GiB / {total}GiB";
+            tooltip = true;
           };
           "disk" = {
-            format = "DISK {used} / {total}";
-            tooltip = false;
+            format = "  {percentage_free}%";
+            tooltip-format = "DISK {used} / {total}";
+            tooltip = true;
           };
           "pulseaudio" = {
-            format = "";
+            format = "  {volume}%";
             format-bluetooth = "";
             format-muted = "";
-            tooltip-format = "{desc} {volume}%" ;
+            tooltip-format = "{desc}";
           };
           "temperature" = {
             format = "{temperatureC}°C";
@@ -136,6 +138,7 @@
           font-family: "FiraCode Nerd Font";
           font-size: 12px;
           min-height: 0;
+          margin: 0;
         }
         tooltip {
           background: ${theme.background_alt};
@@ -146,9 +149,10 @@
         }
         window#waybar {
           background-color: ${theme.background_alt};
-            
         }
-        
+        .modules-right {
+          padding-right: 10px;
+        }
         #workspaces button {
           padding: 0 4px;
           color: ${theme.border_unfocused};
@@ -156,7 +160,6 @@
         #workspaces button.focused {
           color: ${theme.foreground}
         }
-        
         #workspaces button:hover {
           color: ${theme.foreground};
           background: none;
@@ -165,7 +168,6 @@
           border: none;
           transition: none;
         }
-        
         #custom-scratchpad {
           padding: 0 14px;
           color: ${theme.foreground};
@@ -185,15 +187,17 @@
         #custom-ssh,
         #mpris
         {
-          padding: 0 15px;
+          margin: 0 12px;
           color: ${theme.foreground};
         }
         #custom-ssh {
           color: ${theme.color04};
+          padding: 0 12px;
           border-top: 2px solid ${theme.color04};
         }
         #custom-vpn {
           color: ${theme.color04};
+          padding: 0 10px;
           border-top: 2px solid ${theme.color04};
         }
         #pulseaudio.bluetooth {
