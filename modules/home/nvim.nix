@@ -11,7 +11,7 @@
       enable = true;
       defaultEditor = true;
       clipboard.register = "unnamedplus";
-      colorschemes.catppuccin.enable = if theme.background == "#eff1f5" then true else false; 
+      colorschemes.catppuccin.enable = theme.nvim.colorscheme == "catppuccin";
       opts = {
         updatetime = 100;
         
@@ -90,15 +90,26 @@
           };
         };
       };
-      extraPlugins = [(pkgs.vimUtils.buildVimPlugin {
-        name = "lackluster";
-        src = pkgs.fetchFromGitHub {
-          owner = "slugbyte";
-          repo = "lackluster.nvim";
-          rev = "662fba7e6719b7afc155076385c00d79290bc347";
-          hash = "sha256-oZca/MfsYBW0Fa/yBUGXFZKxJ05DfDNeWj5XaOoU4Mo=";
-        };
-      })];
+      extraPlugins = [
+        (pkgs.vimUtils.buildVimPlugin {
+          name = "lackluster";
+          src = pkgs.fetchFromGitHub {
+            owner = "slugbyte";
+            repo = "lackluster.nvim";
+            rev = "662fba7e6719b7afc155076385c00d79290bc347";
+            hash = "sha256-oZca/MfsYBW0Fa/yBUGXFZKxJ05DfDNeWj5XaOoU4Mo=";
+          };
+        })
+        (pkgs.vimUtils.buildVimPlugin {
+          name = "seoul256-nvim";
+          src = pkgs.fetchFromGitHub {
+            owner = "shaunsingh";
+            repo = "seoul256.nvim";
+            rev = "726f88a77c02418aa5cb72a81c85bfb5ba2704d9";
+            hash = "sha256-Yg2ggFca/l942t1rhLC79I/nw7EVwOKtIhy6KeE8JXw=";
+          };
+        })
+      ];
       globals = {
         mapleader = " ";
         maplocalleader = " ";
@@ -138,7 +149,9 @@
         }
       ];
       extraConfigLua = ''
-        ${if theme.background == "#101010" then "vim.cmd('colorscheme lackluster')" else ""}
+        ${if theme.nvim.colorscheme == "lackluster" then "vim.cmd('colorscheme lackluster')"
+          else if theme.nvim.colorscheme == "seoul256" then "vim.cmd('colorscheme seoul256')"
+          else ""}
         vim.opt.list = true
         vim.opt.listchars = { 
           tab = ">-",
