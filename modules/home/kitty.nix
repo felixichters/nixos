@@ -1,4 +1,4 @@
-{ config, lib, theme, ... }:
+{ config, lib, theme, font, ... }:
 
 {
   options.kitty.enable = lib.mkOption {
@@ -11,7 +11,7 @@
     programs.kitty = {
       enable = true;
       font = {
-        name = "FiraCode Nerd Font";
+        name = font.name;
         size = 11;
       };
       settings = {
@@ -27,7 +27,6 @@
         cursor_trail_decay = "0.1 0.2";
         cursor_trail_start_threshold = "2";
         clear_all_shortcuts = "yes";
-        #font_features = "FiraCodeRoman_400wght +cv31 +cv29 +ss10 +onum";
       };
       keybindings = {
         "ctrl+c" = "copy_and_clear_or_interrupt";

@@ -6,8 +6,23 @@
     description = "enable firefox";
   };
   config = lib.mkIf config.firefox.enable {
+    home.sessionVariables = {
+      # Prevent Firefox from freezing when GPU sandbox conflicts with NVIDIA GBM backend
+      MOZ_DISABLE_RDD_SANDBOX = "1";
+    };
+
     programs.firefox = {
       enable = true;
+      profiles.default = {
+        id = 0;
+        settings = {
+          # Fix freezes on NVIDIA + Wayland (sandbox conflicts with GBM_BACKEND=nvidia-drm)
+          "media.ffmpeg.vaapi.enabled" = true;
+          "media.rdd-ffmpeg.enabled" = true;
+          "gfx.webrender.all" = true;
+          "gfx.x11-egl.force-enabled" = false;
+        };
+      };
       #policies = {
       #	DisableTelemetry = true;
       #	DontCheckDefaultBrowser = true;

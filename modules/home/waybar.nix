@@ -1,4 +1,4 @@
-{config, lib, theme, ...}:
+{config, lib, theme, font, ...}:
 {
 
   options.waybar.enable = lib.mkOption {
@@ -135,7 +135,7 @@
       style = ''	
         * {
           border-radius: 0;
-          font-family: "FiraCode Nerd Font";
+          font-family: "${font.name}";
           font-size: 12px;
           min-height: 0;
           margin: 0;

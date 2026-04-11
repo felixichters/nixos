@@ -1,4 +1,4 @@
-{config, lib, theme, ...}:
+{config, lib, theme, font, ...}:
 {
   options.mako.enable = lib.mkOption {
     type = lib.types.bool;
@@ -10,7 +10,7 @@
     services.mako = { 
       enable = true;
       settings = {
-        font = "FiraCode Nerd Font";
+        font = font.name;
         border-size = 2;
         border-radius = 0;
         ignore-timeout = true;
