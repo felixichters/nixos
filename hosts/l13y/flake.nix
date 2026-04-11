@@ -19,12 +19,14 @@
       pkgs = nixpkgs.legacyPackages.${system};
       themes = import ../../modules/themes/default.nix;
       theme = themes.seoul;
+      fonts = import ../../modules/fonts/default.nix;
+      font = fonts.ibm-plex-mono;
     in {
     nixosConfigurations = {
       ${host} = lib.nixosSystem {
         inherit system;
         specialArgs = { 
-          inherit inputs host user theme;
+          inherit inputs host user theme font;
         };
         modules = [
           ./configuration.nix
@@ -35,7 +37,7 @@
       ${user} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { 
-          inherit inputs host user theme;
+          inherit inputs host user theme font;
         };
         modules = [
           ./home.nix

@@ -1,4 +1,4 @@
-{config, lib, pkgs, theme, ...}:
+{config, lib, pkgs, theme, font, ...}:
 let
   swaybarStatus = pkgs.runCommand "swaybar-status" {
     nativeBuildInputs = [ pkgs.gcc ];
@@ -50,7 +50,7 @@ in
           };
         };
         fonts = {
-          names = ["FiraCode Nerd Font"];
+          names = [font.name];
           size = 10.0;
         };
         output."*".bg = "${theme.sway.wallpaper} solid_color";
@@ -58,7 +58,7 @@ in
           statusCommand = "${swaybarStatus}/bin/swaybar-status";
           position = "top";
           fonts = {
-            names = [ "FiraCode Nerd Font" ];
+            names = [ font.name ];
             size = 10.0;
           };
           colors = {

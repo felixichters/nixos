@@ -1,19 +1,16 @@
-{pkgs, ...}:
+{ pkgs, font, ... }:
 
 {
-  home.packages = with pkgs; [
-    ibm-plex
-    nerd-fonts.fira-code
-    #nerd-fonts.ibm-plex-mono
+  home.packages = [
+    pkgs.${font.basePackage}
+    pkgs.nerd-fonts.${font.nerdPackage}
   ];
-  fonts = { 
-      fontconfig = { 
-        enable = true;
-        defaultFonts = {
-          serif = ["IBM Plex Serif"];
-          sansSerif = ["IBM Plex Sans"];
-          monospace = ["FiraCode Nerd Font"];
-        };
-      };
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      serif = ["IBM Plex Serif"];
+      sansSerif = ["IBM Plex Sans"];
+      monospace = [ font.name ];
     };
+  };
 }
