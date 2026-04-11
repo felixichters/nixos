@@ -1,1 +1,1 @@
-- multible color schemes
+- RAM Bar module to show used RAM not free
