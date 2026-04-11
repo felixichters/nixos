@@ -1,4 +1,4 @@
-{config, lib, ...}: 
+{config, lib, ...}:
 {
   options.firefox.enable = lib.mkOption {
     type = lib.types.bool;
@@ -6,11 +6,6 @@
     description = "enable firefox";
   };
   config = lib.mkIf config.firefox.enable {
-    home.sessionVariables = {
-      # Prevent Firefox from freezing when GPU sandbox conflicts with NVIDIA GBM backend
-      MOZ_DISABLE_RDD_SANDBOX = "1";
-    };
-
     programs.firefox = {
       enable = true;
       #policies = {

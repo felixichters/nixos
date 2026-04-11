@@ -15,12 +15,4 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
-
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "nvidia";
-    NVD_BACKEND = "direct";
-    GBM_BACKEND = "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    WLR_NO_HARDWARE_CURSORS = "1";
-  };
 }
