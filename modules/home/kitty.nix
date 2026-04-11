@@ -42,31 +42,31 @@
       shellIntegration.mode = "no-cursor";
       shellIntegration.enableZshIntegration = true;
       extraConfig = ''
-        background ${theme.background}
-        foreground ${theme.foreground}
-        selection_background ${theme.selection_bg}
-        selection_foreground ${theme.selection_fg}
+        background ${theme.kitty.background}
+        foreground ${theme.kitty.foreground}
+        selection_background ${theme.kitty.selectionBackground}
+        selection_foreground ${theme.kitty.selectionForeground}
         cursor none
 
         # normal
-        color0 ${theme.color00} 
-        color1 ${theme.color01}
-        color2 ${theme.color02}
-        color3 ${theme.color03}
-        color4 ${theme.color04}
-        color5 ${theme.color05}
-        color6 ${theme.color06}
-        color7 ${theme.color07}
+        color0 ${theme.kitty.color00}
+        color1 ${theme.kitty.color01}
+        color2 ${theme.kitty.color02}
+        color3 ${theme.kitty.color03}
+        color4 ${theme.kitty.color04}
+        color5 ${theme.kitty.color05}
+        color6 ${theme.kitty.color06}
+        color7 ${theme.kitty.color07}
 
         # bright
-        color8 ${theme.color08}
-        color9 ${theme.color09}
-        color10 ${theme.color10}
-        color11 ${theme.color11}
-        color12 ${theme.color12}
-        color13 ${theme.color13}
-        color14 ${theme.color14}
-        color15 ${theme.color15}
+        color8 ${theme.kitty.color08}
+        color9 ${theme.kitty.color09}
+        color10 ${theme.kitty.color10}
+        color11 ${theme.kitty.color11}
+        color12 ${theme.kitty.color12}
+        color13 ${theme.kitty.color13}
+        color14 ${theme.kitty.color14}
+        color15 ${theme.kitty.color15}
       '';
     };
   };

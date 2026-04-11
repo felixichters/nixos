@@ -31,7 +31,7 @@ Each module is optional like so:
 ```
 ### Theme System
 
-Colors are defined in `modules/themes/default.nix` and imported by each host's `flake.nix`. To use them in a module, access `theme.<color>` e.g. `theme.background`.
+Colors are defined in `modules/themes/<theme>.nix` and imported by each host's `flake.nix`. To use them in a module, access `theme.<color>` e.g. `theme.sway.background`.
 
 ## Fresh Install
 

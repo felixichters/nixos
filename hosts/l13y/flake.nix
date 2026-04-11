@@ -18,7 +18,7 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       themes = import ../../modules/themes/default.nix;
-      theme = themes.dark;
+      theme = themes.seoul;
     in {
     nixosConfigurations = {
       ${host} = lib.nixosSystem {

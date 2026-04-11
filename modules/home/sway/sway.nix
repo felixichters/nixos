@@ -37,9 +37,9 @@ in
           ];
         };
         gaps = {
-          inner = 10;
+          inner = 0;
           smartBorders = "on";
-          smartGaps = true;
+          #smartGaps = true;
         };
         input = {
           "*" = {
@@ -53,7 +53,7 @@ in
           names = ["FiraCode Nerd Font"];
           size = 10.0;
         };
-        output."*".bg = "${theme.wallpaper} solid_color";
+        output."*".bg = "${theme.sway.wallpaper} solid_color";
         bars = [{
           statusCommand = "${swaybarStatus}/bin/swaybar-status";
           position = "top";
@@ -62,61 +62,21 @@ in
             size = 10.0;
           };
           colors = {
-            background = theme.background_alt;
-            statusline = theme.foreground;
-            separator = theme.border_unfocused;
-            focusedWorkspace = {
-              border = theme.background_alt;
-              background = theme.background_alt;
-              text = theme.foreground;
-            };
-            activeWorkspace = {
-              border = theme.background_alt;
-              background = theme.background_alt;
-              text = theme.foreground;
-            };
-            inactiveWorkspace = {
-              border = theme.background_alt;
-              background = theme.background_alt;
-              text = theme.border_unfocused;
-            };
-            urgentWorkspace = {
-              border = theme.color01;
-              background = theme.color01;
-              text = theme.foreground;
-            };
+            background = theme.sway.bar.background;
+            statusline = theme.sway.bar.statusline;
+            separator  = theme.sway.bar.separator;
+            focusedWorkspace  = theme.sway.bar.focusedWorkspace;
+            activeWorkspace   = theme.sway.bar.activeWorkspace;
+            inactiveWorkspace = theme.sway.bar.inactiveWorkspace;
+            urgentWorkspace   = theme.sway.bar.urgentWorkspace;
           };
         }];
         colors = {
-          background = theme.background;
-          focused = {
-            border = theme.border_focused;
-            background = theme.border_focused;
-            text = theme.foreground;
-            indicator = theme.border_focused;
-            childBorder = theme.border_focused;
-          };
-          focusedInactive = {
-            border = theme.border_unfocused;
-            background = theme.border_unfocused;
-            text = theme.foreground;
-            indicator = theme.border_unfocused;
-            childBorder = theme.border_unfocused;
-          };
-          unfocused = {
-            border = theme.border_unfocused;
-            background = theme.border_unfocused;
-            text = theme.foreground;
-            indicator = theme.border_unfocused;
-            childBorder = theme.border_unfocused;
-          };
-          urgent = {
-            border = theme.color01;
-            background = theme.color01;
-            text = theme.foreground;
-            indicator = theme.color01;
-            childBorder = theme.color01;
-          };
+          background      = theme.sway.background;
+          focused         = theme.sway.focused;
+          focusedInactive = theme.sway.focusedInactive;
+          unfocused       = theme.sway.unfocused;
+          urgent          = theme.sway.urgent;
         };
       };
     };

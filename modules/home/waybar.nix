@@ -141,27 +141,27 @@
           margin: 0;
         }
         tooltip {
-          background: ${theme.background_alt};
-          border: 1px solid ${theme.border_unfocused};
+          background: ${theme.waybar.background};
+          border: 1px solid ${theme.waybar.border};
         }
         tooltip label {
-          color: ${theme.foreground};
+          color: ${theme.waybar.foreground};
         }
         window#waybar {
-          background-color: ${theme.background_alt};
+          background-color: ${theme.waybar.background};
         }
         .modules-right {
           padding-right: 10px;
         }
         #workspaces button {
           padding: 0 4px;
-          color: ${theme.border_unfocused};
+          color: ${theme.waybar.border};
         }
         #workspaces button.focused {
-          color: ${theme.foreground}
+          color: ${theme.waybar.foreground}
         }
         #workspaces button:hover {
-          color: ${theme.foreground};
+          color: ${theme.waybar.foreground};
           background: none;
           box-shadow: none;
           text-shadow: none;
@@ -170,8 +170,8 @@
         }
         #custom-scratchpad {
           padding: 0 14px;
-          color: ${theme.foreground};
-          border-top: 2px solid ${theme.color03};
+          color: ${theme.waybar.foreground};
+          border-top: 2px solid ${theme.waybar.scratchpad};
         }
         #custom-power,
         #battery,
@@ -182,47 +182,47 @@
         #cpu,
         #memory,
         #disk,
-        #temperature, 
+        #temperature,
         #custom-vpn,
         #custom-ssh,
         #mpris
         {
           margin: 0 12px;
-          color: ${theme.foreground};
+          color: ${theme.waybar.foreground};
         }
         #custom-ssh {
-          color: ${theme.color04};
+          color: ${theme.waybar.accent};
           padding: 0 12px;
-          border-top: 2px solid ${theme.color04};
+          border-top: 2px solid ${theme.waybar.accent};
         }
         #custom-vpn {
-          color: ${theme.color04};
+          color: ${theme.waybar.accent};
           padding: 0 10px;
-          border-top: 2px solid ${theme.color04};
+          border-top: 2px solid ${theme.waybar.accent};
         }
         #pulseaudio.bluetooth {
-          color: ${theme.color04};
+          color: ${theme.waybar.accent};
         }
         #pulseaudio.muted {
-          color: ${theme.color01};
+          color: ${theme.waybar.critical};
         }
         #network.disconnected, #network.disabled {
-          color: ${theme.color01};
+          color: ${theme.waybar.critical};
         }
         #network.wifi {
-          color: ${theme.foreground};
+          color: ${theme.waybar.foreground};
         }
         #network.ethernet {
-          color: ${theme.foreground};
+          color: ${theme.waybar.foreground};
         }
         #battery.critical {
-          color: ${theme.color01};
+          color: ${theme.waybar.critical};
         }
         #battery.charging {
-          color: ${theme.color02};
+          color: ${theme.waybar.charging};
         }
         #temperature.critical {
-          color: ${theme.color01};
+          color: ${theme.waybar.critical};
         }
       '';  
 
