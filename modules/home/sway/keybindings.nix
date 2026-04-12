@@ -19,8 +19,8 @@ in
     wayland.windowManager.sway.config.keybindings = {
       
       XF86AudioMute = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-      XF86AudioRaiseVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
-      "${mod}+Shift+plus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+      XF86AudioRaiseVolume = "exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 5%+";
+      "${mod}+Shift+plus" = "exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 5%+";
       XF86AudioLowerVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
       "${mod}+Shift+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
       

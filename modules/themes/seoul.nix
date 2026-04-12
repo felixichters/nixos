@@ -1,6 +1,6 @@
 {
   sway = {
-    wallpaper  = "#3a3a3a";
+    wallpaper  = "#5f865f";
     background = "#3a3a3a";
 
     focused = {
@@ -60,11 +60,11 @@
   };
 
   kitty = {
-    background          = "#4d4d4d";
+    background          = "#3a3a3a";
     foreground          = "#d0d0d0";
     selectionBackground = "#005f5f";
     selectionForeground = "#d0d0d0";
-    color00 = "#3a3a3a";
+    color00 = "#4d4d4d";
     color01 = "#d68686";
     color02 = "#5f8660";
     color03 = "#d7af60";
@@ -95,11 +95,11 @@
   mako = {
     background = "#4d4d4d";
     text       = "#d0d0d0";
-    border     = "#85add4";
+    border     = "#3a3a3a";
   };
 
   tofi = {
-    "background-color" = "#3a3a3aCC";
+    "background-color" = "#4d4d4dCC";
     "text-color"       = "#d0d0d0";
     "selection-color"  = "#85add4";
     "input-color"      = "#d0d0d0";
