@@ -4,11 +4,11 @@
     background = "#101010";
 
     focused = {
-      border      = "#708090";
-      background  = "#708090";
+      border      = "#7788aa";
+      background  = "#7788aa";
       text        = "#cccccc";
-      indicator   = "#708090";
-      childBorder = "#708090";
+      indicator   = "#7788aa";
+      childBorder = "#7788aa";
     };
     focusedInactive = {
       border      = "#444444";
@@ -18,11 +18,11 @@
       childBorder = "#444444";
     };
     unfocused = {
-      border      = "#444444";
-      background  = "#444444";
+      border      = "#101010";
+      background  = "#101010";
       text        = "#cccccc";
-      indicator   = "#444444";
-      childBorder = "#444444";
+      indicator   = "#101010";
+      childBorder = "#101010";
     };
     urgent = {
       border      = "#d70000";
@@ -37,19 +37,19 @@
       statusline = "#cccccc";
       separator  = "#444444";
       focusedWorkspace = {
-        border     = "#191919";
-        background = "#191919";
-        text       = "#cccccc";
+        border     = "#2a2a2a";
+        background = "#2a2a2a";
+        text       = "#deeeed";
       };
       activeWorkspace = {
-        border     = "#191919";
+        border     = "#2a2a2a";
         background = "#191919";
-        text       = "#cccccc";
+        text       = "#deeeed";
       };
       inactiveWorkspace = {
         border     = "#191919";
         background = "#191919";
-        text       = "#444444";
+        text       = "#7a7a7a";
       };
       urgentWorkspace = {
         border     = "#d70000";

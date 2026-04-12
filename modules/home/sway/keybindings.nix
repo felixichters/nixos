@@ -48,8 +48,8 @@ in
       
       "${mod}+Shift+q" = "exec ${exit}";
       
-      "${mod}+minus" = "exec swaymsg move scratchpad";
-      "${mod}+plus" = "exec swaymsg scratchpad show";
+      "${mod}+minus" = "move container to workspace scratch";
+      "${mod}+plus" = "workspace scratch";
       
       "${mod}+space" = "floating toggle";
       
