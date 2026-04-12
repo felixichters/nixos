@@ -16,5 +16,6 @@
     ./ai.nix
     ./security.nix
     ./apps.nix
+    ./chromium.nix
   ];
 }

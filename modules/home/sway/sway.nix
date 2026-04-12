@@ -57,9 +57,10 @@ in
         bars = [{
           statusCommand = "${swaybarStatus}/bin/swaybar-status";
           position = "top";
+          #mode = "hide";
           fonts = {
             names = [ font.name ];
-            size = 10.0;
+            size = 8.5;
           };
           colors = {
             background = theme.sway.bar.background;
