@@ -18,7 +18,7 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       themes = import ../../modules/themes/default.nix;
-      theme = themes.seoul;
+      theme = themes.lackluster;
       fonts = import ../../modules/fonts/default.nix;
       font = fonts.ibm-plex-mono;
     in {

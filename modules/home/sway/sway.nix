@@ -28,7 +28,7 @@ in
         terminal = "kitty";
         window = {
           titlebar = false;
-          border = 2;
+          border = 1;
           commands = [
             {
               criteria = { app_id = "org.keepassxc.KeePassXC"; };
