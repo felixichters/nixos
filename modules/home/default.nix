@@ -5,6 +5,7 @@
     ./font.nix
     ./git.nix
     ./kitty.nix
+    ./foot.nix
     ./tools.nix
     ./tofi.nix
     ./zsh.nix

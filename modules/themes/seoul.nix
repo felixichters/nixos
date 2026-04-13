@@ -82,6 +82,29 @@
     color15 = "#e4e4e4";
   };
 
+  foot = {
+    background          = "#3a3a3a";
+    foreground          = "#d0d0d0";
+    selectionBackground = "#005f5f";
+    selectionForeground = "#d0d0d0";
+    color00 = "#4d4d4d";
+    color01 = "#d68686";
+    color02 = "#5f8660";
+    color03 = "#d7af60";
+    color04 = "#85add4";
+    color05 = "#d7afaf";
+    color06 = "#87afaf";
+    color07 = "#d0d0d0";
+    color08 = "#626262";
+    color09 = "#d76087";
+    color10 = "#87af87";
+    color11 = "#ffd787";
+    color12 = "#add4fb";
+    color13 = "#ffafaf";
+    color14 = "#87d7d7";
+    color15 = "#e4e4e4";
+  };
+
   waybar = {
     background = "#4d4d4d";
     foreground = "#d0d0d0";

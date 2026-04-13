@@ -60,7 +60,7 @@ in
           #mode = "hide";
           fonts = {
             names = [ font.name ];
-            size = 8.5;
+            size = 9.0;
           };
           colors = {
             background = theme.sway.bar.background;
