@@ -4,11 +4,11 @@
     background = "#101010";
 
     focused = {
-      border      = "#7788aa";
-      background  = "#7788aa";
+      border      = "#555555";
+      background  = "#555555";
       text        = "#cccccc";
-      indicator   = "#7788aa";
-      childBorder = "#7788aa";
+      indicator   = "#555555";
+      childBorder = "#555555";
     };
     focusedInactive = {
       border      = "#444444";
@@ -60,6 +60,29 @@
   };
 
   kitty = {
+    background          = "#101010";
+    foreground          = "#cccccc";
+    selectionBackground = "#cccccc";
+    selectionForeground = "#101010";
+    color00 = "#080808";
+    color01 = "#d70000";
+    color02 = "#789978";
+    color03 = "#ffaa88";
+    color04 = "#708090";
+    color05 = "#789978";
+    color06 = "#7788aa";
+    color07 = "#dddddd";
+    color08 = "#555555";
+    color09 = "#ffaa88";
+    color10 = "#2a2a2a";
+    color11 = "#444444";
+    color12 = "#aaaaaa";
+    color13 = "#dddddd";
+    color14 = "#7788aa";
+    color15 = "#deeeed";
+  };
+
+  foot = {
     background          = "#101010";
     foreground          = "#cccccc";
     selectionBackground = "#cccccc";

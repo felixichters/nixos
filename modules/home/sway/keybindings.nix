@@ -2,9 +2,9 @@
 
 let
   mod = "Mod4";
-  term = "kitty";
+  term = "foot";
   menu = "tofi-run | xargs -r swaymsg exec --";
-  files = "kitty ranger";
+  files = "foot -e ranger";
   power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
   reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
   exit = "exec swaynag -t warning -m 'exit sway?' -B 'yes' 'swaymsg exit'";
