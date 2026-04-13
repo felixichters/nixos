@@ -100,10 +100,10 @@
 
   tofi = {
     "background-color" = "#000A";
-    "text-color"       = "#cccccc";
-    "selection-color"  = "#708090";
+    "text-color"       = "#7a7a7a";
+    "selection-color"  = "#7788aa";
     "input-color"      = "#cccccc";
-    "prompt-color"     = "#444444";
+    "prompt-color"     = "#555555";
   };
 
   nvim = {
