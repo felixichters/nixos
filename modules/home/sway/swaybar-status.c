@@ -5,6 +5,12 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <sys/statvfs.h>
+#include <sys/ioctl.h>
+#include <sys/socket.h>
+#include <net/if.h>
+#include <linux/wireless.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
 
 #define INTERVAL_BATTERY 30
 #define INTERVAL_STORAGE 30
@@ -16,10 +22,10 @@ typedef struct {
     char clock_str[8];   /* "14:30"     */
     char date_str[12];   /* "10/04/2026" */
     char bat_str[16];    /* "BAT: +87%"  or "" if no battery */
-    char cpu_str[16];    /* "CPU: 0.42"  */
-    char ram_str[16];    /* "RAM: 3.2G"  */
-    char stor_str[16];   /* "/: 45%"     */
-    char net_str[8];     /* "[W]" / "[E]" / "[!]" */
+    char cpu_str[24];    /* "CPU: 0.42/8"       */
+    char ram_str[24];    /* "RAM: 3.2G/31.2G"  */
+    char stor_str[24];   /* "/: 45.1G/512.0G"  */
+    char net_str[64];    /* "[W: SSID | 192.168.1.5]" / "[E: 10.0.0.2]" / "[!]" */
     char vpn_str[8];     /* "[VPN]" or "" */
     char ssh_str[8];     /* "[SSH]" or "" */
 
@@ -110,11 +116,16 @@ static void update_cpu(State *s)
     if (!f) { snprintf(s->cpu_str, sizeof(s->cpu_str), "CPU: ?"); return; }
 
     float load;
-    if (fscanf(f, "%f", &load) == 1)
+    int ok = fscanf(f, "%f", &load) == 1;
+    fclose(f);
+
+    long cores = sysconf(_SC_NPROCESSORS_ONLN);
+    if (ok && cores > 0)
+        snprintf(s->cpu_str, sizeof(s->cpu_str), "CPU: %.2f/%ld", load, cores);
+    else if (ok)
         snprintf(s->cpu_str, sizeof(s->cpu_str), "CPU: %.2f", load);
     else
         snprintf(s->cpu_str, sizeof(s->cpu_str), "CPU: ?");
-    fclose(f);
 }
 
 static void update_ram(State *s)
@@ -125,20 +136,24 @@ static void update_ram(State *s)
     if (!f) { snprintf(s->ram_str, sizeof(s->ram_str), "RAM: ?"); return; }
 
     char line[128];
-    long avail_kb = -1;
+    long total_kb = -1, avail_kb = -1;
     while (fgets(line, sizeof(line), f)) {
-        if (strncmp(line, "MemAvailable:", 13) == 0) {
+        if (strncmp(line, "MemTotal:", 9) == 0)
+            sscanf(line + 9, "%ld", &total_kb);
+        else if (strncmp(line, "MemAvailable:", 13) == 0)
             sscanf(line + 13, "%ld", &avail_kb);
-            break;
-        }
+        if (total_kb >= 0 && avail_kb >= 0) break;
     }
     fclose(f);
 
-    if (avail_kb < 0)
+    if (total_kb < 0 || avail_kb < 0)
         snprintf(s->ram_str, sizeof(s->ram_str), "RAM: ?");
-    else
-        snprintf(s->ram_str, sizeof(s->ram_str), "RAM: %.1fG",
-                 avail_kb / (1024.0 * 1024.0));
+    else {
+        long used_kb = total_kb - avail_kb;
+        snprintf(s->ram_str, sizeof(s->ram_str), "RAM: %.1fG/%.1fG",
+                 used_kb   / (1024.0 * 1024.0),
+                 total_kb  / (1024.0 * 1024.0));
+    }
 }
 
 static void update_storage(State *s)
@@ -151,9 +166,11 @@ static void update_storage(State *s)
         return;
     }
 
-    unsigned long used = st.f_blocks - st.f_bfree;
-    int pct = (int)(100UL * used / st.f_blocks);
-    snprintf(s->stor_str, sizeof(s->stor_str), "/: %d%%", pct);
+    unsigned long long total = (unsigned long long)st.f_blocks * st.f_frsize;
+    unsigned long long used  = (unsigned long long)(st.f_blocks - st.f_bfree) * st.f_frsize;
+    snprintf(s->stor_str, sizeof(s->stor_str), "/: %.1fG/%.1fG",
+             used  / (1024.0 * 1024.0 * 1024.0),
+             total / (1024.0 * 1024.0 * 1024.0));
 }
 
 static int is_wireless(const char *iface)
@@ -200,11 +217,13 @@ static void update_network(State *s)
         fclose(f);
     }
 
-    /* Network type: scan /sys/class/net/ for the first up interface */
+    /* Find active interface — prefer wifi over ethernet */
+    char active_iface[IFNAMSIZ] = "";
+    int active_is_wifi = 0;
+
     DIR *d = opendir("/sys/class/net");
     if (!d) { snprintf(s->net_str, sizeof(s->net_str), "[!]"); return; }
 
-    int found_wifi = 0, found_eth = 0;
     struct dirent *ent;
     while ((ent = readdir(d)) != NULL) {
         const char *name = ent->d_name;
@@ -217,23 +236,58 @@ static void update_network(State *s)
         if (!read_str(op_path, operstate, sizeof(operstate))) continue;
         if (strncmp(operstate, "up", 2) != 0) continue;
 
-        if (is_wireless(name))
-            found_wifi = 1;
-        else
-            found_eth = 1;
+        int wifi = is_wireless(name);
+        if (active_iface[0] == '\0' || wifi) {
+            strncpy(active_iface, name, IFNAMSIZ - 1);
+            active_iface[IFNAMSIZ - 1] = '\0';
+            active_is_wifi = wifi;
+            if (wifi) break; /* wifi takes priority */
+        }
     }
     closedir(d);
 
-    if (found_wifi)       snprintf(s->net_str, sizeof(s->net_str), "[W]");
-    else if (found_eth)   snprintf(s->net_str, sizeof(s->net_str), "[E]");
-    else                  snprintf(s->net_str, sizeof(s->net_str), "[!]");
+    if (active_iface[0] == '\0') {
+        snprintf(s->net_str, sizeof(s->net_str), "[!]");
+        return;
+    }
+
+    /* Get IP and (for wifi) SSID via ioctls */
+    char ip_str[INET_ADDRSTRLEN] = "?";
+    int sock = socket(AF_INET, SOCK_DGRAM, 0);
+    if (sock >= 0) {
+        struct ifreq ifr;
+        memset(&ifr, 0, sizeof(ifr));
+        strncpy(ifr.ifr_name, active_iface, IFNAMSIZ - 1);
+        if (ioctl(sock, SIOCGIFADDR, &ifr) == 0)
+            inet_ntop(AF_INET,
+                      &((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr,
+                      ip_str, sizeof(ip_str));
+
+        if (active_is_wifi) {
+            struct iwreq wreq;
+            char ssid[IW_ESSID_MAX_SIZE + 1] = "";
+            memset(&wreq, 0, sizeof(wreq));
+            strncpy(wreq.ifr_name, active_iface, IFNAMSIZ - 1);
+            wreq.u.essid.pointer = ssid;
+            wreq.u.essid.length  = IW_ESSID_MAX_SIZE;
+            if (ioctl(sock, SIOCGIWESSID, &wreq) == 0 && ssid[0])
+                snprintf(s->net_str, sizeof(s->net_str), "[W: %s@%s]", ip_str, ssid);
+            else
+                snprintf(s->net_str, sizeof(s->net_str), "[W: %s]", ip_str);
+        } else {
+            snprintf(s->net_str, sizeof(s->net_str), "[E: %s]", ip_str);
+        }
+        close(sock);
+    } else {
+        snprintf(s->net_str, sizeof(s->net_str), active_is_wifi ? "[W]" : "[E]");
+    }
 }
 
 /* ── output ──────────────────────────────────────────────────────────────── */
 
 static void print_status(const State *s)
 {
-    char prefix[32] = "";
+    char prefix[96] = "";
     if (s->vpn_str[0]) { strcat(prefix, s->vpn_str); strcat(prefix, " "); }
     if (s->ssh_str[0]) { strcat(prefix, s->ssh_str); strcat(prefix, " "); }
     strcat(prefix, s->net_str);
