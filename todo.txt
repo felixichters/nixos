@@ -1,2 +1,0 @@
-- RAM Bar module to show used RAM not free
-- add seoul light
