@@ -121,12 +121,11 @@
     border     = "#3a3a3a";
   };
 
-  tofi = {
-    "background-color" = "#4d4d4dCC";
-    "text-color"       = "#d0d0d0";
-    "selection-color"  = "#85add4";
-    "input-color"      = "#d0d0d0";
-    "prompt-color"     = "#626262";
+  wmenu = {
+    normalBg   = "#4d4d4d";
+    normalFg   = "#d0d0d0";
+    selectedBg = "#85add4";
+    selectedFg = "#3a3a3a";
   };
 
   nvim = {

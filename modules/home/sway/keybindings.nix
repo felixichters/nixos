@@ -3,7 +3,7 @@
 let
   mod = "Mod4";
   term = "foot";
-  menu = "tofi-run | xargs -r swaymsg exec --";
+  menu = config.wmenu.menuCommand;
   files = "foot -e ranger";
   power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
   reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";

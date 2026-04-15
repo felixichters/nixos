@@ -7,7 +7,7 @@
     ./kitty.nix
     ./foot.nix
     ./tools.nix
-    ./tofi.nix
+    ./wmenu.nix
     ./zsh.nix
     ./nvim.nix
     ./ranger.nix
