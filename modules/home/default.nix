@@ -11,7 +11,6 @@
     ./nvim.nix
     ./ranger.nix
     ./vscode.nix
-    ./firefox.nix
     ./mako.nix
     ./ai.nix
     ./security.nix
