@@ -57,6 +57,7 @@ in
         bars = [{
           statusCommand = "${swaybarStatus}/bin/swaybar-status";
           position = "top";
+          trayOutput = "none";
           #mode = "hide";
           fonts = {
             names = [ font.name ];

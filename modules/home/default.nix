@@ -4,7 +4,6 @@
     ./sway/sway.nix
     ./font.nix
     ./git.nix
-    ./kitty.nix
     ./foot.nix
     ./tools.nix
     ./wmenu.nix

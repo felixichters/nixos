@@ -37,12 +37,12 @@
       statusline = "#cccccc";
       separator  = "#444444";
       focusedWorkspace = {
-        border     = "#2a2a2a";
-        background = "#2a2a2a";
+        border     = "#444444";
+        background = "#444444";
         text       = "#deeeed";
       };
       activeWorkspace = {
-        border     = "#2a2a2a";
+        border     = "#444444";
         background = "#191919";
         text       = "#deeeed";
       };
@@ -57,29 +57,6 @@
         text       = "#cccccc";
       };
     };
-  };
-
-  kitty = {
-    background          = "#101010";
-    foreground          = "#cccccc";
-    selectionBackground = "#cccccc";
-    selectionForeground = "#101010";
-    color00 = "#080808";
-    color01 = "#d70000";
-    color02 = "#789978";
-    color03 = "#ffaa88";
-    color04 = "#708090";
-    color05 = "#789978";
-    color06 = "#7788aa";
-    color07 = "#dddddd";
-    color08 = "#555555";
-    color09 = "#ffaa88";
-    color10 = "#2a2a2a";
-    color11 = "#444444";
-    color12 = "#aaaaaa";
-    color13 = "#dddddd";
-    color14 = "#7788aa";
-    color15 = "#deeeed";
   };
 
   foot = {
@@ -121,14 +98,4 @@
   nvim = {
     colorscheme = "lackluster";
   };
-
-  #waybar = {
-  #  background = "#191919";  # window/tooltip background
-  #  foreground = "#cccccc";  # text, normal workspaces
-  #  border     = "#444444";  # tooltip border, inactive workspace text
-  #  scratchpad = "#ffaa88";  # scratchpad indicator
-  #  accent     = "#708090";  # ssh, vpn, bluetooth
-  #  critical   = "#d70000";  # errors, disconnected, muted, battery critical
-  #  charging   = "#789978";  # battery charging
-  #};
 }
