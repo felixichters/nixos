@@ -37,8 +37,8 @@
       statusline = "#cccccc";
       separator  = "#444444";
       focusedWorkspace = {
-        border     = "#444444";
-        background = "#444444";
+        border     = "#2a2a2a";
+        background = "#2a2a2a";
         text       = "#deeeed";
       };
       activeWorkspace = {
