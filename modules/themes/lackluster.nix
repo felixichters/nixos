@@ -105,31 +105,30 @@
     color15 = "#deeeed";
   };
 
-  waybar = {
-    background = "#191919";  # window/tooltip background
-    foreground = "#cccccc";  # text, normal workspaces
-    border     = "#444444";  # tooltip border, inactive workspace text
-    scratchpad = "#ffaa88";  # scratchpad indicator
-    accent     = "#708090";  # ssh, vpn, bluetooth
-    critical   = "#d70000";  # errors, disconnected, muted, battery critical
-    charging   = "#789978";  # battery charging
-  };
-
   mako = {
     background = "#191919";
     text       = "#cccccc";
     border     = "#2a2a2a";
   };
 
-  tofi = {
-    "background-color" = "#000A";
-    "text-color"       = "#7a7a7a";
-    "selection-color"  = "#7788aa";
-    "input-color"      = "#cccccc";
-    "prompt-color"     = "#555555";
+  wmenu = {
+    normalBg   = "#708090";
+    normalFg   = "#2a2a2a";
+    selectedBg = "#aaaaaa";
+    selectedFg = "#080808";
   };
 
   nvim = {
     colorscheme = "lackluster";
   };
+
+  #waybar = {
+  #  background = "#191919";  # window/tooltip background
+  #  foreground = "#cccccc";  # text, normal workspaces
+  #  border     = "#444444";  # tooltip border, inactive workspace text
+  #  scratchpad = "#ffaa88";  # scratchpad indicator
+  #  accent     = "#708090";  # ssh, vpn, bluetooth
+  #  critical   = "#d70000";  # errors, disconnected, muted, battery critical
+  #  charging   = "#789978";  # battery charging
+  #};
 }
