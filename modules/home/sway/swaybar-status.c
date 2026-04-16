@@ -57,9 +57,10 @@ static int read_str(const char *path, char *buf, int len)
     if (!f) return 0;
     int ok = fgets(buf, len, f) != NULL;
     fclose(f);
+    if (!ok) return 0;
     int l = strlen(buf);
     if (l > 0 && buf[l - 1] == '\n') buf[l - 1] = '\0';
-    return ok;
+    return 1;
 }
 
 static int min2(int a, int b) { return a < b ? a : b; }
@@ -100,7 +101,7 @@ static void update_battery(State *s)
         char status[16] = "";
         read_str(stat_path, status, sizeof(status));
 
-        char sign = (strncmp(status, "Charging", 8) == 0) ? '+' : '-';
+        char sign = (strncmp(status, "Discharging", 11) == 0) ? '-' : '+';
         snprintf(s->bat_str, sizeof(s->bat_str), "BAT: %c%d%%", sign, cap);
         return;
     }
@@ -186,13 +187,31 @@ static void update_network(State *s)
 {
     mono_now(&s->last_net);
 
-    /* VPN: look for an up tun interface */
+    /* VPN: look for any up/unknown tun*, wg*, vpn*, or tailscale* interface */
     char operstate[16];
-    if (read_str("/sys/class/net/tun0/operstate", operstate, sizeof(operstate))
-            && strncmp(operstate, "up", 2) == 0)
-        snprintf(s->vpn_str, sizeof(s->vpn_str), "[VPN]");
-    else
-        s->vpn_str[0] = '\0';
+    s->vpn_str[0] = '\0';
+    {
+        DIR *vd = opendir("/sys/class/net");
+        if (vd) {
+            struct dirent *ve;
+            while ((ve = readdir(vd)) != NULL) {
+                const char *vn = ve->d_name;
+                if (strncmp(vn, "tun", 3) != 0 &&
+                    strncmp(vn, "wg",  2) != 0 &&
+                    strncmp(vn, "vpn", 3) != 0 &&
+                    strncmp(vn, "tailscale", 9) != 0) continue;
+                char vpath[64];
+                snprintf(vpath, sizeof(vpath), "/sys/class/net/%s/operstate", vn);
+                if (read_str(vpath, operstate, sizeof(operstate)) &&
+                    (strncmp(operstate, "up",      2) == 0 ||
+                     strncmp(operstate, "unknown", 7) == 0)) {
+                    snprintf(s->vpn_str, sizeof(s->vpn_str), "[VPN]");
+                    break;
+                }
+            }
+            closedir(vd);
+        }
+    }
 
     /* SSH: scan /proc/net/tcp for established connections on port 22 */
     s->ssh_str[0] = '\0';
@@ -230,6 +249,9 @@ static void update_network(State *s)
         if (name[0] == '.') continue;
         if (strcmp(name, "lo") == 0) continue;
         if (strncmp(name, "tun", 3) == 0) continue;
+        if (strncmp(name, "wg",  2) == 0) continue;
+        if (strncmp(name, "vpn", 3) == 0) continue;
+        if (strncmp(name, "tailscale", 9) == 0) continue;
 
         char op_path[64];
         snprintf(op_path, sizeof(op_path), "/sys/class/net/%s/operstate", name);
