@@ -19,7 +19,7 @@
       ext sh = nvim "$@" 
       ext py = nvim "$@"
       ext lua = nvim "$@"
-      ext pdf = firefox "$@"
+      ext pdf = chromium "$@"
       ext jpg = feh "$@"
       ext jpeg = feh "$@"
       ext png = feh "$@"
