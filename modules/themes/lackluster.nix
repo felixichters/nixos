@@ -1,4 +1,6 @@
 {
+  variant = "dark";
+
   sway = {
     wallpaper  = "#191919";
     background = "#101010";

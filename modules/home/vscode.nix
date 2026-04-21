@@ -1,4 +1,4 @@
-{ config, pkgs, lib, font, ...}:
+{ config, pkgs, lib, font, theme, ...}:
 
 {
   options.vscode.enable = lib.mkOption {
@@ -36,7 +36,10 @@
             "editor.fontFamily" = font.name;
             "editor.fontLigatures" = true;
             "terminal.integrated.defaultProfile.linux" = "zsh";
-            "files.simpleDialog.enable"=  true;
+            "files.simpleDialog.enable" = true;
+            "workbench.colorTheme" = if theme.variant == "light"
+              then "Default Light Modern"
+              else "Default Dark Modern";
             #"files.autoSave" = "off";
             #"editor.formatOnSave" = "true";
           };

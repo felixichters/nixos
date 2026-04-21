@@ -1,4 +1,6 @@
 {
+  variant = "light";
+
   sway = {
     wallpaper  = "#5f8787";
     background = "#dadada";
@@ -72,7 +74,7 @@
     color05 = "#875f87";
     color06 = "#5f8787";
     color07 = "#e4e4e4";
-    color08 = "#3a3a3a";
+    color08 = "#c6c6c6";
     color09 = "#870000";
     color10 = "#005f00";
     color11 = "#d78760";
