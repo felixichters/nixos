@@ -20,11 +20,11 @@
       childBorder = "#444444";
     };
     unfocused = {
-      border      = "#101010";
-      background  = "#101010";
+      border      = "#2a2a2a";
+      background  = "#2a2a2a";
       text        = "#cccccc";
-      indicator   = "#101010";
-      childBorder = "#101010";
+      indicator   = "#2a2a2a";
+      childBorder = "#2a2a2a";
     };
     urgent = {
       border      = "#d70000";
