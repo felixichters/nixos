@@ -7,6 +7,6 @@
   };
   config = lib.mkIf config.monitoring.enable {
     programs.htop.enable = true;
-    program.btop.enable = true;
+    programs.btop.enable = true;
   };
 }
