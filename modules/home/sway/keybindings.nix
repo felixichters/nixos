@@ -34,6 +34,7 @@ in
       "${mod}+escape" = "exec ${lock}";
 
       "${mod}+Return" = "exec ${term}";
+      "${mod}+Shift+Return" = "exec ${term} --app-id=foot-floating";
       
       "${mod}+q" = "kill";
       

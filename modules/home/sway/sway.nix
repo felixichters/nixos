@@ -34,6 +34,10 @@ in
               criteria = { app_id = "org.keepassxc.KeePassXC"; };
               command = "floating enable, move position center";
             }
+            {
+              criteria = { app_id = "foot-floating"; };
+              command = "floating enable, resize set 45 ppt 40 ppt, move position 1000 30";
+            }
           ];
         };
         gaps = {
