@@ -7,6 +7,7 @@
     description = "enable ai tools";
   };
   config = lib.mkIf config.ai.enable {
+    #services.ollama.enable
     programs.claude-code = {
       enable = true;
       memory.text = ''

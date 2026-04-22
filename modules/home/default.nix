@@ -16,5 +16,6 @@
     ./security.nix
     ./apps.nix
     ./chromium.nix
+    ./monitoring.nix
   ];
 }
