@@ -13,7 +13,9 @@
     ./vscode.nix
     ./mako.nix
     ./ai.nix
-    ./security.nix
+    ./credentials.nix
+    ./nettools.nix
+    ./devtools.nix
     ./apps.nix
     ./chromium.nix
     ./monitoring.nix

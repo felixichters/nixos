@@ -1,4 +1,4 @@
-{config, lib, pkgs, ...}:
+{config, lib, pkgs, user, ...}:
 
 let
   mod = "Mod4";
@@ -9,8 +9,9 @@ let
   reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
   exit = "exec swaynag -t warning -m 'exit sway?' -B 'yes' 'swaymsg exit'";
   lock = "swaylock -c 000000";
-  screenshot = "grimshot save output - | tee ~/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy";
-  screenshot-region = "sh -c 'selection=$(slurp) && grim -g \"$selection\" - | tee ~/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy'";
+  shotDir = user.screenshotDir;
+  screenshot = "grimshot save output - | tee ${shotDir}/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy";
+  screenshot-region = "sh -c 'selection=$(slurp) && grim -g \"$selection\" - | tee ${shotDir}/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy'";
 in
 {
 

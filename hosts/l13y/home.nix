@@ -1,20 +1,7 @@
-{ user, pkgs, ... }:
+{ user, ... }:
 
 {
-  imports = [
-    ../../modules/home
-  ];
-  
-  home.username = user;
-  home.homeDirectory = "/home/${user}";
+  home.username = user.name;
+  home.homeDirectory = "/home/${user.name}";
   home.stateVersion = "24.05";
-  
-  programs.home-manager.enable = true;
-  nixpkgs.config.allowUnfree = true;
-  #home.packages = with pkgs; [
-  #	(katago.override {
-  #		backend = "eigen";
-  #		enableAVX2 = true;
-  #	})
-  #];
 }

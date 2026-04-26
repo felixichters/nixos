@@ -1,9 +1,8 @@
-{... }:
-
+{ ... }:
 {
   imports = [
-    ./user.nix 
-    ./networking.nix 
+    ./user.nix
+    ./networking.nix
     ./sound.nix
     ./locales.nix
     ./virtualization.nix
@@ -11,8 +10,11 @@
     ./compat.nix
     ./openssh.nix
     ./gaming.nix
-    ./security.nix
+    ./hardening.nix
     ./filesystems.nix
-    #./ai.nix
+    ./swaylock.nix
+    ./wireshark.nix
+    ./laptop.nix
+    ./nvidia.nix
   ];
 }

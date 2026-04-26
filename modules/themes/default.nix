@@ -1,4 +1,4 @@
 {
-  lackluster = import ./lackluster.nix;
-  seoul = import ./seoul.nix;
+  dark = import ./lackluster.nix;
+  light = import ./seoul.nix;
 }

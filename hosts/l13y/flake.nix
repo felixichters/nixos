@@ -1,5 +1,5 @@
 {
-  description = "nixos/home-manager configuration";
+  description = "nixos/home-manager configuration for l13y";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -10,40 +10,11 @@
     nixvim.url = "github:nix-community/nixvim";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, ...} @ inputs:
-    let
-      user = "felix";
+  outputs = inputs:
+    (import ../../lib/mkSystem.nix { inherit inputs; }) {
       host = "l13y";
-      lib = nixpkgs.lib;
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      themes = import ../../modules/themes/default.nix;
-      theme = themes.lackluster;
-      fonts = import ../../modules/fonts/default.nix;
-      font = fonts.ibm-plex-mono;
-    in {
-    nixosConfigurations = {
-      ${host} = lib.nixosSystem {
-        inherit system;
-        specialArgs = { 
-          inherit inputs host user theme font;
-        };
-        modules = [
-          ./configuration.nix
-        ];
-      };
+      user = "felix";
+      themeName = "dark";
+      profiles = [ "base" "desktop" "developer" "laptop" "ai" "hardened" ];
     };
-    homeConfigurations = {
-      ${user} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { 
-          inherit inputs host user theme font;
-        };
-        modules = [
-          ./home.nix
-          nixvim.homeModules.nixvim
-        ];
-      };
-    };
-  };
 }

@@ -15,7 +15,6 @@
       settings = {
         PasswordAuthentication = true;
         KbdInteractiveAuthentication = false;
-        AllowUsers = null; 
         UseDns = true;
         UsePAM = true;
         X11Forwarding = false;

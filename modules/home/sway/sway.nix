@@ -20,6 +20,9 @@ in
 
   config = lib.mkIf config.sway.enable {
     programs.swaylock.enable = true;
+    services.playerctld.enable = true;
+    services.udiskie.enable = true;
+    home.packages = with pkgs; [ wl-clipboard grim slurp sway-contrib.grimshot ];
     wayland.windowManager.sway = {
       enable = true;
       xwayland = true;
