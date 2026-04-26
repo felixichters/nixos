@@ -1,7 +1,4 @@
-# Always-on baseline. Imports the entire module tree so that any other profile
-# can flip the option flags those modules expose. Boot loader + greetd live
-# here so that hardware profiles (e.g. nvidia) only need to override the
-# greetd command via mkForce.
+# Always-on baseline.
 {
   system = { config, lib, pkgs, ... }: {
     imports = [ ../modules/system ];
