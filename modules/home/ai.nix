@@ -10,7 +10,7 @@
     #services.ollama.enable
     programs.claude-code = {
       enable = true;
-      memory.text = ''
+      context = ''
         # System Environment
         This system runs NixOS with Home Manager (standalone). There is no traditional package manager (apt, pip, brew, etc.).
 

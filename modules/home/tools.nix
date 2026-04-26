@@ -1,20 +1,19 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 {
-  options.core_extra.enable = lib.mkOption {
+  options.tools.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
-    description = "enable core extras";
+    description = "CLI shell utilities";
   };
-  config = lib.mkIf config.core_extra.enable {
-    services.playerctld.enable = true;
-    services.udiskie.enable = true;
-    programs.zathura.enable = true; 
+
+  config = lib.mkIf config.tools.enable {
+    programs.zathura.enable = true;
     programs.feh.enable = true;
     programs.fzf.enable = true;
     programs.jq.enable = true;
     programs.tmux.enable = true;
     home.packages = with pkgs; [
-      wl-clipboard
+      just
       cmatrix
       zip
       unzip
@@ -24,14 +23,6 @@
       usbutils
       ripgrep
       exfatprogs
-      grim
-      slurp
-      sway-contrib.grimshot 
-      gcc
-      clang-tools
-      gdb
-      nasm
-      nil
     ];
   };
 }

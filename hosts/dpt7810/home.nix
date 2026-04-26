@@ -1,14 +1,7 @@
-{ user, pkgs, ... }:
+{ user, ... }:
 
 {
-  imports = [
-    ../../modules/home
-    ./extra.nix
-  ];
-  
-  home.username = user;
-  home.homeDirectory = "/home/${user}";
+  home.username = user.name;
+  home.homeDirectory = "/home/${user.name}";
   home.stateVersion = "24.05";
-  programs.home-manager.enable = true;
-  nixpkgs.config.allowUnfree = true;
 }

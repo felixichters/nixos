@@ -1,11 +1,19 @@
-{ pkgs, user, ...}:
+{ config, pkgs, lib, user, ... }:
 {
-  users.users.${user} = {
-    isNormalUser = true;
-    description = "felix";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "wireshark" "libvirtd" "docker" "gamemode"];
+  options.user.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
+    description = "create the primary user account";
   };
-  
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
+
+  config = lib.mkIf config.user.enable {
+    users.users.${user.name} = {
+      isNormalUser = true;
+      description = user.fullName;
+      extraGroups = user.extraGroups;
+    };
+
+    programs.zsh.enable = true;
+    users.defaultUserShell = pkgs.zsh;
+  };
 }

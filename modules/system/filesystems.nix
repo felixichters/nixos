@@ -1,17 +1,16 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
-  services.udisks2.enable = true;
-  
-  environment.systemPackages = with pkgs; [
-    parted
-  ];
+  options.filesystems.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
+    description = "enable udisks2 + filesystem utilities";
+  };
 
-#  fileSystems."/mnt/stash" = {
-#    device = "/dev/disk/by-uuid/42d44629-0583-4660-95cf-3a7ceb940954";
-#    fsType = "ext4";
-#    options = [
-#      "noatime"
-#      "nofail"
-#    ];
-#  };
+  config = lib.mkIf config.filesystems.enable {
+    services.udisks2.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      parted
+    ];
+  };
 }

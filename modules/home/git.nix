@@ -1,9 +1,8 @@
-{ config, pkgs, lib, ...}:
-
+{ config, pkgs, lib, user, ... }:
 {
   options.git.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true; 
+    default = true;
     description = "enable git";
   };
 
@@ -12,8 +11,8 @@
       enable = true;
       settings = {
         user = {
-          name  = "felix";
-          email = "ichters.fe@gmail.com";
+          name  = user.fullName;
+          email = user.email;
         };
         init.defaultBranch = "main";
         pull.rebase = true;
@@ -24,5 +23,5 @@
         "CLAUDE.md"
       ];
     };
-  };	
+  };
 }
