@@ -1,36 +1,32 @@
 # NixOS Configuration
 
-Flake-based NixOS + standalone Home Manager for two hosts.
+Flake-based NixOS + standalone Home Manager configuration.
 
 ```
-lib/        shared builder (mkSystem.nix)
+lib/        shared builder
 vars/       user identity (name, email, locale, …)
-profiles/   composable bundles — base, desktop, developer, gaming, nvidia, laptop, ai, hardened
+profiles/   composable bundles
 modules/
-  system/   NixOS modules, each with options.<x>.enable
-  home/     Home Manager modules, each with options.<x>.enable
-  themes/   dark / light color palettes
+  system/   NixOS modules
+  home/     Home Manager modules
+  themes/   dark/light color palettes
   fonts/    font definitions
 hosts/
-  dpt7810/  desktop — flake.nix, flake.lock, configuration.nix, home.nix
-  l13y/     laptop  — flake.nix, flake.lock, configuration.nix, home.nix
+  dpt7810/  desktop
+  l13y/     laptop
 justfile    convenience commands
 ```
 
 ## Fresh install
 
 ```sh
-# 1. Enable flakes for this session
 export NIX_CONFIG="experimental-features = nix-command flakes"
 
-# 2. Clone
 nix-shell -p git --run "git clone <repo-url> ~/.dotfiles"
 
-# 3. Apply system config
 cd ~/.dotfiles/hosts/<host>
 sudo nixos-rebuild switch --flake .
 
-# 4. Bootstrap Home Manager (first time only)
 nix run github:nix-community/home-manager -- switch --flake .
 ```
 
@@ -40,7 +36,7 @@ nix run github:nix-community/home-manager -- switch --flake .
 just rebuild       # apply system + home for the current host
 just system        # system only
 just home          # home only
-just update        # nix flake update for this host (doesn't touch the other host's lock)
+just update        # nix flake update for this host
 just check         # fast eval check, no build
 ```
 

@@ -1,13 +1,10 @@
 # Shared NixOS + standalone Home Manager builder.
-#
-# Each host's flake.nix imports this and calls it with its own inputs and host
-# args. Returns an attrset suitable for use as the flake's outputs. Each host
-# keeps its own flake.lock so `nix flake update` stays per-host.
+
 { inputs, system ? "x86_64-linux" }:
 
 { host
-, user                       # username string, resolved via vars/<user>.nix; or pass an attrset directly
-, profiles ? [ "base" ]      # profile names declared in profiles/default.nix
+, user
+, profiles ? [ "base" ]
 , themeName ? "dark"
 , fontName ? "ibm-plex-mono"
 , extraSystemModules ? [ ]

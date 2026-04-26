@@ -1,30 +1,13 @@
-# Hardened specialisation. Built into every system that lists
-# this profile. Switch into it at the boot menu or at runtime:
-#
-#   sudo /run/current-system/specialisation/hardened/bin/switch-to-configuration switch
-#
-# Switch back to the default config:
-#
-#   sudo /run/booted-system/bin/switch-to-configuration switch
-#
-# Note: standalone Home Manager does not ride along with NixOS specialisations,
-# so the user-level config (chromium, vscode, etc.) stays the same in both
-# modes. Tor Browser and Librewolf are installed system-wide so they are
-# available without touching home.
 {
   system = { config, lib, pkgs, ... }: {
     specialisation.hardened.configuration = {
       system.nixos.tags = [ "hardened" ];
 
-      # Network lockdown
-      # Mullvad daemon ships its own kill-switch; enable lockdown-mode at
-      # runtime with `mullvad lockdown-mode set on` after `mullvad account login`.
       services.mullvad-vpn = {
         enable = true;
         package = pkgs.mullvad-vpn;
       };
 
-      # Encrypted DNS via systemd-resolved (DoT to Mullvad's resolvers).
       services.resolved = {
         enable = true;
         settings.Resolve = {
@@ -35,12 +18,8 @@
       };
       networking.nameservers = lib.mkForce [ "194.242.2.2" "2a07:e340::2" ];
 
-      # Disable IPv6 globally to avoid leaks outside the VPN tunnel.
       networking.enableIPv6 = lib.mkForce false;
 
-      # Hardware + kernel lockdown
-      # linuxPackages_hardened was removed from nixpkgs; latest kernel + the
-      # sysctl lockdown below provides the practical equivalent.
       boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
       boot.blacklistedKernelModules = [
         "uvcvideo"   # built-in webcams
@@ -62,7 +41,6 @@
       hardware.bluetooth.enable = lib.mkForce false;
       services.blueman.enable = lib.mkForce false;
 
-      # App sandboxing + privacy browsers
       security.apparmor = {
         enable = true;
         killUnconfinedConfinables = true;
@@ -76,16 +54,13 @@
         mullvad-vpn
       ];
 
-      # Privacy: no persistence, no history
       services.journald.extraConfig = ''
         Storage=volatile
         RuntimeMaxUse=64M
       '';
 
-      # System-wide zsh: no history file.
       programs.zsh.histFile = lib.mkForce "/dev/null";
 
-      # No thumbnail cache, no auto-mount of removable media.
       services.gvfs.enable = lib.mkForce false;
     };
   };

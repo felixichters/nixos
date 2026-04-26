@@ -15,6 +15,6 @@
       host = "l13y";
       user = "felix";
       themeName = "dark";
-      profiles = [ "base" "desktop" "developer" "laptop" "ai" "hardened" ];
+      profiles = [ "base" "desktop" "developer" "laptop" "ai"];
     };
 }
