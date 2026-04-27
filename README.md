@@ -40,17 +40,6 @@ just update        # nix flake update for this host
 just check         # fast eval check, no build
 ```
 
-## Hardened mode
-
-```sh
-just hardened      # switch into the hardened specialisation at runtime
-just default-mode  # switch back
-# or pick "NixOS - hardened" at the boot menu
-```
-
-Hardened mode enforces: Mullvad VPN + kill-switch, DNS-over-TLS, hardened kernel, sysctl lockdown, AppArmor + firejail, Tor Browser/Librewolf, ephemeral journal, no shell history.  
-After the first rebuild, log in once: `mullvad account login <token>` + `mullvad lockdown-mode set on`.
-
 ## Maintenance
 
 ```sh

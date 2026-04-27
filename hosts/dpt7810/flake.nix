@@ -14,7 +14,7 @@
     (import ../../lib/mkSystem.nix { inherit inputs; }) {
       host = "dpt7810";
       user = "felix";
-      themeName = "dark";
+      themeName = "light";
       profiles = [ "base" "desktop" "developer" "gaming" "nvidia" "ai" ];
     };
 }

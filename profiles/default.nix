@@ -6,5 +6,4 @@
   nvidia = import ./nvidia.nix;
   laptop = import ./laptop.nix;
   ai = import ./ai.nix;
-  hardened = import ./hardened.nix;
 }
