@@ -2,7 +2,7 @@
   variant = "light";
 
   sway = {
-    wallpaper  = "#5f8787";
+    wallpaper  = "#c6c6c6";
     background = "#dadada";
 
     focused = {
