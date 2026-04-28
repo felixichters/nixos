@@ -7,7 +7,10 @@
     description = "enable ai tools";
   };
   config = lib.mkIf config.ai.enable {
-    #services.ollama.enable
+    services.ollama = {
+      enable = true;
+      acceleration = false;
+    };
     programs.claude-code = {
       enable = true;
       context = ''
@@ -97,14 +100,7 @@
         '';
       };
     };
-    #programs.aider-chat = {
-    #  enable = true;
-    #  settings = {
-    #    dark-mode = true;
-    #    openai-api-base = "http://127.0.0.1:8080/v1";
-    #    openai-api-key = "dummy";
-    #  };
-    #};
+    programs.aider-chat.enable = true;
     home.packages = with pkgs; [
       #code-cursor
     ];
