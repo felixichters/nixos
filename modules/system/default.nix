@@ -11,6 +11,7 @@
     ./openssh.nix
     ./gaming.nix
     ./hardening.nix
+    ./dns.nix
     ./filesystems.nix
     ./swaylock.nix
     ./wireshark.nix

@@ -11,6 +11,18 @@
       commandLineArgs = lib.optionals (theme.variant == "dark") [
         "--force-dark-mode"
       ];
+      extraOpts = {
+        MetricsReportingEnabled = false;
+        BrowserSignin = 0;
+        SyncDisabled = true;
+        SearchSuggestEnabled = false;
+        SafeBrowsingProtectionLevel = 1;
+        AlternateErrorPagesEnabled = false;
+        SpellCheckServiceEnabled = false;
+        UrlKeyedAnonymizedDataCollectionEnabled = false;
+        PromotionalTabsEnabled = false;
+        WelcomePageOnOSUpgradeEnabled = false;
+      };
     };
   };
 }

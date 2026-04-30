@@ -1,4 +1,3 @@
-# Always-on baseline.
 {
   system = { config, lib, pkgs, ... }: {
     imports = [ ../modules/system ];
@@ -9,6 +8,15 @@
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.kernelParams = [ "quiet" ];
+
+    boot.tmp.useTmpfs = true;
+    boot.tmp.cleanOnBoot = true;
+
+    zramSwap = {
+      enable = true;
+      algorithm = "zstd";
+      memoryPercent = 50;
+    };
 
     services.greetd = {
       enable = true;

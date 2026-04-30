@@ -8,6 +8,14 @@
 
   config = {
     networking.hostName = host;
-    networking.networkmanager.enable = config.networkmanager.enable;
+    networking.networkmanager = {
+      enable = config.networkmanager.enable;
+      wifi.macAddress = "random";
+      wifi.scanRandMacAddress = true;
+      ethernet.macAddress = "random";
+      connectionConfig = {
+        "connection.stable-id" = "\${CONNECTION}/\${BOOT}";
+      };
+    };
   };
 }
