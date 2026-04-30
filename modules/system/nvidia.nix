@@ -8,6 +8,8 @@
 
   config = lib.mkIf config.nvidia.enable {
     boot.kernelPackages = pkgs.linuxPackages;
+    boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+    boot.blacklistedKernelModules = [ "nouveau" "nvidiafb" ];
     hardware.graphics = {
       enable = true;
       extraPackages = with pkgs; [ nvidia-vaapi-driver ];
