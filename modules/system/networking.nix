@@ -15,6 +15,8 @@
       ethernet.macAddress = "random";
       connectionConfig = {
         "connection.stable-id" = "\${CONNECTION}/\${BOOT}";
+        "ipv4.ignore-auto-dns" = "true";
+        "ipv6.ignore-auto-dns" = "true";
       };
     };
   };

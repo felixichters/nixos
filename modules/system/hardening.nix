@@ -56,10 +56,6 @@
       "net.ipv6.conf.default.accept_source_route" = 0;
       "net.ipv4.icmp_echo_ignore_broadcasts" = 1;
       "net.ipv4.conf.all.log_martians" = 1;
-
-      # IPv6 privacy extensions (RFC 4941): rotate temp address so MAC isn't embedded
-      "net.ipv6.conf.all.use_tempaddr" = 2;
-      "net.ipv6.conf.default.use_tempaddr" = 2;
     };
 
     systemd.coredump.extraConfig = ''
