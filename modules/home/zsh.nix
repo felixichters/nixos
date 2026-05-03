@@ -6,6 +6,18 @@ let
     system-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles/hosts/${host}/";
     home-rebuild = "home-manager switch --flake ~/.dotfiles/hosts/${host}/";
   };
+  cryptFunctions = ''
+    copen() {
+      local dev=$1 name=''${2:-crypt}
+      sudo cryptsetup luksOpen "$dev" "$name" || return 1
+      sudo mkdir -p "/mnt/$name"
+      sudo mount "/dev/mapper/$name" "/mnt/$name" && echo "mounted at /mnt/$name"
+    }
+    cclose() {
+      local name=''${1:-crypt}
+      sudo umount "/mnt/$name" && sudo cryptsetup luksClose "$name" && echo "closed $name" 
+    }
+  '';
 in
 {
   options.zsh.enable = lib.mkOption {
@@ -30,7 +42,7 @@ in
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = myAliases;
-      initContent = ''
+      initContent = cryptFunctions + ''
         unsetopt BEEP
         
         autoload -Uz vcs_info
