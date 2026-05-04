@@ -15,7 +15,7 @@ let
     }
     cclose() {
       local name=''${1:-crypt}
-      sudo umount "/mnt/$name" && sudo cryptsetup luksClose "$name" && echo "closed $name" 
+      sudo umount "/mnt/$name" && sudo cryptsetup luksClose "$name" && echo "closed and unmounted $name" 
     }
   '';
 in
