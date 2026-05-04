@@ -23,6 +23,7 @@
       usbutils
       ripgrep
       exfatprogs
+      exiftool
     ];
   };
 }
