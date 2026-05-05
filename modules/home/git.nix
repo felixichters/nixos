@@ -17,6 +17,7 @@
         init.defaultBranch = "main";
         pull.rebase = true;
         push.autoSetupRemote = true;
+        advice.addIgnoredFile = false;
       };
       signing.format = null;
       ignores = [
