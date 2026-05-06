@@ -14,6 +14,8 @@
     programs.claude-code = {
       enable = true;
       context = ''
+        # Philosophy and Style
+        My projects follow a sharp and lean philosophy. Prioritize simplicity, efficiency, mechanical sympathy, elegance and creativity over heavy dependencies, fancy UI and GUI. No bullshit.
         # System Environment
         This system runs NixOS with Home Manager (standalone). There is no traditional package manager (apt, pip, brew, etc.).
 
