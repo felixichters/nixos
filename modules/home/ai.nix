@@ -32,7 +32,7 @@
       settings = {
         statusLine = {
           type = "command";
-          command = ''jq -r '"[\(.model.display_name)] \(.workspace.project_dir | split("/") | last) | ctx: \((.context_window.used_percentage // 0) | floor)%"' '';
+          command = ''jq -r '"[\(.model.display_name)] \(.workspace.project_dir | split("/") | last) | ctx: \((.context_window.used_percentage // 0) | floor)% | 5h: \((.rate_limits.five_hour.used_percentage // 0) | floor)% 7d: \((.rate_limits.seven_day.used_percentage // 0) | floor)%"' '';
           padding = 0;
         };
       };
