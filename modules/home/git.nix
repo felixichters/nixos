@@ -19,7 +19,7 @@
         push.autoSetupRemote = true;
         advice.addIgnoredFile = false;
       };
-      signing.format = null;
+      signing.key = user.gpgKey;
       ignores = [
         "CLAUDE.md"
       ];

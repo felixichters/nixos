@@ -16,4 +16,5 @@
     "gamemode"
   ];
   screenshotDir = "~/screenshots";
+  gpgKey = "10517C02A25AC6FB";
 }

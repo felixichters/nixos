@@ -8,7 +8,6 @@
   };
 
   config = lib.mkIf config.apps.enable {
-      programs.qutebrowser.enable = true;
       home.packages = with pkgs; [
         spotify
         discord
