@@ -9,5 +9,9 @@
   config = lib.mkIf config.credentials.enable {
     home.packages = with pkgs; [ keepassxc ];
     programs.gpg.enable = true;
+    services.gpg-agent = {
+      enable = true;
+      pinentry.package = pkgs.pinentry-curses;
+    };
   };
 }
