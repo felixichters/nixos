@@ -17,3 +17,6 @@ update:
 
 check:
     cd hosts/{{host}} && nix flake check --no-build
+
+clean:
+    sudo nix-collect-garbage -d && nix-collect-garbage -d

@@ -58,10 +58,10 @@
       "net.ipv4.conf.all.log_martians" = 1;
     };
 
-    systemd.coredump.extraConfig = ''
-      Storage=none
-      ProcessSizeMax=0
-    '';
+    systemd.coredump.settings.Coredump = {
+      Storage = "none";
+      ProcessSizeMax = 0;
+    };
 
     services.journald.extraConfig = ''
       SystemMaxUse=200M
