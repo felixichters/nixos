@@ -2,7 +2,7 @@
 {
   options.devtools.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = false;
     description = "compiler and debugger toolchain";
   };
 

@@ -3,7 +3,7 @@
 {
   options.ranger.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = false;
     description = "enable ranger";
   };
   config = lib.mkIf config.ranger.enable {
@@ -19,7 +19,7 @@
       ext sh = nvim "$@" 
       ext py = nvim "$@"
       ext lua = nvim "$@"
-      ext pdf = chromium "$@"
+      ext pdf = qutebrowser -- "$@"
       ext jpg = feh "$@"
       ext jpeg = feh "$@"
       ext png = feh "$@"

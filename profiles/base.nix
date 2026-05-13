@@ -34,5 +34,8 @@
 
     nixpkgs.config.allowUnfree = true;
     programs.home-manager.enable = true;
+
+    credentials.enable = lib.mkDefault true;
+    nettools.enable = lib.mkDefault true;
   };
 }
