@@ -3,7 +3,7 @@
 {
   options.qutebrowser.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = false;
     description = "enable qutebrowser";
   };
 
@@ -33,6 +33,7 @@
         cl = "https://claude.ai/new";
         gm = "https://gemini.google.com/app";
         yt = "https://www.youtube.com/";
+        wa = "https://web.whatsapp.com/";
         moodle = "https://moodle.uni-heidelberg.de/";
         sogo = "https://sogo.uni-heidelberg.de/SOGo/";
         heico = "https://heico.uni-heidelberg.de/heiCO/";

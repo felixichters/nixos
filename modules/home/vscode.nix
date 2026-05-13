@@ -3,7 +3,7 @@
 {
   options.vscode.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = false;
     description = "enable vscode";
   };
 

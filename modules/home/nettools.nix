@@ -2,7 +2,7 @@
 {
   options.nettools.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = false;
     description = "network analysis and VPN client tools";
   };
 

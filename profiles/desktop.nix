@@ -1,6 +1,8 @@
 {
   system = { lib, ... }: {
     swaylock.enable = lib.mkDefault true;
+    audio.enable = lib.mkDefault true;
+    graphics.enable = lib.mkDefault true;
   };
 
   home = { lib, ... }: {
@@ -10,6 +12,6 @@
     wmenu.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
     apps.enable = lib.mkDefault true;
-    chromium.enable = lib.mkDefault true;
+    qutebrowser.enable = lib.mkDefault true;
   };
 }

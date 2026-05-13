@@ -2,7 +2,7 @@
 {
   options.tools.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = false;
     description = "CLI shell utilities";
   };
 
