@@ -1,10 +1,8 @@
-{ config, host, lib,...}:
+{ config, lib,...}:
 let 
   myAliases = {
     uni = "sudo openconnect --protocol=anyconnect --useragent='AnyConnect' vpn-ac.uni-heidelberg.de --no-external-auth";
     #fvim = "nvim $(fzf --preview=\"cat {}\")";
-    system-rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles/hosts/${host}/";
-    home-rebuild = "home-manager switch --flake ~/.dotfiles/hosts/${host}/";
   };
   cryptFunctions = ''
     copen() {
