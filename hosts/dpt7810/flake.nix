@@ -15,6 +15,6 @@
       host = "dpt7810";
       user = "felix";
       themeName = "dark";
-      profiles = [ "base" "desktop" "developer" "gaming" "nvidia" "ai" ];
+      profiles = [ "base" "desktop" "developer" "gaming" "nvidia" "virtualization" "ai" ];
     };
 }
