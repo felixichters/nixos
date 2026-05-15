@@ -6,4 +6,5 @@
   nvidia = import ./nvidia.nix;
   laptop = import ./laptop.nix;
   ai = import ./ai.nix;
+  virtualization = import ./virtualization.nix;
 }

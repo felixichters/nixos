@@ -1,5 +1,5 @@
 {
-  system = { config, lib, ... }: {
-    gaming.enable = true;
+  system = { lib, ... }: {
+    gaming.enable = lib.mkDefault true;
   };
 }

@@ -1,6 +1,5 @@
 {
   system = { lib, ... }: {
-    virtualization.enable = lib.mkDefault true;
     wireshark.enable = lib.mkDefault true;
   };
 
