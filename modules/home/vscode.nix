@@ -9,6 +9,22 @@
 
   config = lib.mkIf config.vscode.enable {
 
+    home.file.".continue/config.yaml".text = ''
+      name: local
+      version: 1.0.0
+      schema: v1
+      models:
+        - name: qwen2.5-coder:7b
+          provider: ollama
+          model: qwen2.5-coder:7b
+        - name: qwen2.5-coder:3b
+          provider: ollama
+          model: qwen2.5-coder:3b
+        - name: phi4-mini
+          provider: ollama
+          model: phi4-mini:latest
+    '';
+
     programs.vscodium = {
       enable = true;
       mutableExtensionsDir = false;
@@ -21,6 +37,7 @@
             #ms-toolsai.jupyter
             mads-hartmann.bash-ide-vscode
             #anthropic.claude-code
+            continue.continue
           ]) ++ [
             (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
               mktplcRef = {
