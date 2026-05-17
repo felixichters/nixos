@@ -23,6 +23,7 @@
     services.xserver = {
       xkb.layout = "de";
       xkb.variant = "";
+      xkb.options = "caps:escape";
     };
     console.keyMap = "de";
   };
