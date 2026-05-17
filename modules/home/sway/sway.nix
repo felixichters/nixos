@@ -50,6 +50,7 @@ in
         input = {
           "*" = {
             xkb_layout = "de";
+            xkb_options = "caps:escape";
           };
           "type:touchpad" = {
             natural_scroll = "enabled";
