@@ -3,6 +3,7 @@
     swaylock.enable = lib.mkDefault true;
     audio.enable = lib.mkDefault true;
     graphics.enable = lib.mkDefault true;
+    flatpak.enable = lib.mkDefault true;
   };
 
   home = { lib, ... }: {

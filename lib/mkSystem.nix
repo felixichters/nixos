@@ -12,7 +12,7 @@
 }:
 
 let
-  inherit (inputs) nixpkgs home-manager nixvim;
+  inherit (inputs) nixpkgs home-manager nixvim nix-flatpak;
   lib = nixpkgs.lib;
   pkgs = nixpkgs.legacyPackages.${system};
 

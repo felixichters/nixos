@@ -10,8 +10,6 @@
   config = lib.mkIf config.apps.enable {
     programs.obsidian.enable = true;
       home.packages = with pkgs; [
-        spotify
-        discord
         dolphin-emu
         #gnugo
         xournalpp
