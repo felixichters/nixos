@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim.url = "github:nix-community/nixvim";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
   outputs = inputs:
@@ -16,5 +17,6 @@
       user = "felix";
       themeName = "dark";
       profiles = [ "base" "desktop" "developer" "gaming" "nvidia" "virtualization" "ai" ];
+      extraSystemModules = [ inputs.nix-flatpak.nixosModules.nix-flatpak ];
     };
 }
