@@ -18,15 +18,7 @@
       memoryPercent = 50;
     };
 
-    services.greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = lib.mkDefault "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway";
-          user = "greeter";
-        };
-      };
-    };
+    services.getty.autologinUser = lib.mkDefault "felix";
   };
 
   home = { config, lib, pkgs, ... }: {

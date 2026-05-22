@@ -3,7 +3,7 @@
   options.nvidia.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
-    description = "proprietary NVIDIA driver; overrides greetd to use sway --unsupported-gpu";
+    description = "proprietary NVIDIA driver; sets SWAY_FLAGS=--unsupported-gpu for TTY1 autostart";
   };
 
   config = lib.mkIf config.nvidia.enable {
@@ -24,7 +24,6 @@
       package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
     };
 
-    services.greetd.settings.default_session.command =
-      lib.mkForce "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'sway --unsupported-gpu'";
+    environment.sessionVariables.SWAY_FLAGS = "--unsupported-gpu";
   };
 }

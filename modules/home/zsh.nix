@@ -1,4 +1,4 @@
-{ config, lib,...}:
+{ config, lib, pkgs,...}:
 let 
   myAliases = {
     uni = "sudo openconnect --protocol=anyconnect --useragent='AnyConnect' vpn-ac.uni-heidelberg.de --no-external-auth";
@@ -25,9 +25,21 @@ in
   };
 
   config = lib.mkIf config.zsh.enable {
-    #programs.fzf.enableZshIntegration = true;
+    programs.fzf.enableZshIntegration = true;
     programs.zsh = {
       enable = true;
+      loginExtra = ''
+        [ "$(tty)" = "/dev/tty1" ] && exec sway ''${SWAY_FLAGS:-}
+      '';
+      history = {
+        size = 100000;
+        save = 100000;
+        extended = true;
+        ignoreAllDups = true;
+        ignoreSpace = true;
+        expireDuplicatesFirst = true;
+        share = true;
+      };
       enableCompletion = true;
       completionInit = ''
         autoload -Uz compinit
@@ -39,9 +51,21 @@ in
       '';
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      plugins = [
+        {
+          name = "zsh-history-substring-search";
+          src = pkgs.zsh-history-substring-search;
+          file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
+        }
+      ];
       shellAliases = myAliases;
       initContent = cryptFunctions + ''
         unsetopt BEEP
+        setopt HIST_FIND_NO_DUPS HIST_REDUCE_BLANKS HIST_VERIFY
+
+        zstyle ':completion:*' menu select
+        bindkey '^[[A' history-substring-search-up
+        bindkey '^[[B' history-substring-search-down
         
         autoload -Uz vcs_info
         setopt prompt_subst
