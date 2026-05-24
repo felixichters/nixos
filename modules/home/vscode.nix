@@ -27,26 +27,11 @@
 
     programs.vscodium = {
       enable = true;
-      mutableExtensionsDir = false;
+      mutableExtensionsDir = true;
       profiles = {
         default = {
-          extensions = (with pkgs.vscode-extensions; [
-            ms-python.python
-            llvm-vs-code-extensions.vscode-clangd
-            jnoortheen.nix-ide
-            #ms-toolsai.jupyter
-            mads-hartmann.bash-ide-vscode
-            #anthropic.claude-code
+          extensions = with pkgs.vscode-extensions; [
             continue.continue
-          ]) ++ [
-            (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-              mktplcRef = {
-                publisher = "ryanolsonx";
-                name = "seoul";
-                version = "1.3.0";
-                sha256 = "0vawywz4fay64wkwf7k035wrxijnm89fqi787ddqkh3r23livk9l";
-              };
-            })
           ];
           userSettings = {
             "editor.fontFamily" = font.name;

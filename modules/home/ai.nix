@@ -32,7 +32,7 @@
       settings = {
         statusLine = {
           type = "command";
-          command = ''jq -r '"[\(.model.display_name)] \(.workspace.project_dir | split("/") | last) | ctx: \((.context_window.used_percentage // 0) | floor)% | 5h: \((.rate_limits.five_hour.used_percentage // 0) | floor)% 7d: \((.rate_limits.seven_day.used_percentage // 0) | floor)%"' '';
+          command = ''jq -r '"[\(.model.display_name)] \(.workspace.project_dir | split("/") | last) | ctx: \((.context_window.used_percentage // 0) | floor)% | 5h: \((.rate_limits.five_hour.used_percentage // 0) | floor)% (\(if .rate_limits.five_hour.resets_at then (.rate_limits.five_hour.resets_at | strflocaltime("%H:%M")) else "?" end)) 7d: \((.rate_limits.seven_day.used_percentage // 0) | floor)% (\(if .rate_limits.seven_day.resets_at then (.rate_limits.seven_day.resets_at | strflocaltime("%a")) else "?" end))"' '';
           padding = 0;
         };
       };
