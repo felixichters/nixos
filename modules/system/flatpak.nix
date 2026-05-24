@@ -18,6 +18,7 @@
       packages = [
         { appId = "org.gephi.Gephi"; origin = "flathub"; }
         { appId = "com.discordapp.Discord"; origin = "flathub"; }
+        { appId = "md.obsidian.Obsidian"; origin = "flathub"; }
       ];
 
       overrides."org.gephi.Gephi".Environment."_JAVA_AWT_WM_NONREPARENTING" = "1";
