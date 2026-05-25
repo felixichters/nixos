@@ -43,11 +43,7 @@ in
       enableCompletion = true;
       completionInit = ''
         autoload -Uz compinit
-        if [[ -n "''${ZDOTDIR:-$HOME}/.zcompdump"(#qN.mh+24) ]]; then
-          compinit
-        else
-          compinit -C
-        fi
+        compinit -C
       '';
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;

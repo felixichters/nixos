@@ -38,8 +38,5 @@
       };
     };
     programs.aider-chat.enable = true;
-    home.packages = with pkgs; [
-      #code-cursor
-    ];
   };
 }
