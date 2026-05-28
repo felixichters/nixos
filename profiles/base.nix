@@ -7,7 +7,7 @@
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelParams = [ "quiet" ];
+    boot.kernelParams = [ "quiet" "systemd.show-status=1" "udev.log_level=3" ];
 
     boot.tmp.useTmpfs = true;
     boot.tmp.cleanOnBoot = true;
