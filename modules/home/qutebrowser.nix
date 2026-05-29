@@ -18,6 +18,7 @@
         url.start_pages = [ "https://www.google.com" ];
         url.default_page = "https://www.google.com";
         colors.webpage.preferred_color_scheme = "dark";
+        content.pdfjs = true;
       };
       keyBindings = {
         normal = {
