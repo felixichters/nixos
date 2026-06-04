@@ -18,5 +18,6 @@
     ./laptop.nix
     ./nvidia.nix
     ./flatpak.nix
+    ./printing.nix
   ];
 }
