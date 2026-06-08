@@ -14,5 +14,6 @@
     fonts.enable = lib.mkDefault true;
     apps.enable = lib.mkDefault true;
     qutebrowser.enable = lib.mkDefault true;
+    firefox.enable = lib.mkDefault true;
   };
 }

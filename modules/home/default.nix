@@ -18,6 +18,7 @@
     ./devtools.nix
     ./apps.nix
     ./qutebrowser.nix
+    ./firefox.nix
     ./monitoring.nix
   ];
 }
