@@ -8,11 +8,14 @@
   };
 
   config = lib.mkIf config.apps.enable {
-      home.packages = with pkgs; [
-        dolphin-emu
-        #gnugo
-        xournalpp
-        #libreoffice
-      ];
+    programs.obsidian = {
+      enable = true;
+    };
+    home.packages = with pkgs; [
+      dolphin-emu
+      #gnugo
+      xournalpp
+      #libreoffice
+    ];
   };
 }
