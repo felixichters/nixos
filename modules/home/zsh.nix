@@ -3,8 +3,8 @@ let
   myAliases = {
     uni = "sudo openconnect --protocol=anyconnect --useragent='AnyConnect' vpn-ac.uni-heidelberg.de --no-external-auth";
     #fvim = "nvim $(fzf --preview=\"cat {}\")";
-    vpush = "rsync -av --delete ~/mind/ /mnt/vault/mind/";
-    vpull = "rsync -av --delete /mnt/vault/mind/ ~/mind/";
+    vpush = "rsync -av --delete ~/docs/ /mnt/docs/";
+    vpull = "rsync -av --delete /mnt/docs/ ~/docs/";
   };
   cryptFunctions = ''
     copen() {
