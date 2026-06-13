@@ -1,31 +1,23 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 {
-  options.audio.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "enable PipeWire audio + Bluetooth";
-  };
+  security.rtkit.enable = true;
 
-  config = lib.mkIf config.audio.enable {
-    security.rtkit.enable = true;
-
-    services.pipewire = {
+  services.pipewire = {
+    enable = true;
+    alsa = {
       enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      pulse.enable = true;
+      support32Bit = true;
     };
-
-    services.pulseaudio.enable = false;
-
-    hardware.bluetooth.enable = true;
-    hardware.bluetooth.powerOnBoot = true;
-    services.blueman.enable = true;
-
-    environment.systemPackages = with pkgs; [
-      pavucontrol
-    ];
+    pulse.enable = true;
   };
+
+  services.pulseaudio.enable = false;
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    pavucontrol
+  ];
 }

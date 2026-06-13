@@ -1,28 +1,20 @@
-{ config, pkgs, lib, user, ... }:
+{ user, ... }:
 {
-  options.git.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "enable git";
-  };
-
-  config = lib.mkIf config.git.enable {
-    programs.git = {
-      enable = true;
-      settings = {
-        user = {
-          name  = user.fullName;
-          email = user.email;
-        };
-        init.defaultBranch = "main";
-        pull.rebase = true;
-        push.autoSetupRemote = true;
-        advice.addIgnoredFile = false;
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name  = user.fullName;
+        email = user.email;
       };
-      signing.key = user.gpgKey;
-      ignores = [
-        "CLAUDE.md"
-      ];
+      init.defaultBranch = "main";
+      pull.rebase = true;
+      push.autoSetupRemote = true;
+      advice.addIgnoredFile = false;
     };
+    signing.key = user.gpgKey;
+    ignores = [
+      "CLAUDE.md"
+    ];
   };
 }

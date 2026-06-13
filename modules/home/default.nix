@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./sway/sway.nix
@@ -17,8 +17,9 @@
     ./nettools.nix
     ./devtools.nix
     ./apps.nix
-    ./qutebrowser.nix
-    ./firefox.nix
     ./monitoring.nix
   ];
+
+  nixpkgs.config.allowUnfree = true;
+  programs.home-manager.enable = true;
 }

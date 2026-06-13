@@ -1,21 +1,13 @@
-{config,lib,pkgs,...}:
-
+{ pkgs, ... }:
 {
-  options.apps.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "enable extra desktop apps";
+  programs.obsidian = {
+    enable = true;
   };
-
-  config = lib.mkIf config.apps.enable {
-    programs.obsidian = {
-      enable = true;
-    };
-    home.packages = with pkgs; [
-      dolphin-emu
-      #gnugo
-      xournalpp
-      #libreoffice
-    ];
-  };
+  programs.firefox.enable = true;
+  home.packages = with pkgs; [
+    dolphin-emu
+    #gnugo
+    xournalpp
+    #libreoffice
+  ];
 }

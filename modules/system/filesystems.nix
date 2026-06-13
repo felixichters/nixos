@@ -1,17 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 {
-  options.filesystems.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = "enable udisks2 + filesystem utilities";
-  };
+  services.udisks2.enable = true;
 
-  config = lib.mkIf config.filesystems.enable {
-    services.udisks2.enable = true;
-
-    environment.systemPackages = with pkgs; [
-      parted
-      cryptsetup
-    ];
-  };
+  environment.systemPackages = with pkgs; [
+    parted
+    cryptsetup
+  ];
 }

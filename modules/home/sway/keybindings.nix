@@ -1,4 +1,4 @@
-{config, lib, pkgs, user, ...}:
+{ config, user, ... }:
 
 let
   mod = "Mod4";
@@ -14,94 +14,90 @@ let
   screenshot-region = "sh -c 'selection=$(slurp) && grim -g \"$selection\" - | tee ${shotDir}/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy'";
 in
 {
+  wayland.windowManager.sway.config.keybindings = {
 
-  config = lib.mkIf config.sway.enable {
+    XF86AudioMute = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+    XF86AudioRaiseVolume = "exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 5%+";
+    "${mod}+Shift+plus" = "exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 5%+";
+    XF86AudioLowerVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+    "${mod}+Shift+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
 
-    wayland.windowManager.sway.config.keybindings = {
-      
-      XF86AudioMute = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-      XF86AudioRaiseVolume = "exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 5%+";
-      "${mod}+Shift+plus" = "exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 5%+";
-      XF86AudioLowerVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-      "${mod}+Shift+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-      
-      XF86MonBrightnessUp = "exec brightnessctl set 1%+";
-      XF86MonBrightnessDown = "exec brightnessctl set 1%-";
-      "${mod}+o" = "exec brightnessctl set 10%+";
-      "${mod}+i" = "exec brightnessctl set 10%-";
+    XF86MonBrightnessUp = "exec brightnessctl set 1%+";
+    XF86MonBrightnessDown = "exec brightnessctl set 1%-";
+    "${mod}+o" = "exec brightnessctl set 10%+";
+    "${mod}+i" = "exec brightnessctl set 10%-";
 
-      "${mod}+Shift+r" = "reload";
+    "${mod}+Shift+r" = "reload";
 
-      "${mod}+escape" = "exec ${lock}";
+    "${mod}+escape" = "exec ${lock}";
 
-      "${mod}+Return" = "exec ${term}";
-      "${mod}+Shift+Return" = "exec ${term} --app-id=foot-floating";
-      
-      "${mod}+q" = "kill";
-      
-      "${mod}+r" = "exec ${menu}";
-      
-      "${mod}+e" = "exec ${files}";
-      #"${mod}+Shift+e" = "exec ${editor}";
+    "${mod}+Return" = "exec ${term}";
+    "${mod}+Shift+Return" = "exec ${term} --app-id=foot-floating";
 
-      "${mod}+p" = "exec ${power}";
-      "${mod}+Shift+p" = "exec ${reboot}";
-      
-      "${mod}+Shift+q" = "exec ${exit}";
-      
-      "${mod}+minus" = "move container to workspace scratch";
-      "${mod}+plus" = "workspace scratch";
-      
-      "${mod}+space" = "floating toggle";
-      
-      "${mod}+f" = "fullscreen";
+    "${mod}+q" = "kill";
 
-      "${mod}+h" = "focus left";
-      "${mod}+j" = "focus down";
-      "${mod}+k" = "focus up";
-      "${mod}+l" = "focus right"; 
-      "${mod}+Left" = "focus left";
-      "${mod}+Down" = "focus down";
-      "${mod}+Up" = "focus up";
-      "${mod}+Right" = "focus right"; 
+    "${mod}+r" = "exec ${menu}";
 
-      "${mod}+Tab" = "focus mode_toggle; focus next";
-      "${mod}+Shift+Tab" = "focus mode_toggle; focus prev";
-      #"${mod}+Shift+Tab"= "workspace prev_on_output";
-      
-      "${mod}+Shift+h" = "move left";
-      "${mod}+Shift+j" = "move down";
-      "${mod}+Shift+k" = "move up";
-      "${mod}+Shift+l" = "move right";
-      
-      "${mod}+Shift+Left" = "exec sh -c 'swaymsg resize shrink right 10px || swaymsg resize grow left 10px'";
-      "${mod}+Shift+Right" = "exec sh -c 'swaymsg resize shrink left 10px || swaymsg resize grow right 10px'";
-      "${mod}+Shift+Up" = "exec sh -c 'swaymsg resize shrink down 10px || swaymsg resize grow up 10px'";
-      "${mod}+Shift+Down" = "exec sh -c 'swaymsg resize shrink up 10px || swaymsg resize grow down 10px'";
+    "${mod}+e" = "exec ${files}";
+    #"${mod}+Shift+e" = "exec ${editor}";
 
-      "${mod}+s" = "exec ${screenshot}";
-      "${mod}+Shift+s" = "exec ${screenshot-region}";
+    "${mod}+p" = "exec ${power}";
+    "${mod}+Shift+p" = "exec ${reboot}";
 
-      "${mod}+1" = "workspace number 1";
-      "${mod}+2" = "workspace number 2";
-      "${mod}+3" = "workspace number 3";
-      "${mod}+4" = "workspace number 4";
-      "${mod}+5" = "workspace number 5";
-      "${mod}+6" = "workspace number 6";
-      "${mod}+7" = "workspace number 7";
-      "${mod}+8" = "workspace number 8";
-      "${mod}+9" = "workspace number 9";
-      
-      "${mod}+Shift+1" = "move container to workspace number 1";
-      "${mod}+Shift+2" = "move container to workspace number 2";
-      "${mod}+Shift+3" = "move container to workspace number 3";
-      "${mod}+Shift+4" = "move container to workspace number 4";
-      "${mod}+Shift+5" = "move container to workspace number 5";
-      "${mod}+Shift+6" = "move container to workspace number 6";
-      "${mod}+Shift+7" = "move container to workspace number 7";
-      "${mod}+Shift+8" = "move container to workspace number 8";
-      "${mod}+Shift+9" = "move container to workspace number 9";
-      
-    }; 
+    "${mod}+Shift+q" = "exec ${exit}";
+
+    "${mod}+minus" = "move container to workspace scratch";
+    "${mod}+plus" = "workspace scratch";
+
+    "${mod}+space" = "floating toggle";
+
+    "${mod}+f" = "fullscreen";
+
+    "${mod}+h" = "focus left";
+    "${mod}+j" = "focus down";
+    "${mod}+k" = "focus up";
+    "${mod}+l" = "focus right";
+    "${mod}+Left" = "focus left";
+    "${mod}+Down" = "focus down";
+    "${mod}+Up" = "focus up";
+    "${mod}+Right" = "focus right";
+
+    "${mod}+Tab" = "focus mode_toggle; focus next";
+    "${mod}+Shift+Tab" = "focus mode_toggle; focus prev";
+    #"${mod}+Shift+Tab"= "workspace prev_on_output";
+
+    "${mod}+Shift+h" = "move left";
+    "${mod}+Shift+j" = "move down";
+    "${mod}+Shift+k" = "move up";
+    "${mod}+Shift+l" = "move right";
+
+    "${mod}+Shift+Left" = "exec sh -c 'swaymsg resize shrink right 10px || swaymsg resize grow left 10px'";
+    "${mod}+Shift+Right" = "exec sh -c 'swaymsg resize shrink left 10px || swaymsg resize grow right 10px'";
+    "${mod}+Shift+Up" = "exec sh -c 'swaymsg resize shrink down 10px || swaymsg resize grow up 10px'";
+    "${mod}+Shift+Down" = "exec sh -c 'swaymsg resize shrink up 10px || swaymsg resize grow down 10px'";
+
+    "${mod}+s" = "exec ${screenshot}";
+    "${mod}+Shift+s" = "exec ${screenshot-region}";
+
+    "${mod}+1" = "workspace number 1";
+    "${mod}+2" = "workspace number 2";
+    "${mod}+3" = "workspace number 3";
+    "${mod}+4" = "workspace number 4";
+    "${mod}+5" = "workspace number 5";
+    "${mod}+6" = "workspace number 6";
+    "${mod}+7" = "workspace number 7";
+    "${mod}+8" = "workspace number 8";
+    "${mod}+9" = "workspace number 9";
+
+    "${mod}+Shift+1" = "move container to workspace number 1";
+    "${mod}+Shift+2" = "move container to workspace number 2";
+    "${mod}+Shift+3" = "move container to workspace number 3";
+    "${mod}+Shift+4" = "move container to workspace number 4";
+    "${mod}+Shift+5" = "move container to workspace number 5";
+    "${mod}+Shift+6" = "move container to workspace number 6";
+    "${mod}+Shift+7" = "move container to workspace number 7";
+    "${mod}+Shift+8" = "move container to workspace number 8";
+    "${mod}+Shift+9" = "move container to workspace number 9";
+
   };
 }

@@ -1,29 +1,21 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 {
-  options.nvidia.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "proprietary NVIDIA driver; sets SWAY_FLAGS=--unsupported-gpu for TTY1 autostart";
+  boot.kernelPackages = pkgs.linuxPackages;
+  boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+  boot.blacklistedKernelModules = [ "nouveau" "nvidiafb" ];
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+  };
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
 
-  config = lib.mkIf config.nvidia.enable {
-    boot.kernelPackages = pkgs.linuxPackages;
-    boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-    boot.blacklistedKernelModules = [ "nouveau" "nvidiafb" ];
-    hardware.graphics = {
-      enable = true;
-      extraPackages = with pkgs; [ nvidia-vaapi-driver ];
-    };
-    services.xserver.videoDrivers = [ "nvidia" ];
-    hardware.nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      open = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
-    };
-
-    environment.sessionVariables.SWAY_FLAGS = "--unsupported-gpu";
-  };
+  environment.sessionVariables.SWAY_FLAGS = "--unsupported-gpu";
 }

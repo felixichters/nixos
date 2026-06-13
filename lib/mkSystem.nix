@@ -4,7 +4,6 @@
 
 { host
 , user
-, profiles ? [ "base" ]
 , themeName ? "dark"
 , fontName ? "ibm-plex-mono"
 , extraSystemModules ? [ ]
@@ -24,21 +23,14 @@ let
   userVars = if builtins.isAttrs user then user else import ../vars/${user}.nix;
 
   specialArgs = {
-    inherit inputs host theme font profiles;
+    inherit inputs host theme font;
     user = userVars;
   };
-
-  allProfiles = import ../profiles;
-  resolved = map (name: allProfiles.${name}) profiles;
-  systemProfileModules = lib.filter (m: m != null) (map (p: p.system or null) resolved);
-  homeProfileModules = lib.filter (m: m != null) (map (p: p.home or null) resolved);
 in
 {
   nixosConfigurations.${host} = lib.nixosSystem {
     inherit system specialArgs;
-    modules = [ ../hosts/${host}/configuration.nix ]
-      ++ systemProfileModules
-      ++ extraSystemModules;
+    modules = [ ../hosts/${host}/configuration.nix ] ++ extraSystemModules;
   };
 
   homeConfigurations.${userVars.name} = home-manager.lib.homeManagerConfiguration {
@@ -47,8 +39,6 @@ in
     modules = [
       ../hosts/${host}/home.nix
       nixvim.homeModules.nixvim
-    ]
-    ++ homeProfileModules
-    ++ extraHomeModules;
+    ] ++ extraHomeModules;
   };
 }

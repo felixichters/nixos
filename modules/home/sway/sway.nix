@@ -1,4 +1,4 @@
-{config, lib, pkgs, theme, font, ...}:
+{ pkgs, theme, font, ... }:
 let
   swaybarStatus = pkgs.runCommand "swaybar-status" {
     nativeBuildInputs = [ pkgs.gcc ];
@@ -8,85 +8,77 @@ let
   '';
 in
 {
-  options.sway.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "enable sway";
-  };
-
   imports = [
     ./keybindings.nix
   ];
 
-  config = lib.mkIf config.sway.enable {
-    programs.swaylock.enable = true;
-    services.playerctld.enable = true;
-    home.packages = with pkgs; [ wl-clipboard grim slurp sway-contrib.grimshot ];
-    wayland.windowManager.sway = {
-      enable = true;
-      xwayland = true;
-      config = {
-        modifier = "Mod4";
-        terminal = "kitty";
-        window = {
-          titlebar = false;
-          border = 1;
-          commands = [
-            {
-              criteria = { app_id = "org.keepassxc.KeePassXC"; };
-              command = "floating enable, move position center";
-            }
-            {
-              criteria = { app_id = "foot-floating"; };
-              command = "floating enable, resize set 45 ppt 40 ppt, move position 1000 30";
-            }
-          ];
+  programs.swaylock.enable = true;
+  services.playerctld.enable = true;
+  home.packages = with pkgs; [ wl-clipboard grim slurp sway-contrib.grimshot ];
+  wayland.windowManager.sway = {
+    enable = true;
+    xwayland = true;
+    config = {
+      modifier = "Mod4";
+      terminal = "kitty";
+      window = {
+        titlebar = false;
+        border = 1;
+        commands = [
+          {
+            criteria = { app_id = "org.keepassxc.KeePassXC"; };
+            command = "floating enable, move position center";
+          }
+          {
+            criteria = { app_id = "foot-floating"; };
+            command = "floating enable, resize set 45 ppt 40 ppt, move position 1000 30";
+          }
+        ];
+      };
+      gaps = {
+        inner = 0;
+        smartBorders = "on";
+        #smartGaps = true;
+      };
+      input = {
+        "*" = {
+          xkb_layout = "de";
+          xkb_options = "caps:escape";
         };
-        gaps = {
-          inner = 0;
-          smartBorders = "on";
-          #smartGaps = true;
+        "type:touchpad" = {
+          natural_scroll = "enabled";
         };
-        input = {
-          "*" = {
-            xkb_layout = "de";
-            xkb_options = "caps:escape";
-          };
-          "type:touchpad" = {
-            natural_scroll = "enabled";
-          };
-        };
+      };
+      fonts = {
+        names = [font.name];
+        size = 10.0;
+      };
+      output."*".bg = "${theme.sway.wallpaper} solid_color";
+      bars = [{
+        statusCommand = "${swaybarStatus}/bin/swaybar-status";
+        position = "top";
+        trayOutput = "none";
+        #mode = "hide";
         fonts = {
-          names = [font.name];
-          size = 10.0;
+          names = [ font.name ];
+          size = 9.0;
         };
-        output."*".bg = "${theme.sway.wallpaper} solid_color";
-        bars = [{
-          statusCommand = "${swaybarStatus}/bin/swaybar-status";
-          position = "top";
-          trayOutput = "none";
-          #mode = "hide";
-          fonts = {
-            names = [ font.name ];
-            size = 9.0;
-          };
-          colors = {
-            background = theme.sway.bar.background;
-            statusline = theme.sway.bar.statusline;
-            separator  = theme.sway.bar.separator;
-            focusedWorkspace  = theme.sway.bar.focusedWorkspace;
-            activeWorkspace   = theme.sway.bar.activeWorkspace;
-            inactiveWorkspace = theme.sway.bar.inactiveWorkspace;
-            urgentWorkspace   = theme.sway.bar.urgentWorkspace;
-          };
-        }];
         colors = {
-          background      = theme.sway.background;
-          focused         = theme.sway.focused;
-          focusedInactive = theme.sway.focusedInactive;
-          unfocused       = theme.sway.unfocused;
-          urgent          = theme.sway.urgent;
+          background = theme.sway.bar.background;
+          statusline = theme.sway.bar.statusline;
+          separator  = theme.sway.bar.separator;
+          focusedWorkspace  = theme.sway.bar.focusedWorkspace;
+          activeWorkspace   = theme.sway.bar.activeWorkspace;
+          inactiveWorkspace = theme.sway.bar.inactiveWorkspace;
+          urgentWorkspace   = theme.sway.bar.urgentWorkspace;
         };
+      }];
+      colors = {
+        background      = theme.sway.background;
+        focused         = theme.sway.focused;
+        focusedInactive = theme.sway.focusedInactive;
+        unfocused       = theme.sway.unfocused;
+        urgent          = theme.sway.urgent;
       };
     };
   };

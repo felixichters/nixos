@@ -16,7 +16,6 @@
       host = "l13y";
       user = "felix";
       themeName = "dark";
-      profiles = [ "base" "desktop" "developer" "laptop" "virtualization" "ai"];
       extraSystemModules = [ inputs.nix-flatpak.nixosModules.nix-flatpak ];
     };
 }
