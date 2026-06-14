@@ -5,7 +5,6 @@ Flake-based NixOS + standalone Home Manager configuration.
 ```
 lib/        shared builder
 vars/       user identity (name, email, locale, …)
-profiles/   composable bundles
 modules/
   system/   NixOS modules
   home/     Home Manager modules
