@@ -14,8 +14,6 @@
     ./mako.nix
     ./ai.nix
     ./credentials.nix
-    ./nettools.nix
-    ./devtools.nix
     ./apps.nix
     ./monitoring.nix
   ];

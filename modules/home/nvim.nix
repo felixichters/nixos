@@ -48,7 +48,7 @@
         enable = true;
         #indent = false;
         highlight.enable = true;
-        auto_install = true;
+        settings.auto_install = true;
       };
       lsp = {
         enable = true;

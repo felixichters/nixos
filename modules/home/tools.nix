@@ -7,6 +7,7 @@
   programs.tmux.enable = true;
   programs.bat.enable = true;
   home.packages = with pkgs; [
+    ghostscript
     just
     cmatrix
     zip
@@ -18,5 +19,22 @@
     ripgrep
     exfatprogs
     exiftool
+
+    # devtools
+    gcc
+    clang-tools
+    gdb
+    nasm
+    nil
+
+    # nettools
+    nmap
+    netcat-gnu
+    tcpdump
+    bettercap
+    openvpn
+    openconnect
+    networkmanager-openconnect
+    networkmanagerapplet
   ];
 }
