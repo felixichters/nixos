@@ -38,6 +38,7 @@
       background = "#191919";
       statusline = "#cccccc";
       separator  = "#444444";
+      scratch    = "#aaaaaa";
       focusedWorkspace = {
         border     = "#2a2a2a";
         background = "#2a2a2a";
@@ -54,8 +55,8 @@
         text       = "#7a7a7a";
       };
       urgentWorkspace = {
-        border     = "#d70000";
-        background = "#d70000";
+        border     = "#555555";
+        background = "#555555";
         text       = "#cccccc";
       };
     };

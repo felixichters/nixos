@@ -1,12 +1,4 @@
 { pkgs, theme, font, ... }:
-let
-  swaybarStatus = pkgs.runCommand "swaybar-status" {
-    nativeBuildInputs = [ pkgs.gcc ];
-  } ''
-    mkdir -p $out/bin
-    gcc -O3 -s -o $out/bin/swaybar-status ${./swaybar-status.c}
-  '';
-in
 {
   imports = [
     ./keybindings.nix
@@ -29,10 +21,6 @@ in
             criteria = { app_id = "org.keepassxc.KeePassXC"; };
             command = "floating enable, move position center";
           }
-          {
-            criteria = { app_id = "foot-floating"; };
-            command = "floating enable, resize set 45 ppt 40 ppt, move position 1000 30";
-          }
         ];
       };
       gaps = {
@@ -54,25 +42,7 @@ in
         size = 10.0;
       };
       output."*".bg = "${theme.sway.wallpaper} solid_color";
-      bars = [{
-        statusCommand = "${swaybarStatus}/bin/swaybar-status";
-        position = "top";
-        trayOutput = "none";
-        #mode = "hide";
-        fonts = {
-          names = [ font.name ];
-          size = 9.0;
-        };
-        colors = {
-          background = theme.sway.bar.background;
-          statusline = theme.sway.bar.statusline;
-          separator  = theme.sway.bar.separator;
-          focusedWorkspace  = theme.sway.bar.focusedWorkspace;
-          activeWorkspace   = theme.sway.bar.activeWorkspace;
-          inactiveWorkspace = theme.sway.bar.inactiveWorkspace;
-          urgentWorkspace   = theme.sway.bar.urgentWorkspace;
-        };
-      }];
+      bars = [{command = "${pkgs.waybar}/bin/waybar";}];
       colors = {
         background      = theme.sway.background;
         focused         = theme.sway.focused;

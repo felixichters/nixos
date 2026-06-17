@@ -1,9 +1,9 @@
-{ config, user, ... }:
+{ user, ... }:
 
 let
   mod = "Mod4";
   term = "foot";
-  menu = config.wmenu.menuCommand;
+  menu = "rofi -show drun";
   files = "foot -e ranger";
   power = "swaynag -t warning -m 'poweroff?' -B 'yes' 'systemctl poweroff'";
   reboot = "swaynag -t warning -m 'reboot?' -B 'yes' 'systemctl reboot'";
@@ -32,7 +32,6 @@ in
     "${mod}+escape" = "exec ${lock}";
 
     "${mod}+Return" = "exec ${term}";
-    "${mod}+Shift+Return" = "exec ${term} --app-id=foot-floating";
 
     "${mod}+q" = "kill";
 
@@ -46,8 +45,8 @@ in
 
     "${mod}+Shift+q" = "exec ${exit}";
 
-    "${mod}+minus" = "move container to workspace scratch";
-    "${mod}+plus" = "workspace scratch";
+    "${mod}+minus" = "move scratchpad";
+    "${mod}+plus" = "scratchpad show";
 
     "${mod}+space" = "floating toggle";
 

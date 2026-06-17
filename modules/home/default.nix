@@ -2,11 +2,13 @@
 {
   imports = [
     ./sway/sway.nix
+    ./waybar.nix
     ./font.nix
     ./git.nix
     ./foot.nix
     ./tools.nix
-    ./wmenu.nix
+    #./wmenu.nix
+    ./rofi.nix
     ./zsh.nix
     ./nvim.nix
     ./ranger.nix
