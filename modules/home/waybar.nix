@@ -20,6 +20,12 @@
       ];
 
       "sway/workspaces" = {
+        format = "{icon} {name}";
+        format-icons = {
+          default = "▂";
+          focused = "█";
+          urgent = "▀";
+        };
         disable-scroll = true;
       };
 
@@ -27,7 +33,7 @@
         interval = 3;
         return-type = "json";
         exec = "swaymsg -t get_tree | jq --unbuffered --compact-output '(recurse(.nodes[]) | select(.name == \"__i3_scratch\") | .focus) as $scratch_ids | [.. | (.nodes? + .floating_nodes?) // empty | .[] | select(.id |IN($scratch_ids[]))] as $scratch_nodes | if ($scratch_nodes|length) > 0 then { text: \"\\($scratch_nodes | length)\" } else empty end'";
-        format = "[{}]";
+        format = "▁[{}]";
         on-click = "swaymsg 'scratchpad show'";
         tooltip = false;
       };
@@ -94,41 +100,24 @@
         font-family: "${font.name}";
         font-size: 9pt;
         border-radius: 0;
-        min-height: 22px;
+        min-height: 25px;
         border: none;
-      }
-      window#waybar {
-        background: ${theme.sway.bar.background};
         color: ${theme.sway.bar.statusline};
-      }
-      #workspaces button {
-        padding: 0 4px;
-        color: ${theme.sway.bar.inactiveWorkspace.text};
-      }
-      #workspaces button.focused {
-        background: ${theme.sway.bar.focusedWorkspace.background};
-        color: ${theme.sway.bar.focusedWorkspace.text};
-      }
-      #workspaces button.visible {
-        color: ${theme.sway.bar.activeWorkspace.text};
-      } 
-      #workspaces button:hover,
-      custom-scratchpad hover {
-        background: ${theme.sway.bar.focusedWorkspace.background};
-        color: ${theme.sway.bar.focusedWorkspace.text};
+        background: ${theme.sway.bar.background};
         box-shadow: none;
         text-shadow: none;
         border: none;
         transition: none;
       }
-      #workspaces button.urgent {
-        background: ${theme.sway.bar.urgentWorkspace.background};
-        color: ${theme.sway.bar.urgentWorkspace.text};
+      
+      #workspaces button {
+        padding: 0 4px;
       }
+      
       #custom-scratchpad {
-        padding: 0 6px;
-        color: ${theme.sway.bar.scratch};
+        padding: 0 7px;
       }
+      
       #custom-vpn,
       #custom-ssh,
       #network,
@@ -138,7 +127,6 @@
       #battery,
       #clock {
         padding: 0 8px;
-        color: ${theme.sway.bar.statusline};
       }
     '';
   };

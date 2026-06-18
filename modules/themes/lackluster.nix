@@ -27,11 +27,11 @@
       childBorder = "#2a2a2a";
     };
     urgent = {
-      border      = "#d70000";
-      background  = "#d70000";
+      border      = "#7788aa";
+      background  = "#7788aa";
       text        = "#cccccc";
-      indicator   = "#d70000";
-      childBorder = "#d70000";
+      indicator   = "#7788aa";
+      childBorder = "#7788aa";
     };
 
     bar = {
@@ -40,14 +40,14 @@
       separator  = "#444444";
       scratch    = "#aaaaaa";
       focusedWorkspace = {
-        border     = "#2a2a2a";
-        background = "#2a2a2a";
-        text       = "#deeeed";
+        border     = "#708090";
+        background = "#708090";
+        text       = "#cccccc";
       };
       activeWorkspace = {
-        border     = "#444444";
-        background = "#191919";
-        text       = "#deeeed";
+        border     = "#2a2a2a";
+        background = "#2a2a2a";
+        text       = "#cccccc";
       };
       inactiveWorkspace = {
         border     = "#191919";
@@ -55,9 +55,9 @@
         text       = "#7a7a7a";
       };
       urgentWorkspace = {
-        border     = "#555555";
-        background = "#555555";
-        text       = "#cccccc";
+        border     = "#2a2a2a";
+        background = "#2a2a2a";
+        text       = "#deeeed";
       };
     };
   };
