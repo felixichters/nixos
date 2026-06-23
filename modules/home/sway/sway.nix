@@ -42,7 +42,20 @@
         size = 10.0;
       };
       output."*".bg = "${theme.sway.wallpaper} solid_color";
-      bars = [{command = "${pkgs.waybar}/bin/waybar";}];
+      bars = [{
+        position = "top";
+        statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
+        fonts = { names = [font.name]; size = 9.0; };
+        colors = {
+          background        = theme.sway.bar.focusedWorkspace.background;
+          statusline        = theme.sway.bar.statusline;
+          separator         = theme.sway.bar.separator;
+          focusedWorkspace  = theme.sway.bar.focusedWorkspace;
+          activeWorkspace   = theme.sway.bar.activeWorkspace;
+          inactiveWorkspace = theme.sway.bar.inactiveWorkspace;
+          urgentWorkspace   = theme.sway.bar.urgentWorkspace;
+        };
+      }];
       colors = {
         background      = theme.sway.background;
         focused         = theme.sway.focused;

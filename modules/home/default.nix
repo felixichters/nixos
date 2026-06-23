@@ -2,7 +2,7 @@
 {
   imports = [
     ./sway/sway.nix
-    ./waybar.nix
+    ./i3status-rust.nix
     ./font.nix
     ./git.nix
     ./foot.nix
