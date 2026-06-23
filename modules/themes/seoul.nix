@@ -35,7 +35,8 @@
     };
 
     bar = {
-      background = "#c6c6c6";
+      background      = "#c6c6c6";
+      background-alt = "#d0d0d0";
       statusline = "#4e4e4e";
       separator  = "#8a8a8a";
       focusedWorkspace = {

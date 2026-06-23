@@ -9,7 +9,7 @@
       border      = "#555555";
       background  = "#555555";
       text        = "#cccccc";
-      indicator   = "#555555";
+      indicator   = "#7788aa";
       childBorder = "#555555";
     };
     focusedInactive = {
@@ -36,17 +36,17 @@
 
     bar = {
       background = "#191919";
-      statusline = "#cccccc";
+      background-alt = "#2a2a2a";
+      statusline = "#aaaaaa";
       separator  = "#444444";
-      scratch    = "#aaaaaa";
       focusedWorkspace = {
         border     = "#708090";
         background = "#708090";
-        text       = "#cccccc";
+        text       = "#deeeed";
       };
       activeWorkspace = {
-        border     = "#2a2a2a";
-        background = "#2a2a2a";
+        border     = "#708090";
+        background = "#191919";
         text       = "#cccccc";
       };
       inactiveWorkspace = {
@@ -55,9 +55,9 @@
         text       = "#7a7a7a";
       };
       urgentWorkspace = {
-        border     = "#2a2a2a";
-        background = "#2a2a2a";
-        text       = "#deeeed";
+        border     = "#789978";
+        background = "#191919";
+        text       = "#cccccc";
       };
     };
   };

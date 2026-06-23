@@ -6,7 +6,12 @@
 
   programs.swaylock.enable = true;
   services.playerctld.enable = true;
-  home.packages = with pkgs; [ wl-clipboard grim slurp sway-contrib.grimshot ];
+  home.packages = with pkgs; [ 
+    wl-clipboard 
+    grim 
+    slurp 
+    sway-contrib.grimshot
+  ];
   wayland.windowManager.sway = {
     enable = true;
     xwayland = true;
@@ -46,8 +51,9 @@
         position = "top";
         statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
         fonts = { names = [font.name]; size = 9.0; };
+        extraConfig = "height 22";
         colors = {
-          background        = theme.sway.bar.focusedWorkspace.background;
+          background        = theme.sway.bar.background;
           statusline        = theme.sway.bar.statusline;
           separator         = theme.sway.bar.separator;
           focusedWorkspace  = theme.sway.bar.focusedWorkspace;

@@ -7,18 +7,19 @@
         theme = {
           theme = "plain";
           overrides = {
-            idle_bg     = theme.sway.bar.background;
-            idle_fg     = theme.sway.bar.statusline;
-            info_bg     = theme.sway.bar.background;
-            info_fg     = theme.sway.bar.statusline;
-            good_bg     = theme.sway.bar.background;
-            good_fg     = theme.sway.bar.statusline;
-            warning_bg  = theme.sway.bar.background;
-            warning_fg  = theme.sway.bar.statusline;
-            critical_bg = theme.sway.bar.background;
-            critical_fg = theme.sway.bar.statusline;
+            idle_bg      = theme.sway.bar.background;
+            idle_fg      = theme.sway.bar.statusline;
+            info_bg      = theme.sway.bar.background;
+            info_fg      = theme.sway.bar.statusline;
+            good_bg      = theme.sway.bar.background;
+            good_fg      = theme.sway.bar.statusline;
+            warning_bg   = theme.sway.bar.background;
+            warning_fg   = theme.sway.bar.statusline;
+            critical_bg  = theme.sway.bar.background;
+            critical_fg  = theme.sway.bar.statusline;
             separator_bg = theme.sway.bar.background;
             separator_fg = theme.sway.bar.statusline;
+            separator    = "";
           };
         };
         icons.icons = "none";
@@ -26,22 +27,8 @@
 
       blocks = [
         {
-          block = "focused_window";
-          format = " $title ";
-          theme_overrides = {
-            idle_bg = theme.sway.bar.focusedWorkspace.background;
-            idle_fg = theme.sway.bar.focusedWorkspace.text;
-          };
-        }
-        {
-          block = "custom";
-          command = "swaymsg -t get_tree | jq --raw-output '(recurse(.nodes[]) | select(.name == \"__i3_scratch\") | .focus) as $ids | [.. | (.nodes? + .floating_nodes?) // empty | .[] | select(.id | IN($ids[]))] | if length > 0 then \"▁[\\(length)]\" else empty end'";
-          interval = 3;
-          hide_when_empty = true;
-          theme_overrides = {
-            idle_bg = theme.sway.bar.focusedWorkspace.background;
-            idle_fg = theme.sway.bar.focusedWorkspace.text;
-          };
+          block = "scratchpad";
+          format = "{ _$count.eng(range:1..) |}";
         }
         {
           block = "custom";
@@ -68,12 +55,12 @@
         }
         {
           block = "memory";
-          format = " RAM: $mem_used.eng(w:2)/$mem_total.eng(w:2) ";
+          format = " RAM:$mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)($mem_used_percents.eng(w:2)) ";
           interval = 5;
         }
         {
           block = "cpu";
-          format = " CPU: $utilization ";
+          format = " CPU:$utilization ";
           interval = 2;
         }
         {
@@ -85,6 +72,9 @@
           block = "time";
           format = " $timestamp.datetime(f:'%d/%m/%Y %H:%M') ";
           interval = 60;
+          theme_overrides = {
+            idle_bg = theme.sway.bar.background-alt;
+          };
         }
       ];
     };
