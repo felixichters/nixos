@@ -37,11 +37,28 @@
       autoclose.enable = true;
       lualine = {
         enable = true;
-        settings.sections = {
-          lualine_c = [{
-            __unkeyed-1 = "filename";
-            path = 3;
-          }];
+        settings = {
+          options = {
+            section_separators = { left = ""; right = ""; };
+            component_separators = { left = ""; right = ""; };
+            icons_enabled = false;
+          };
+          sections = {
+            lualine_a = [ "mode" ];
+            lualine_b = [ "filename" ];
+            lualine_c.__raw = "{}";
+            lualine_x = [ "filetype" ];
+            lualine_y = [ "branch" ];
+            lualine_z.__raw = "{}";
+          };
+          inactive_sections = {
+            lualine_a.__raw = "{}";
+            lualine_b.__raw = "{}";
+            lualine_c = [ "filename" ];
+            lualine_x.__raw = "{}";
+            lualine_y.__raw = "{}";
+            lualine_z.__raw = "{}";
+          };
         };
       };
       treesitter = {
@@ -139,6 +156,19 @@
           silent = true;
           noremap = true;
         };
+      }
+      {
+        action.__raw = ''
+          function()
+            local search = vim.fn.input("Find: ")
+            if search == "" then return end
+            local replace = vim.fn.input("Replace: ")
+            vim.cmd("%s/" .. vim.fn.escape(search, "/") .. "/" .. vim.fn.escape(replace, "/") .. "/gc")
+          end
+        '';
+        key = "fr";
+        mode = "n";
+        options.noremap = true;
       }
     ];
     extraConfigLua = ''

@@ -36,16 +36,17 @@
 
     bar = {
       background = "#191919";
-      background-alt = "#2a2a2a";
+      background-alt = "#444444";
+      statusline-alt = "#dddddd";
       statusline = "#aaaaaa";
       separator  = "#444444";
       focusedWorkspace = {
-        border     = "#708090";
-        background = "#708090";
-        text       = "#deeeed";
+        border     = "#2a2a2a";
+        background = "#2a2a2a";
+        text       = "#cccccc";
       };
       activeWorkspace = {
-        border     = "#708090";
+        border     = "#444444";
         background = "#191919";
         text       = "#cccccc";
       };
@@ -55,7 +56,7 @@
         text       = "#7a7a7a";
       };
       urgentWorkspace = {
-        border     = "#789978";
+        border     = "#deeeed";
         background = "#191919";
         text       = "#cccccc";
       };
