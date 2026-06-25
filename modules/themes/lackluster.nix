@@ -40,6 +40,9 @@
       statusline-alt = "#dddddd";
       statusline = "#aaaaaa";
       separator  = "#444444";
+      good     = "#789978";
+      warning  = "#ffaa88";
+      critical = "#d70000";
       focusedWorkspace = {
         border     = "#2a2a2a";
         background = "#2a2a2a";

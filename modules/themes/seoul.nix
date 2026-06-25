@@ -39,6 +39,9 @@
       background-alt = "#d0d0d0";
       statusline = "#4e4e4e";
       separator  = "#8a8a8a";
+      good     = "#5f8f5f";
+      warning  = "#d78760";
+      critical = "#af5f5f";
       focusedWorkspace = {
         border     = "#dadada";
         background = "#dadada";
