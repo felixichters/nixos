@@ -13,7 +13,6 @@ modules/
 hosts/
   dpt7810/  desktop
   l13y/     laptop
-justfile    convenience commands
 ```
 
 ## Fresh install
@@ -32,16 +31,11 @@ nix run github:nix-community/home-manager -- switch --flake .
 ## Usage
 
 ```sh
-just rebuild       # apply system + home for the current host
-just system        # system only
-just home          # home only
-just update        # nix flake update for this host
-just check         # fast eval check, no build
-```
-
-## Maintenance
-
-```sh
-sudo nix-collect-garbage -d
-nix-collect-garbage -d
+sys rebuild    # apply system + home for the current host
+sys nixos      # system only
+sys hm         # home only
+sys update     # nix flake update for this host
+sys check      # fast eval check, no build
+sys clean      # garbage collect (system + user)
+sys init       # scaffold a dev flake.nix in the current directory
 ```

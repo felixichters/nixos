@@ -1,16 +1,16 @@
 {
-  variant = "dark";
+  variant = "lackluster-dark";
 
   sway = {
     wallpaper  = "#191919";
     background = "#101010";
 
     focused = {
-      border      = "#555555";
-      background  = "#555555";
+      border      = "#7a7a7a";
+      background  = "#7a7a7a";
       text        = "#cccccc";
-      indicator   = "#7788aa";
-      childBorder = "#555555";
+      indicator   = "#191919";
+      childBorder = "#7a7a7a";
     };
     focusedInactive = {
       border      = "#444444";
@@ -27,16 +27,15 @@
       childBorder = "#2a2a2a";
     };
     urgent = {
-      border      = "#7788aa";
-      background  = "#7788aa";
+      border      = "#d70000";
+      background  = "#d70000";
       text        = "#cccccc";
-      indicator   = "#7788aa";
-      childBorder = "#7788aa";
+      indicator   = "#d70000";
+      childBorder = "#d70000";
     };
 
     bar = {
       background = "#191919";
-      background-alt = "#444444";
       statusline-alt = "#dddddd";
       statusline = "#aaaaaa";
       separator  = "#444444";
@@ -59,7 +58,7 @@
         text       = "#7a7a7a";
       };
       urgentWorkspace = {
-        border     = "#deeeed";
+        border     = "#d70000";
         background = "#191919";
         text       = "#cccccc";
       };

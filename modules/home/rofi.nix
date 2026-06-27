@@ -2,6 +2,6 @@
 {
   programs.rofi = {
     enable = true;
-    theme = "solarized";
+    theme = "Indego";
   };
 }

@@ -8,7 +8,6 @@
   programs.bat.enable = true;
   home.packages = with pkgs; [
     ghostscript
-    just
     cmatrix
     zip
     unzip

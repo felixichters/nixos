@@ -4,7 +4,7 @@
 
 { host
 , user
-, themeName ? "dark"
+, themeName ? "lackluster-dark"
 , fontName ? "ibm-plex-mono"
 , extraSystemModules ? [ ]
 , extraHomeModules ? [ ]

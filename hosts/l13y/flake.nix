@@ -15,7 +15,7 @@
     (import ../../lib/mkSystem.nix { inherit inputs; }) {
       host = "l13y";
       user = "felix";
-      themeName = "dark";
+      themeName = "lackluster-dark";
       extraSystemModules = [ inputs.nix-flatpak.nixosModules.nix-flatpak ];
     };
 }

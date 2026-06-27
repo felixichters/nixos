@@ -29,6 +29,12 @@
         {
           block = "scratchpad";
           format = "{ _$count.eng(range:1..) |}";
+          click = [
+            {
+              button = "left";
+              cmd = "swaymsg scratchpad show";
+            }
+          ];
         }
         {
           block = "custom";
@@ -85,7 +91,7 @@
           block = "time";
           format = " $timestamp.datetime(f:'%d/%m/%Y %H:%M') ";
           theme_overrides = {
-            idle_bg = theme.sway.bar.background-alt;
+            idle_fg = theme.sway.bar.statusline-alt;
           };
         }
       ];

@@ -13,7 +13,7 @@
       { condition = "ext json|xml|yaml|toml|csv"; command = ''nvim -- "$@"''; }
       { condition = "ext py|sh|rb|pl|js|ts|lua|nix|cpp|c|h|hpp|rs|go|tex"; command = ''nvim -- "$@"''; }
 
-      { condition = "ext pdf"; command = ''firefox -- "$@"''; }
+      { condition = "ext pdf|html"; command = ''firefox -- "$@"''; }
 
       { condition = "ext png|jpg|jpeg|gif|webp|bmp|svg"; command = ''feh -- "$@"''; }
 

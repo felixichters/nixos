@@ -6,6 +6,43 @@ let
     vpush = "rsync -av --delete ~/docs/ /mnt/docs/";
     vpull = "rsync -av --delete /mnt/docs/ ~/docs/";
   };
+  sysFunctions = ''
+    sys() {
+      local host=$(hostname) user=felix
+      case "$1" in
+        rebuild) sys nixos && sys hm ;;
+        nixos)   sudo nixos-rebuild switch --flake "$HOME/.dotfiles/hosts/$host#$host" ;;
+        hm)      home-manager switch --flake "$HOME/.dotfiles/hosts/$host#$user" ;;
+        update)  (cd "$HOME/.dotfiles/hosts/$host" && nix flake update) ;;
+        check)   (cd "$HOME/.dotfiles/hosts/$host" && nix flake check --no-build) ;;
+        clean)   sudo nix-collect-garbage -d && nix-collect-garbage -d ;;
+        init)
+          [[ -f flake.nix ]] && echo "flake.nix already exists" && return 1
+          cat > flake.nix << 'FLAKE'
+{
+  description = "dev shell";
+
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+  outputs = { nixpkgs, ... }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.''${system};
+    in {
+      devShells.''${system}.default = pkgs.mkShell {
+        packages = with pkgs; [
+        ];
+        shellHook = "echo 'dev shell ready'";
+      };
+    };
+}
+FLAKE
+          echo "created flake.nix"
+          ;;
+        *)       echo "usage: sys {rebuild|nixos|hm|update|check|clean|init}" ;;
+      esac
+    }
+  '';
   cryptFunctions = ''
     copen() {
       local dev=$1 name=''${2:-crypt}
@@ -50,7 +87,7 @@ in
       }
     ];
     shellAliases = myAliases;
-    initContent = cryptFunctions + ''
+    initContent = sysFunctions + cryptFunctions + ''
       unsetopt BEEP
       setopt HIST_FIND_NO_DUPS HIST_REDUCE_BLANKS HIST_VERIFY
 
@@ -78,7 +115,7 @@ in
 
       precmd() {
         vcs_info
-        print -P '%F{blue}%B%~%b%f ''${vcs_info_msg_0_} %F{8}%? %f%F{10}%n@%m%f'
+        print -P '%F{blue}%B%~%b%f ''${vcs_info_msg_0_} %F{10}%n@%m%f'
       }
       nix_prompt_prefix() {
         [[ -n "$IN_NIX_SHELL" ]] && echo "[nix] "

@@ -52,6 +52,7 @@
         statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
         fonts = { names = [font.name]; size = 9.0; };
         extraConfig = "height 22";
+        trayOutput = "none";
         colors = {
           background        = theme.sway.bar.background;
           statusline        = theme.sway.bar.statusline;

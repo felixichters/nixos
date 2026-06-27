@@ -4,7 +4,6 @@
     enable = true;
     defaultEditor = true;
     clipboard.register = "unnamedplus";
-    colorschemes.catppuccin.enable = theme.nvim.colorscheme == "catppuccin";
     opts = {
       updatetime = 100;
 
@@ -33,8 +32,8 @@
     plugins = {
       oil.enable = true;
       telescope.enable = true;
-      web-devicons.enable = true;
       autoclose.enable = true;
+      gitsigns.enable = true;
       lualine = {
         enable = true;
         settings = {
@@ -53,8 +52,8 @@
           };
           inactive_sections = {
             lualine_a.__raw = "{}";
-            lualine_b.__raw = "{}";
-            lualine_c = [ "filename" ];
+            lualine_b = [ "filename" ];
+            lualine_c.__raw = "{}";
             lualine_x.__raw = "{}";
             lualine_y.__raw = "{}";
             lualine_z.__raw = "{}";
@@ -89,8 +88,6 @@
           ];
           mapping = {
             "<CR>" = "cmp.mapping.confirm({ select = true })";
-            "<Down>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-            "<Up>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
             "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
             "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
             "<C-d>" = "cmp.mapping.scroll_docs(-4)";

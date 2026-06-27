@@ -1,107 +1,101 @@
 {
-  variant = "light";
+  variant = "seoul256-dark";
 
   sway = {
-    wallpaper  = "#c6c6c6";
-    background = "#dadada";
+    wallpaper  = "#3a3a3a";
+    background = "#4e4e4e";
 
     focused = {
-      border      = "#5f87af";
-      background  = "#5f87af";
-      text        = "#dadada";
-      indicator   = "#5f87af";
-      childBorder = "#5f87af";
+      border      = "#d0d0d0";
+      background  = "#d0d0d0";
+      text        = "#e4e4e4";
+      indicator   = "#85add4";
+      childBorder = "#d0d0d0";
     };
     focusedInactive = {
-      border      = "#c6c6c6";
-      background  = "#c6c6c6";
-      text        = "#4e4e4e";
-      indicator   = "#c6c6c6";
-      childBorder = "#c6c6c6";
+      border      = "#d0d0d0";
+      background  = "#d0d0d0";
+      text        = "#e4e4e4";
+      indicator   = "#d0d0d0";
+      childBorder = "#d0d0d0";
     };
     unfocused = {
-      border      = "#c6c6c6";
-      background  = "#c6c6c6";
-      text        = "#4e4e4e";
-      indicator   = "#c6c6c6";
-      childBorder = "#c6c6c6";
+      border      = "#626262";
+      background  = "#626262";
+      text        = "#626262";
+      indicator   = "#626262";
+      childBorder = "#626262";
     };
     urgent = {
-      border      = "#af5f5f";
-      background  = "#af5f5f";
-      text        = "#dadada";
-      indicator   = "#af5f5f";
-      childBorder = "#af5f5f";
+      border      = "#d68787";
+      background  = "#d68787";
+      text        = "#d68787";
+      indicator   = "#d68787";
+      childBorder = "#d68787";
     };
 
     bar = {
-      background      = "#c6c6c6";
-      background-alt = "#d0d0d0";
-      statusline = "#4e4e4e";
-      separator  = "#8a8a8a";
-      good     = "#5f8f5f";
-      warning  = "#d78760";
-      critical = "#af5f5f";
+      background      = "#3a3a3a";
+      background-alt = "#626262";
+      statusline-alt = "#d0d0d0";
+      statusline = "#d0d0d0";
+      separator  = "#d0d0d0";
+      good     = "#5f865f";
+      warning  = "#d7afaf";
+      critical = "#d68787";
       focusedWorkspace = {
-        border     = "#dadada";
-        background = "#dadada";
-        text       = "#4e4e4e";
+        border     = "#85add4";
+        background = "#85add4";
+        text       = "#3a3a3a";
       };
       activeWorkspace = {
-        border     = "#c6c6c6";
-        background = "#c6c6c6";
-        text       = "#4e4e4e";
+        border     = "#85add4";
+        background = "#3a3a3a";
+        text       = "#d0d0d0";
       };
       inactiveWorkspace = {
-        border     = "#c6c6c6";
-        background = "#c6c6c6";
-        text       = "#8a8a8a";
+        border     = "#3a3a3a";
+        background = "#3a3a3a";
+        text       = "#d0d0d0";
       };
       urgentWorkspace = {
-        border     = "#af5f5f";
-        background = "#af5f5f";
-        text       = "#dadada";
+        border     = "#d68787";
+        background = "#3a3a3a";
+        text       = "#d0d0d0";
       };
     };
   };
 
   foot = {
-    background          = "#dadada";
-    foreground          = "#4e4e4e";
-    selectionBackground = "#5f87af";
-    selectionForeground = "#dadada";
-    color00 = "#4e4e4e";
-    color01 = "#af5f5f";
-    color02 = "#5f8f5f";
-    color03 = "#af8760";
-    color04 = "#5f87af";
-    color05 = "#875f87";
-    color06 = "#5f8787";
-    color07 = "#e4e4e4";
-    color08 = "#c6c6c6";
-    color09 = "#870000";
-    color10 = "#005f00";
-    color11 = "#d78760";
-    color12 = "#0087af";
-    color13 = "#870260";
-    color14 = "#008787";
-    color15 = "#eeeeee";
+    background          = "#4e4e4e";
+    foreground          = "#d0d0d0";
+    selectionBackground = "#d0d0d0";
+    selectionForeground = "#4e4e4e";
+    color00 = "#3a3a3a";
+    color01 = "#d68787";
+    color02 = "#5f865f";
+    color03 = "#d8af5f";
+    color04 = "#85add4";
+    color05 = "#d7afaf";
+    color06 = "#87afaf";
+    color07 = "#d0d0d0";
+    color08 = "#626262";
+    color09 = "#d75f87";
+    color10 = "#87af87";
+    color11 = "#ffd787";
+    color12 = "#add4fb";
+    color13 = "#ffafaf";
+    color14 = "#87d7d7";
+    color15 = "#e4e4e4";
   };
 
   mako = {
-    background = "#dadada";
-    text       = "#4e4e4e";
-    border     = "#c6c6c6";
+    background = "#3a3a3a";
+    text       = "#d0d0d0";
+    border     = "#3a3a3a";
   };
-
-  wmenu = {
-    normalBg   = "#5f87af";
-    normalFg   = "#3a3a3a";
-    selectedBg = "#dadada";
-    selectedFg = "#4e4e4e";
-  };
-
+  
   nvim = {
-    colorscheme = "seoul256-light";
+    colorscheme = "seoul256";
   };
 }
