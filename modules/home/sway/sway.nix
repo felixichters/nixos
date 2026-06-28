@@ -36,7 +36,7 @@
       input = {
         "*" = {
           xkb_layout = "de";
-          xkb_options = "caps:escape";
+          xkb_options = "caps:swapescape";
         };
         "type:touchpad" = {
           natural_scroll = "enabled";

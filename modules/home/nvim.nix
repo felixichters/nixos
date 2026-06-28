@@ -8,6 +8,7 @@
       updatetime = 100;
 
       number = true;
+      colorcolumn = "80";
       cursorline = true;
       cursorcolumn = false;
       autoindent = true;
@@ -19,14 +20,24 @@
       tabstop = 4;
       softtabstop = 4;
       shiftwidth = 4;
-      expandtab = true;
+      expandtab = false;
       smarttab = true;
     };
     autoCmd = [
       {
         event = [ "FileType" ];
         pattern = [ "nix" ];
-        command = "setlocal tabstop=2 shiftwidth=2";
+        command = "setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab";
+      }
+      {
+        event = [ "FileType" ];
+        pattern = [ "c" "cpp" ];
+        command = "setlocal tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab";
+      }
+      {
+        event = [ "FileType" ];
+        pattern = [ "python" ];
+        command = "setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab";
       }
     ];
     plugins = {
@@ -64,7 +75,6 @@
         enable = true;
         #indent = false;
         highlight.enable = true;
-        settings.auto_install = true;
       };
       lsp = {
         enable = true;
@@ -82,7 +92,6 @@
         settings = {
           sources = [
             { name = "nvim_lsp"; }
-            { name = "luasnip"; }
             { name = "buffer"; }
             { name = "path"; }
           ];

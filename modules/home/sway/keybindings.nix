@@ -31,6 +31,8 @@ in
 
     "${mod}+escape" = "exec ${lock}";
 
+    "${mod}+Shift+z" = "exec systemctl suspend";
+
     "${mod}+Return" = "exec ${term}";
 
     "${mod}+q" = "kill";
