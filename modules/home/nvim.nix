@@ -82,7 +82,10 @@
           nil_ls.enable = true;
           bashls.enable = true;
           pyright.enable = true;
-          clangd.enable = true;
+          clangd = {
+            enable = true;
+            extraOptions.init_options.fallbackFlags = [ "-std=c23" ];
+          };
           asm_lsp.enable = true;
         };
       };
@@ -178,7 +181,7 @@
       }
       {
         action.__raw = "function() require('llm').inline() end";
-        key = "ll";
+        key = "gl";
         mode = "n";
         options = {
           silent = true;
