@@ -32,7 +32,7 @@ let
       devShells.''${system}.default = pkgs.mkShell {
         packages = with pkgs; [
         ];
-        shellHook = "echo 'dev shell ready'";
+        shellHook = "echo 'done'";
       };
     };
 }

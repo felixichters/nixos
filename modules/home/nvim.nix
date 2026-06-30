@@ -176,7 +176,17 @@
         mode = "n";
         options.noremap = true;
       }
+      {
+        action.__raw = "function() require('llm').inline() end";
+        key = "ll";
+        mode = "n";
+        options = {
+          silent = true;
+          noremap = true;
+        };
+      }
     ];
+    extraFiles."lua/llm.lua".source = ./llm.lua;
     extraConfigLua = ''
       ${if theme.nvim.colorscheme == "lackluster" then "vim.cmd('colorscheme lackluster')"
         else if theme.nvim.colorscheme == "seoul256" then "vim.cmd('colorscheme seoul256')"
@@ -186,6 +196,7 @@
         tab = ">-",
         lead = ".",
       }
+      require("llm")
     '';
   };
 }
