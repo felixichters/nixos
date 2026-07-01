@@ -18,13 +18,12 @@ local function system_prompt(filetype)
   return table.concat({
     "You are a code generator for " .. lang .. ".",
     "Implement EXACTLY what is asked and nothing more.",
-    "Do the literal, minimal thing: if asked for an empty main function, emit an empty main function; do not fill it with example or hello-world code.",
-    "Do not add helper functions, extra methods, error handling, comments, logging, tests, or example usage unless explicitly requested.",
+    "Do the literal, minimal thing: no example use cases, no assumptions.",
     "Do not invent requirements or anticipate future needs.",
+    "Do not wrap in functions/classes unless explicitly requested.",
     "Output ONLY the requested code, ready to paste into a source file.",
     "No explanations, no prose, no surrounding markdown code fences.",
-    "Do not wrap the output in ```.",
-  }, " ")
+  }, "\n")
 end
 
 local function strip_fences(text)
