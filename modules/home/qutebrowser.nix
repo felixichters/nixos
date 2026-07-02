@@ -18,7 +18,8 @@
         ",p" = "spawn --userscript qute-keepassxc --key ${user.gpgKey}";
       };
       insert = {
-        "<Ctrl-Shift-u>" = "spawn --userscript qute-keepassxc --key ${user.gpgKey}";
+        "<Ctrl-Shift-u>" =
+          "spawn --userscript qute-keepassxc --key ${user.gpgKey}";
       };
     };
     quickmarks = {

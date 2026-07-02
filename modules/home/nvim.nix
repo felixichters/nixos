@@ -101,7 +101,8 @@
           mapping = {
             "<CR>" = "cmp.mapping.confirm({ select = true })";
             "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-            "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+            "<S-Tab>" =
+              "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
             "<C-d>" = "cmp.mapping.scroll_docs(-4)";
             "<C-f>" = "cmp.mapping.scroll_docs(4)";
             "<C-Space>" = "cmp.mapping.complete()";
@@ -172,7 +173,10 @@
             local search = vim.fn.input("Find: ")
             if search == "" then return end
             local replace = vim.fn.input("Replace: ")
-            vim.cmd("%s/" .. vim.fn.escape(search, "/") .. "/" .. vim.fn.escape(replace, "/") .. "/gc")
+            vim.cmd(
+              "%s/" .. vim.fn.escape(search, "/")
+              .. "/" .. vim.fn.escape(replace, "/") .. "/gc"
+            )
           end
         '';
         key = "fr";
@@ -191,8 +195,10 @@
     ];
     extraFiles."lua/llm.lua".source = ./llm.lua;
     extraConfigLua = ''
-      ${if theme.nvim.colorscheme == "lackluster" then "vim.cmd('colorscheme lackluster')"
-        else if theme.nvim.colorscheme == "seoul256" then "vim.cmd('colorscheme seoul256')"
+      ${if theme.nvim.colorscheme == "lackluster"
+        then "vim.cmd('colorscheme lackluster')"
+        else if theme.nvim.colorscheme == "seoul256"
+        then "vim.cmd('colorscheme seoul256')"
         else ""}
       vim.opt.list = true
       vim.opt.listchars = {

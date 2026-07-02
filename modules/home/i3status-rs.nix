@@ -1,4 +1,13 @@
 { theme, font, ... }:
+let
+  sshCheck =
+    "ss -tnH state established '( sport = :22 or dport = :22 )'"
+    + " | grep -q . && printf '[SSH]'; true";
+  vpnCheck =
+    "ls /sys/class/net"
+    + " | grep -qE '^(tun|wg|vpn|tailscale)'"
+    + " && printf '[VPN]'; true";
+in
 {
   programs.i3status-rust = {
     enable = true;
@@ -38,13 +47,13 @@
         }
         {
           block = "custom";
-          command = "ss -tnH state established '( sport = :22 or dport = :22 )' | grep -q . && printf '[SSH]'; true";
+          command = sshCheck;
           hide_when_empty = true;
           format = " $text ";
         }
         {
           block = "custom";
-          command = "ls /sys/class/net | grep -qE '^(tun|wg|vpn|tailscale)' && printf '[VPN]'; true";
+          command = vpnCheck;
           hide_when_empty = true;
           format = " $text ";
         }

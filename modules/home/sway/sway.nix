@@ -49,7 +49,8 @@
       output."*".bg = "${theme.sway.wallpaper} solid_color";
       bars = [{
         position = "top";
-        statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
+        statusCommand =
+          "i3status-rs ~/.config/i3status-rust/config-default.toml";
         fonts = { names = [font.name]; size = 9.0; };
         extraConfig = "height 22";
         trayOutput = "none";

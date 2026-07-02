@@ -10,15 +10,21 @@ let
   exit = "exec swaynag -t warning -m 'exit sway?' -B 'yes' 'swaymsg exit'";
   lock = "swaylock -c 000000";
   shotDir = user.screenshotDir;
-  screenshot = "grimshot save output - | tee ${shotDir}/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy";
-  screenshot-region = "sh -c 'selection=$(slurp) && grim -g \"$selection\" - | tee ${shotDir}/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy'";
+  screenshot =
+    "grimshot save output - | tee"
+    + " ${shotDir}/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy";
+  screenshot-region =
+    "sh -c 'selection=$(slurp) && grim -g \"$selection\" -"
+    + " | tee ${shotDir}/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy'";
 in
 {
   wayland.windowManager.sway.config.keybindings = {
 
     XF86AudioMute = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-    XF86AudioRaiseVolume = "exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 5%+";
-    "${mod}+Shift+plus" = "exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 5%+";
+    XF86AudioRaiseVolume =
+      "exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 5%+";
+    "${mod}+Shift+plus" =
+      "exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 5%+";
     XF86AudioLowerVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
     "${mod}+Shift+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
 
@@ -72,10 +78,18 @@ in
     "${mod}+Shift+k" = "move up";
     "${mod}+Shift+l" = "move right";
 
-    "${mod}+Shift+Left" = "exec sh -c 'swaymsg resize shrink right 10px || swaymsg resize grow left 10px'";
-    "${mod}+Shift+Right" = "exec sh -c 'swaymsg resize shrink left 10px || swaymsg resize grow right 10px'";
-    "${mod}+Shift+Up" = "exec sh -c 'swaymsg resize shrink down 10px || swaymsg resize grow up 10px'";
-    "${mod}+Shift+Down" = "exec sh -c 'swaymsg resize shrink up 10px || swaymsg resize grow down 10px'";
+    "${mod}+Shift+Left" =
+      "exec sh -c 'swaymsg resize shrink right 10px"
+      + " || swaymsg resize grow left 10px'";
+    "${mod}+Shift+Right" =
+      "exec sh -c 'swaymsg resize shrink left 10px"
+      + " || swaymsg resize grow right 10px'";
+    "${mod}+Shift+Up" =
+      "exec sh -c 'swaymsg resize shrink down 10px"
+      + " || swaymsg resize grow up 10px'";
+    "${mod}+Shift+Down" =
+      "exec sh -c 'swaymsg resize shrink up 10px"
+      + " || swaymsg resize grow down 10px'";
 
     "${mod}+s" = "exec ${screenshot}";
     "${mod}+Shift+s" = "exec ${screenshot-region}";

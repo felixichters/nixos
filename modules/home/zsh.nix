@@ -1,7 +1,9 @@
 { pkgs, ... }:
 let
   myAliases = {
-    uni = "sudo openconnect --protocol=anyconnect --useragent='AnyConnect' vpn-ac.uni-heidelberg.de --no-external-auth";
+    uni = "sudo openconnect --protocol=anyconnect"
+      + " --useragent='AnyConnect'"
+      + " vpn-ac.uni-heidelberg.de --no-external-auth";
     #fvim = "nvim $(fzf --preview=\"cat {}\")";
     vpush = "rsync -av --delete ~/docs/ /mnt/docs/";
     vpull = "rsync -av --delete /mnt/docs/ ~/docs/";
@@ -9,12 +11,13 @@ let
   sysFunctions = ''
     sys() {
       local host=$(hostname) user=felix
+      local dir="$HOME/.dotfiles/hosts/$host"
       case "$1" in
         rebuild) sys nixos && sys hm ;;
-        nixos)   sudo nixos-rebuild switch --flake "$HOME/.dotfiles/hosts/$host#$host" ;;
-        hm)      home-manager switch --flake "$HOME/.dotfiles/hosts/$host#$user" ;;
-        update)  (cd "$HOME/.dotfiles/hosts/$host" && nix flake update) ;;
-        check)   (cd "$HOME/.dotfiles/hosts/$host" && nix flake check --no-build) ;;
+        nixos)   sudo nixos-rebuild switch --flake "$dir#$host" ;;
+        hm)      home-manager switch --flake "$dir#$user" ;;
+        update)  (cd "$dir" && nix flake update) ;;
+        check)   (cd "$dir" && nix flake check --no-build) ;;
         clean)   sudo nix-collect-garbage -d && nix-collect-garbage -d ;;
         init)
           [[ -f flake.nix ]] && echo "flake.nix already exists" && return 1
@@ -48,11 +51,14 @@ FLAKE
       local dev=$1 name=''${2:-crypt}
       sudo cryptsetup luksOpen "$dev" "$name" || return 1
       sudo mkdir -p "/mnt/$name"
-      sudo mount "/dev/mapper/$name" "/mnt/$name" && echo "mounted at /mnt/$name"
+      sudo mount "/dev/mapper/$name" "/mnt/$name" \
+        && echo "mounted at /mnt/$name"
     }
     cclose() {
       local name=''${1:-crypt}
-      sudo umount "/mnt/$name" && sudo cryptsetup luksClose "$name" && echo "closed and unmounted $name"
+      sudo umount "/mnt/$name" \
+        && sudo cryptsetup luksClose "$name" \
+        && echo "closed and unmounted $name"
     }
   '';
 in
@@ -83,7 +89,9 @@ in
       {
         name = "zsh-history-substring-search";
         src = pkgs.zsh-history-substring-search;
-        file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
+        file =
+          "share/zsh-history-substring-search"
+          + "/zsh-history-substring-search.zsh";
       }
     ];
     shellAliases = myAliases;
@@ -106,7 +114,9 @@ in
       zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
       +vi-git-untracked() {
-        if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+        local in_tree
+        in_tree=$(git rev-parse --is-inside-work-tree 2>/dev/null)
+        if [[ $in_tree == 'true' ]] && \
         git status --porcelain | grep -m 1 '^??' &>/dev/null
         then
           hook_com[misc]=' %F{yellow}?%f'

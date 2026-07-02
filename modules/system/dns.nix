@@ -5,7 +5,8 @@
     settings.Resolve = {
       DNSSEC = "allow-downgrade";
       DNSOverTLS = "opportunistic";
-      # Route all queries to global servers; prevents DHCP-supplied DNS (ISP/router) from being used.
+      # Route all queries to global servers; prevents DHCP-supplied DNS
+      # (ISP/router) from being used.
       Domains = "~.";
       DNS = [
         "1.1.1.1#cloudflare-dns.com"

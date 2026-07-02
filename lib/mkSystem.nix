@@ -33,7 +33,8 @@ in
     modules = [ ../hosts/${host}/configuration.nix ] ++ extraSystemModules;
   };
 
-  homeConfigurations.${userVars.name} = home-manager.lib.homeManagerConfiguration {
+  homeConfigurations.${userVars.name} =
+    home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = specialArgs;
     modules = [
