@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  programs.zathura.enable = true;
   programs.feh.enable = true;
   programs.fzf.enable = true;
   programs.jq.enable = true;
@@ -20,10 +19,8 @@
     exiftool
 
     # devtools
-    gcc
     clang-tools
     gdb
-    nasm
     nil
 
     # nettools

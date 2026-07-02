@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   imports = [
     ./user.nix
@@ -33,4 +33,13 @@
   };
 
   services.getty.autologinUser = lib.mkDefault "felix";
+  
+  documentation.enable = true;
+  documentation.man.enable = true;
+  documentation.dev.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    man-pages
+    man-pages-posix
+  ];
 }

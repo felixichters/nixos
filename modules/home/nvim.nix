@@ -84,7 +84,7 @@
           pyright.enable = true;
           clangd = {
             enable = true;
-            extraOptions.init_options.fallbackFlags = [ "-std=c23" ];
+            extraOptions.init_options.fallbackFlags = [ "-std=c23" "-x" "c" ];
           };
           asm_lsp.enable = true;
         };
@@ -186,6 +186,15 @@
       {
         action.__raw = "function() require('llm').inline() end";
         key = "gl";
+        mode = "n";
+        options = {
+          silent = true;
+          noremap = true;
+        };
+      }
+      {
+        action.__raw = "function() vim.diagnostic.open_float() end";
+        key = "ge";
         mode = "n";
         options = {
           silent = true;
