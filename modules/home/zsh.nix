@@ -10,7 +10,7 @@ let
   };
   sysFunctions = ''
     sys() {
-      local host=$(hostname) user=felix
+      local host=''${HOST%%.*} user=''${USER}
       local dir="$HOME/.dotfiles/hosts/$host"
       case "$1" in
         rebuild) sys nixos && sys hm ;;
@@ -20,8 +20,10 @@ let
         check)   (cd "$dir" && nix flake check --no-build) ;;
         clean)   sudo nix-collect-garbage -d && nix-collect-garbage -d ;;
         init)
-          [[ -f flake.nix ]] && echo "flake.nix already exists" && return 1
-          cat > flake.nix << 'FLAKE'
+          case "$2" in
+            flake)
+              [[ -f flake.nix ]] && echo "flake.nix already exists" && return 1
+              cat > flake.nix << 'FLAKE'
 {
   description = "dev shell";
 
@@ -40,10 +42,21 @@ let
     };
 }
 FLAKE
-          echo "use flake" > .envrc
-          direnv allow
-          echo "created flake.nix + .envrc"
-          ;;
+              echo "created flake.nix" ;;
+            env)
+              [[ -f .envrc ]] && echo ".envrc already exists" && return 1
+              echo "use flake" > .envrc && direnv allow
+              [[ -f .gitignore ]] && ! grep -qxF ".direnv/" .gitignore && echo ".direnv/" >> .gitignore
+              echo "created .envrc" ;;
+            git)
+              [[ ! -d .git ]] && git init
+              [[ ! -f .gitignore ]] && touch .gitignore && echo "created .gitignore"
+              return 0 ;;
+            "")
+              sys init git; sys init flake; sys init env ;;
+            *)
+              echo "usage: sys init [flake|env|git]" ;;
+          esac ;;
         *)       echo "usage: sys {rebuild|nixos|hm|update|check|clean|init}" ;;
       esac
     }
@@ -54,12 +67,14 @@ FLAKE
       sudo cryptsetup luksOpen "$dev" "$name" || return 1
       sudo mkdir -p "/mnt/$name"
       sudo mount "/dev/mapper/$name" "/mnt/$name" \
-        && echo "mounted at /mnt/$name"
+        && echo "mounted at /mnt/$name" \
+        || { sudo cryptsetup luksClose "$name"; return 1; }
     }
     cclose() {
       local name=''${1:-crypt}
       sudo umount "/mnt/$name" \
         && sudo cryptsetup luksClose "$name" \
+        && sudo rmdir "/mnt/$name" \
         && echo "closed and unmounted $name"
     }
   '';
