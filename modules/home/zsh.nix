@@ -40,7 +40,9 @@ let
     };
 }
 FLAKE
-          echo "created flake.nix"
+          echo "use flake" > .envrc
+          direnv allow
+          echo "created flake.nix + .envrc"
           ;;
         *)       echo "usage: sys {rebuild|nixos|hm|update|check|clean|init}" ;;
       esac
@@ -125,12 +127,11 @@ in
 
       precmd() {
         vcs_info
-        print -P '%F{blue}%B%~%b%f ''${vcs_info_msg_0_} %F{10}%n@%m%f'
+        local dev=""
+        [[ -n "$IN_NIX_SHELL" || -n "$DIRENV_DIR" ]] && dev=" %F{green}*%f"
+        print -P '%F{blue}%B%~%b%f'"$dev"' ''${vcs_info_msg_0_} %F{10}%n@%m%f'
       }
-      nix_prompt_prefix() {
-        [[ -n "$IN_NIX_SHELL" ]] && echo "[nix] "
-      }
-      PROMPT='%F{green}$(nix_prompt_prefix)%f%(!.#.$) '
+      PROMPT='%(!.#.$) '
       #RPROMPT='%F{8}%? %f%F{10}%m@%n%f'
     '';
   };

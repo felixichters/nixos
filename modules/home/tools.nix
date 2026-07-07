@@ -1,5 +1,11 @@
 { pkgs, ... }:
 {
+  programs.direnv = {
+    enable = true;
+    silent = true;
+    nix-direnv.enable = true;
+  };
+
   programs.feh.enable = true;
   programs.fzf.enable = true;
   programs.jq.enable = true;
@@ -20,7 +26,6 @@
 
     # devtools
     clang-tools
-    gdb
     nil
 
     # nettools
