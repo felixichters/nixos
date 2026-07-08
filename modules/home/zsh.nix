@@ -44,9 +44,10 @@ let
 FLAKE
               echo "created flake.nix" ;;
             env)
+              [[ -f .gitignore ]] && ! grep -qxF ".direnv/" .gitignore \
+                && echo ".direnv/" >> .gitignore
               [[ -f .envrc ]] && echo ".envrc already exists" && return 1
               echo "use flake" > .envrc && direnv allow
-              [[ -f .gitignore ]] && ! grep -qxF ".direnv/" .gitignore && echo ".direnv/" >> .gitignore
               echo "created .envrc" ;;
             git)
               [[ ! -d .git ]] && git init
