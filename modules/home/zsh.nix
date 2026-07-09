@@ -46,9 +46,12 @@ FLAKE
             env)
               [[ -f .gitignore ]] && ! grep -qxF ".direnv/" .gitignore \
                 && echo ".direnv/" >> .gitignore
-              [[ -f .envrc ]] && echo ".envrc already exists" && return 1
-              echo "use flake" > .envrc && direnv allow
-              echo "created .envrc" ;;
+              if [[ -f .envrc ]]; then
+                direnv allow
+              else
+                echo "use flake" > .envrc && direnv allow
+                echo "created .envrc"
+              fi ;;
             git)
               [[ ! -d .git ]] && git init
               [[ ! -f .gitignore ]] && touch .gitignore && echo "created .gitignore"
@@ -144,7 +147,7 @@ in
       precmd() {
         vcs_info
         local dev=""
-        [[ -n "$IN_NIX_SHELL" || -n "$DIRENV_DIR" ]] && dev=" %F{green}*%f"
+        [[ -n "$IN_NIX_SHELL" ]] && dev=" %F{green}*%f"
         print -P '%F{blue}%B%~%b%f'"$dev"' ''${vcs_info_msg_0_} %F{10}%n@%m%f'
       }
       PROMPT='%(!.#.$) '
