@@ -91,6 +91,8 @@ in
       "exec sh -c 'swaymsg resize shrink up 10px"
       + " || swaymsg resize grow down 10px'";
 
+    "${mod}+F1" = "exec swaymsg input '*' xkb_switch_layout next";
+
     "${mod}+s" = "exec ${screenshot}";
     "${mod}+Shift+s" = "exec ${screenshot-region}";
 
