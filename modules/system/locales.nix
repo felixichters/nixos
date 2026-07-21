@@ -14,9 +14,9 @@
     LC_TIME = user.locale;
   };
   services.xserver = {
-    xkb.layout = "de";
-    xkb.variant = "";
+    xkb.layout = "us,de";
+    xkb.variant = "de_se_fi,";
     xkb.options = "caps:swapescape";
   };
-  console.keyMap = "de";
+  console.keyMap = "us";
 }

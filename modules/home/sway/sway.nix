@@ -36,6 +36,7 @@
       input = {
         "*" = {
           xkb_layout = "us,de";
+          xkb_variant = "de_se_fi,";
           xkb_options = "caps:swapescape";
         };
         "type:touchpad" = {
